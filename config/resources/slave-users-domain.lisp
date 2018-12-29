@@ -20,5 +20,24 @@
   :has-one `((gebruiker :via ,(s-prefix "foaf:account")
                          :inverse t
                          :as "gebruiker"))
+;;; Temporary workaround until authentication through ACM/IDM is fixed
+  :has-many `((permission :via ,(s-prefix "ext:hasPermission")
+                         :as "permissions"))
   :on-path "accounts"
+)
+
+;;;;;;
+;;;
+;;; Temporary workaround until authentication through ACM/IDM is fixed
+;;;
+;;;;;;
+(define-resource permission ()
+  :class (s-prefix "ext:Permission")
+  :resource-base (s-url "http://data.lblod.info/id/account-permissions/")
+  :properties `((:name :via ,(s-prefix "skos:prefLabel")))
+  :has-many `((account :via ,(s-prefix "ext:hasPermission")
+                         :inverse t
+                         :as "accounts"))
+  :features `(include-uri)
+  :on-path "permissions"
 )

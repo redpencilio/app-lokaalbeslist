@@ -1,0 +1,31 @@
+@prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf:	<http://xmlns.com/foaf/0.1/> .
+@prefix xsd:	<http://www.w3.org/2001/XMLSchema#> .
+@prefix ns3:	<http://purl.org/dc/terms/> .
+@prefix ns4:	<http://mu.semte.ch/vocabularies/core/> .
+@prefix ns5:	<http://mu.semte.ch/vocabularies/account/> .
+@prefix ns6:	<http://mu.semte.ch/vocabularies/account/status/> .
+@prefix ext:	<http://mu.semte.ch/vocabularies/ext/> .
+
+<http://mu.semte.ch/services/registration-service/accounts/5c1f3b21a17c17000e000001>	rdf:type	foaf:OnlineAccount .
+<http://mu.semte.ch/services/registration-service/accounts/5c1f3b21a17c17000e000001>	ns3:created	"2018-12-23T07:37:05Z"^^xsd:dateTime ;
+	ns3:modified	"2018-12-23T07:37:05Z"^^xsd:dateTime .
+<http://mu.semte.ch/services/registration-service/accounts/5c1f3b21a17c17000e000001>	ns4:uuid	"5c1f3b21a17c17000e000001" ;
+	foaf:accountName	"john.doe" .
+<http://mu.semte.ch/services/registration-service/accounts/5c1f3b21a17c17000e000001>	ns5:password	"$2a$10$4w8sryRy7rtTWfz1V4kQB.eNneR9ItgA8US1wbmuTCxgEcYishfw6" ;
+	ns5:salt	"a6f7b7b954d1ba8c03fdf8482cad2e95" .
+<http://mu.semte.ch/services/registration-service/accounts/5c1f3b21a17c17000e000001>	ns5:status	ns6:active ;
+    ext:hasPermission <http://data.lblod.info/id/account-permissions/read>, <http://data.lblod.info/id/account-permissions/write> .
+
+
+<http://mu.semte.ch/services/registration-service/accounts/2c2b7fd8-2c4f-42b4-9689-4b21877939ca>	rdf:type	foaf:OnlineAccount .
+<http://mu.semte.ch/services/registration-service/accounts/2c2b7fd8-2c4f-42b4-9689-4b21877939ca>	ns3:created	"2018-12-23T07:37:05Z"^^xsd:dateTime ;
+	ns3:modified	"2018-12-23T07:37:05Z"^^xsd:dateTime .
+<http://mu.semte.ch/services/registration-service/accounts/2c2b7fd8-2c4f-42b4-9689-4b21877939ca>	ns4:uuid	"2c2b7fd8-2c4f-42b4-9689-4b21877939ca" ;
+	foaf:accountName	"jane.doe" .
+<http://mu.semte.ch/services/registration-service/accounts/2c2b7fd8-2c4f-42b4-9689-4b21877939ca>	ns5:password	"$2a$10$4w8sryRy7rtTWfz1V4kQB.eNneR9ItgA8US1wbmuTCxgEcYishfw6" ;
+	ns5:salt	"a6f7b7b954d1ba8c03fdf8482cad2e95" .
+<http://mu.semte.ch/services/registration-service/accounts/2c2b7fd8-2c4f-42b4-9689-4b21877939ca>	ns5:status	ns6:active ;
+    ext:hasPermission <http://data.lblod.info/id/account-permissions/read> .
+    
+    

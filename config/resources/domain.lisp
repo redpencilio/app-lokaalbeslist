@@ -23,7 +23,6 @@
              (inzending-voor-toezicht :via ,(s-prefix "dct:subject")
                              :as "inzending-voor-toezicht"))
   :resource-base (s-url "http://data.lblod.info/inzending-voor-toezicht-meldingen/")
-  :features `(inclure-uri)
   :on-path "inzending-voor-toezicht-meldingen")
 
 (define-resource melding-status ()

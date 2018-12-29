@@ -122,9 +122,12 @@ defmodule Dispatcher do
   ###############################################################
   # Registration and login
   ###############################################################
-  # match "/accounts/*path" do
-  #   Proxy.forward conn, path, "http://registration/accounts/"
-  # end
+  match "/accounts/*path" do
+    Proxy.forward conn, path, "http://resource/accounts/"
+  end
+  match "/permissions/*path" do
+    Proxy.forward conn, path, "http://resource/permissions/"
+  end
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
   end

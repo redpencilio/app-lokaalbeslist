@@ -1,0 +1,11 @@
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix mu:	<http://mu.semte.ch/vocabularies/core/> .
+@prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.lblod.info/id/account-permissions/read> a ext:Permission ;
+    mu:uuid	"865e0b66-0edf-486c-aff4-55e571764f9a" ;
+    skos:prefLabel	"read" .
+<http://data.lblod.info/id/account-permissions/write> a ext:Permission ;
+    mu:uuid	"cfde52cf-dfc0-4197-8890-5ccff648e7fe" ;
+    skos:prefLabel	"write" .
+
