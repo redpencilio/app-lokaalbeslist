@@ -45,6 +45,9 @@
                                     :as "nomenclature")
              (toezicht-tax-type :via ,(s-prefix "toezicht:taxType")
                                 :as "tax-type")
+             (inzending-voor-toezicht-melding :via ,(s-prefix "dct:subject")
+                                              :inverse t
+                                              :as "melding")
              )
   :has-many `((file :via ,(s-prefix "nie:hasPart")
                     :as "files")

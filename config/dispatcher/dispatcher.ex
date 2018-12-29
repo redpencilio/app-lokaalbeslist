@@ -111,6 +111,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/form-solutions/"
   end
 
+  match "/melding-statuses/*path" do
+    Proxy.forward conn, path, "http://cache/melding-statuses/"
+  end
+  match "/inzending-voor-toezicht-meldingen/*path" do
+    Proxy.forward conn, path, "http://cache/inzending-voor-toezicht-meldingen/"
+  end
+
+
   ###############################################################
   # Registration and login
   ###############################################################
