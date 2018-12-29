@@ -49,6 +49,14 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+  import:
+    image: lblod/mandaten-import-service:0.3.0
+    volumes:
+      - ./data/imports:/data/imports # map to actual directory on your system
+      - ./config/import/queries:/data/queries
+    environment:
+      KEEP_DATA: "true"
+      CRON_PATTERN: "0 4 * * *"
   login:
     image: semtech/mu-login-service:2.8.0
   cache:
