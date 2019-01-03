@@ -58,6 +58,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/files/"
   end
 
+  match "/file-addresses/*path" do
+    Proxy.forward conn, path, "http://cache/file-addresses/"
+  end
+
   ###############################################################
   # dynamic-forms-domain.lisp
   ###############################################################
