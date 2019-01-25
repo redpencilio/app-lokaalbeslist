@@ -57,8 +57,16 @@ services:
     environment:
       KEEP_DATA: "true"
       CRON_PATTERN: "0 4 * * *"
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
   login:
     image: semtech/mu-login-service:2.8.0
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
   cache:
     image: semtech/mu-cache:0.6.0
     links:
