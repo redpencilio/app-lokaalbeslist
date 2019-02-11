@@ -62,10 +62,19 @@ services:
       - "logging=true"
     logging: *default-logging
   login:
-    image: semtech/mu-login-service:2.8.0
-    restart: always
+    image: lblod/acmidm-login-service:latest
+    environment:
+      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
+      MU_APPLICATION_AUTH_CLIENT_ID: "68799bf1-f9eb-4d23-be16-c07c31ae342c"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://besluiten.abb.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
+      MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_databanktoezicht_rol_3d"
+      MU_APPLICATION_AUTH_USERID_CLAIM: "sub"
+      MU_APPLICATION_AUTH_ACCOUNTID_CLAIM: "sub"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/application"
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   cache:
     image: semtech/mu-cache:0.6.0
