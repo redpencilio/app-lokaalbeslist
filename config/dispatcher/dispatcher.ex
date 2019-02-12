@@ -138,6 +138,9 @@ defmodule Dispatcher do
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
   end
+  match "/mock/sessions/*path" do
+    Proxy.forward conn, path, "http://mocklogin/sessions/"
+  end
 
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
