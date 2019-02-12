@@ -4,14 +4,14 @@ PREFIX adms: <http://www.w3.org/ns/adms#>
 PREFIX toezicht: <http://mu.semte.ch/vocabularies/ext/supervision/>
 
 INSERT {
-  GRAPH <http://mu.semte.ch/application> {
+  GRAPH ?g {
      ?melding a toezicht:InzendingVoorToezichtMelding ;
             mu:uuid ?uuid ;
             dct:subject ?inzending ;
             adms:status <http://data.lblod.info/melding-statuses/te-behandelen> .
   }
 } WHERE {
-  GRAPH <http://mu.semte.ch/application> {
+  GRAPH ?g {
     ?inzending a toezicht:InzendingVoorToezicht ; mu:uuid ?inzendingUuid .
 
     FILTER NOT EXISTS { ?s a toezicht:InzendingVoorToezichtMelding ; dct:subject ?inzending }
