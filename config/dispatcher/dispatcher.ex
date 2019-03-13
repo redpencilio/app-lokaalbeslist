@@ -59,7 +59,7 @@ defmodule Dispatcher do
   end
 
   match "/file-addresses/*path" do
-    Proxy.forward conn, path, "http://cache/file-addresses/"
+    Proxy.forward conn, path, "http://resource/file-addresses/"
   end
 
   ###############################################################

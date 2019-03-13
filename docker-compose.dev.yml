@@ -3,11 +3,11 @@ version: '3.4'
 services:
   identifier:
     ports:
-      - "80:80"
+      - "81:80"
   mocklogin:
     image: lblod/mock-login-service:0.4.0
     environment:
       MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
   virtuoso:
     ports:
-      - "8890:8890"
+      - "8891:8890"
