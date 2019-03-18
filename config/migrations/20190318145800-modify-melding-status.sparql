@@ -1,0 +1,25 @@
+PREFIX toezicht: <http://mu.semte.ch/vocabularies/ext/supervision/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+DELETE {
+  GRAPH ?g {
+    ?inzendingVoorToezichtMelding adms:status ?meldingStatus .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?inzendingVoorToezichtMelding adms:status <http://data.lblod.info/melding-statuses/afgehandeld> .
+  }
+
+}
+WHERE {
+  GRAPH ?g {
+    ?inzendingVoorToezichtMelding a toezicht:InzendingVoorToezichtMelding .
+    ?inzendingVoorToezichtMelding dct:subject ?inzendingVoorToezicht .
+    ?inzendingVoorToezicht dct:created ?created .
+    ?inzendingVoorToezichtMelding adms:status ?meldingStatus .
+  }
+  FILTER (?created < "2019-01-03T00:00:00"^^xsd:dateTime)
+}
