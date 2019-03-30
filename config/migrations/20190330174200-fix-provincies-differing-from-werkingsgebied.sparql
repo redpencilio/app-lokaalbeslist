@@ -1,15 +1,15 @@
 PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 
 DELETE {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?s ext:inProvincie ?prov .
   }
 } INSERT {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?s ext:inProvincie ?wprov .
   }
 } WHERE {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?s ext:inProvincie ?prov ; <http://data.vlaanderen.be/ns/besluit#werkingsgebied> ?w .
     ?w ext:inProvincie ?wprov .
 
@@ -25,15 +25,15 @@ DELETE {
 ;
 
 DELETE {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?w ext:inProvincie ?wprov .
   }
 } INSERT {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?w ext:inProvincie ?prov .
   }
 } WHERE {
-  GRAPH ?g {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     ?s ext:inProvincie ?prov ; <http://data.vlaanderen.be/ns/besluit#werkingsgebied> ?w .
     ?w ext:inProvincie ?wprov .
 
