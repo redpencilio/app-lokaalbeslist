@@ -41,6 +41,7 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/DocumentStatus",
                         "http://mu.semte.ch/vocabularies/ext/supervision/InzendingType",
                         "http://mu.semte.ch/vocabularies/ext/supervision/DecisionType",
+                        "http://mu.semte.ch/vocabularies/ext/supervision/RegulationType",
                         "http://mu.semte.ch/vocabularies/ext/supervision/TaxType",
                         "http://mu.semte.ch/vocabularies/ext/supervision/Nomenclature",
                         "http://mu.semte.ch/vocabularies/ext/supervision/FiscalPeriod",
