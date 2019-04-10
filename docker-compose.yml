@@ -62,7 +62,7 @@ services:
       - "logging=true"
     logging: *default-logging
   import:
-    image: lblod/mandaten-import-service:0.3.1
+    image: lblod/mandaten-import-service:0.3.2
     links:
       - virtuoso:database
     volumes:
