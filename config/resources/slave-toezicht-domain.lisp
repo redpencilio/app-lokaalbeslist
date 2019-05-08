@@ -1,5 +1,21 @@
+;; Association resource which should describe properties associated with the form to use
+;; now only 'validity period' is specified, but could be extended with specific bestuursorgaan/eenheid/etc..
+(define-resource inzending-voor-toezicht-form-version ()
+  :class (s-prefix "toezicht:InzendingVoorToezichtFormVersion")
+  :properties `((:start :date ,(s-prefix "toezicht:inzendingVoorToezichtFormVersionStart"))
+                (:end :date ,(s-prefix "toezicht:inzendingVoorToezichtFormVersionEnd"))
+                (:description :string ,(s-prefix "dct:description"))
+                )
+
+  :has-one `((form-node :via ,(s-prefix "toezicht:inzendingVoorToezichtFormVersionFormNode")
+                        :as "form-node"))
+
+  :resource-base (s-url "http://data.lblod.info/inzending-voor-toezicht-form-version/")
+  :features `(include-uri)
+  :on-path "inzending-voor-toezicht-form-versions")
+
 (define-resource inzending-voor-toezicht ()
-  :class (s-prefix "toezicht:InzendingVoorToezicht")
+  :class (s-prefix "toezicht:InzendingVoorToezicht") ;; subclass of nie:InformationElement > nfo:DataContainer
   :properties `((:created :datetime ,(s-prefix "dct:created"))
                 (:modified :datetime ,(s-prefix "dct:modified"))
                 (:sent-date :datetime ,(s-prefix "nmo:sentDate"))
@@ -20,6 +36,7 @@
                 (:text :string ,(s-prefix "toezicht:text"))
                 (:date-publication-webapp :date ,(s-prefix "toezicht:datePublicationWebapp"))
                 )
+
   :has-one `((document-status :via ,(s-prefix "adms:status")
                               :as "status")
              (gebruiker :via ,(s-prefix "ext:lastModifiedBy")
@@ -50,8 +67,8 @@
              (toezicht-tax-type :via ,(s-prefix "toezicht:taxType")
                                 :as "tax-type")
              (inzending-voor-toezicht-melding :via ,(s-prefix "dct:subject")
-                                              :inverse t
-                                              :as "melding")
+                                :inverse t
+                                :as "melding")
              )
   :has-many `((file :via ,(s-prefix "nie:hasPart")
                     :as "files")
@@ -67,7 +84,7 @@
   :class (s-prefix "toezicht:TaxType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-tax-types")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-tax-types")
 
 (define-resource toezicht-nomenclature ()
@@ -75,49 +92,51 @@
   :properties `((:label :string ,(s-prefix "skos:prefLabel"))
                 (:code :string ,(s-prefix "toezicht:nomenclatureCode")))
   :resource-base (s-url "http://data.lblod.info/toezicht-nomenclatures")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-nomenclatures")
 
 (define-resource toezicht-fiscal-period ()
   :class (s-prefix "toezicht:FiscalPeriod")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-fiscal-periods")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-fiscal-periods")
 
 (define-resource toezicht-delivery-report-type ()
   :class (s-prefix "toezicht:DeliveryReportType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-delivery-report-types")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-delivery-report-types")
 
 (define-resource toezicht-account-acceptance-status ()
   :class (s-prefix "toezicht:AccountAcceptanceStatus")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-account-acceptance-statuses")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-account-acceptance-statuses")
 
 (define-resource toezicht-document-authenticity-type ()
   :class (s-prefix "toezicht:DocumentAuthenticityType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-document-authenticity-types")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-document-authenticity-types")
 
 (define-resource toezicht-inzending-type ()
   :class (s-prefix "toezicht:InzendingType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :resource-base (s-url "http://data.lblod.info/toezicht-inzending-types")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-inzending-types")
 
 (define-resource besluit-type ()
   :class (s-prefix "toezicht:DecisionType")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :has-many `((bestuurseenheid-classificatie-code :via ,(s-prefix "ext:decidableBy")
-                    :as "decidable-by"))
+                                                  :as "decidable-by")
+              (inzending-voor-toezicht-form-version :via ,(s-prefix "toezicht:formVersionScope")
+                                                    :as "form-version"))
   :resource-base (s-url "http://data.lblod.info/besluit-types")
   :features `(include-uri)
   :on-path "besluit-types")
@@ -127,7 +146,7 @@
   :properties `((:label :string ,(s-prefix "skos:prefLabel"))
                 (:position :number ,(s-prefix "schema:position")))
   :resource-base (s-url "http://data.lblod.info/toezicht-regulation-types")
-  :features `(inclure-uri)
+  :features `(include-uri)
   :on-path "toezicht-regulation-types")
 
 (define-resource tax-rate ()
@@ -149,3 +168,24 @@
                                       :as "inzending-voor-toezicht"))
   :resource-base (s-url "http://data.lblod.info/form-solutions/")
   :on-path "form-solutions")
+
+(define-resource inzending-voor-toezicht-melding ()
+  :class (s-prefix "toezicht:InzendingVoorToezichtMelding")
+  :properties `((:description :string ,(s-prefix "dct:description")))
+  :has-one `((melding-status :via ,(s-prefix "adms:status")
+                             :as "status")
+             (inzending-voor-toezicht :via ,(s-prefix "dct:subject")
+                             :as "inzending-voor-toezicht"))
+  :resource-base (s-url "http://data.lblod.info/inzending-voor-toezicht-meldingen/")
+  :on-path "inzending-voor-toezicht-meldingen")
+
+(define-resource melding-status ()
+  :class (s-prefix "toezicht:MeldingStatus")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :has-many `((inzending-voor-toezicht-melding :via ,(s-prefix "adms:status")
+                                               :inverse t
+                                               :as "meldingen"))
+  :resource-base (s-url "http://data.lblod.info/melding-statuses/")
+  :features `(no-pagination-defaults include-uri)
+  :on-path "melding-statuses")
+
