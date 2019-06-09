@@ -9,7 +9,7 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.8.0
+    image: lblod/frontend-toezicht-abb:0.9.0
     links:
       - identifier:backend
     restart: always
