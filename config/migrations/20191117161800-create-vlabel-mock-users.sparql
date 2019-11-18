@@ -8,25 +8,13 @@ INSERT DATA {
   GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
     <http://data.lblod.info/id/persoon/528c4e6f-2b3d-4b07-88e4-e017e3f85b3b> a foaf:Person ;
       mu:uuid "528c4e6f-2b3d-4b07-88e4-e017e3f85b3b" ;
-      foaf:firstName "Vlabel Lezer" ;
+      foaf:firstName "VLABEL" ;
       foaf:familyName "ABB" ;
       foaf:member <http://data.lblod.info/id/bestuurseenheden/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> ;
       foaf:account <http://data.lblod.info/id/account/fe4a9564-ce29-4096-a5cb-bf770397b685> .
     <http://data.lblod.info/id/account/fe4a9564-ce29-4096-a5cb-bf770397b685> a foaf:OnlineAccount ;
       mu:uuid "fe4a9564-ce29-4096-a5cb-bf770397b685" ;
       foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-      ext:sessionRole "ABBDatabankToezicht-DatabankToezichtLezerVlabel" .
-
-
-    <http://data.lblod.info/id/persoon/cf6caeac-8998-4907-9464-6e24c6a27d44> a foaf:Person ;
-      mu:uuid "cf6caeac-8998-4907-9464-6e24c6a27d44" ;
-      foaf:firstName "Vlabel Editeur" ;
-      foaf:familyName "ABB" ;
-      foaf:member <http://data.lblod.info/id/bestuurseenheden/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> ;
-      foaf:account <http://data.lblod.info/id/account/cbe968a8-54ac-4816-baf1-8b88dfff3824> .
-    <http://data.lblod.info/id/account/cbe968a8-54ac-4816-baf1-8b88dfff3824> a foaf:OnlineAccount ;
-      mu:uuid "cbe968a8-54ac-4816-baf1-8b88dfff3824" ;
-      foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-      ext:sessionRole "ABBDatabankToezicht-DatabankToezichtEditeurVlabel" .
+      ext:sessionRole "ABBDatabankToezicht-DatabankToezichtVLABEL" .
   }
 }
