@@ -37,6 +37,7 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/DynamicSubform",
                         "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht",
                         "http://mu.semte.ch/vocabularies/ext/supervision/TaxRate",
+                        "http://mu.semte.ch/vocabularies/ext/supervision/SimplifiedTaxRate",
                         "http://mu.semte.ch/vocabularies/ext/FormSolution",
                         "http://mu.semte.ch/vocabularies/ext/DocumentStatus",
                         "http://mu.semte.ch/vocabularies/ext/supervision/InzendingType",
