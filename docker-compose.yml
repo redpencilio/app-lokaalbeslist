@@ -119,7 +119,7 @@ services:
     image: semtech/mu-search:0.6.0-beta.5
     volumes:
        - ./config/search:/config
-       - /data/app-digitaal-loket/data/files:/data
+       - ./data/files:/data
     environment:
       NUMBER_OF_THREADS: 4
       JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
