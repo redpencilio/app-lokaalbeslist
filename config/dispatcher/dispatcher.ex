@@ -130,6 +130,13 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/inzending-voor-toezicht-meldingen/"
   end
 
+  ###############################################################
+  # Searching
+  ###############################################################
+
+  match "/submissions/*path" do
+    Proxy.forward conn, path, "http://musearch/submissions/"
+  end
 
   ###############################################################
   # Registration and login

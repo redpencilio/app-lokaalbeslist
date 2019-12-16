@@ -115,3 +115,26 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  musearch:
+    image: semtech/mu-search:0.6.0-beta.5
+    volumes:
+       - ./config/search:/config
+       - /data/app-digitaal-loket/data/files:/data
+    environment:
+      NUMBER_OF_THREADS: 4
+      JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
+      # LOG_LEVEL: "info"
+    logging: *default-logging
+    labels:
+      - "logging=true"
+    restart: always
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.0.0
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    restart: always
+    environment:
+      - discovery.type=single-node
+    logging: *default-logging
+    labels:
+      - "logging=true"

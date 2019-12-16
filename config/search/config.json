@@ -1,0 +1,62 @@
+{
+  "batch_size": 128,
+  "max_batches": 0,
+  "attachments_path_base": "/data/",
+  "eager_indexing_sparql_query": false,
+  "additive_indexes": true,
+  "persist_indexes": true,
+  "eager_indexing_groups": [[{"name": "org", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"]}]],
+  "default_settings": {
+    "analysis": {
+      "analyzer": {
+        "dutchanalyzer": {
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase",
+            "dutchstemmer"
+          ]
+        }
+      },
+      "filter": {
+        "dutchstemmer": {
+          "type": "stemmer",
+          "name": "dutch"
+        }
+      }
+    }
+  },
+  "types" : [
+    {
+      "type" : "submission",
+      "on_path" : "submissions",
+      "rdf_type" : "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht",
+      "properties" : {
+        "decisionType": [ "http://mu.semte.ch/vocabularies/ext/supervision/decisionType", "http://mu.semte.ch/vocabularies/core/uuid" ],
+        "bestuurseenheid": ["http://purl.org/dc/terms/subject","http://www.w3.org/2004/02/skos/core#prefLabel"],
+        "provincie": [ "http://purl.org/dc/terms/subject","http://mu.semte.ch/vocabularies/ext/inProvincie","http://www.w3.org/2000/01/rdf-schema#label" ],
+        "typeBestuur": ["http://purl.org/dc/terms/subject","http://data.vlaanderen.be/ns/besluit#classificatie","http://www.w3.org/2004/02/skos/core#prefLabel" ],
+        "typeDocument": ["http://mu.semte.ch/vocabularies/ext/supervision/decisionType","http://www.w3.org/2004/02/skos/core#prefLabel"],
+        "verstuurd": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
+        "status": ["^http://purl.org/dc/terms/subject","http://www.w3.org/ns/adms#status","http://www.w3.org/2004/02/skos/core#prefLabel"],
+        "sessionDate": "http://mu.semte.ch/vocabularies/ext/supervision/sessionDate",
+        "data": {
+          "via": [
+            "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart",
+            "^http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource"
+          ],
+          "attachment_pipeline": "attachment"
+        }
+      },
+      "mappings": {
+        "properties": {
+          "attachment.content": {
+            "type": "text",
+            "analyzer": "dutchanalyzer",
+            "search_analyzer": "dutchanalyzer",
+            "term_vector": "with_positions_offsets_payloads"
+          }
+        }
+      }
+    }
+  ]
+}
