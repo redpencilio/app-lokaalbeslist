@@ -125,8 +125,8 @@ services:
       JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
       # LOG_LEVEL: "info"
     logging: *default-logging
-    labels:
-      - "logging=true"
+    # labels:
+    #  - "logging=true"
     restart: always
   elasticsearch:
     image: semtech/mu-search-elastic-backend:1.0.0
@@ -135,6 +135,6 @@ services:
     restart: always
     environment:
       - discovery.type=single-node
-    logging: *default-logging
-    labels:
-      - "logging=true"
+    # logging: *default-logging
+    # labels:
+    #   - "logging=true"
