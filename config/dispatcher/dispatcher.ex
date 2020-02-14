@@ -135,7 +135,7 @@ defmodule Dispatcher do
   ###############################################################
 
   match "/submissions/*path" do
-    Proxy.forward conn, path, "http://musearch/submissions/"
+    Proxy.forward conn, path, "http://search/submissions/"
   end
 
   ###############################################################
