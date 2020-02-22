@@ -1,3 +1,4 @@
+alias Acl.Accessibility.Always, as: AlwaysAccessible
 alias Acl.Accessibility.ByQuery, as: AccessByQuery
 alias Acl.GraphSpec.Constraint.Resource, as: ResourceConstraint
 alias Acl.GraphSpec, as: GraphSpec
@@ -13,7 +14,20 @@ defmodule Acl.UserGroups.Config do
     # many ways.  The useage of a GroupSpec and GraphCleanup are
     # common.
     [
-      # // ORGANIZATION HAS POSSIBLY DUPLICATE USER DATA
+      # // PUBLIC
+      %GroupSpec{
+        name: "public",
+        useage: [:read],
+        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/public",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                        "http://xmlns.com/foaf/0.1/Person",
+                        "http://xmlns.com/foaf/0.1/OnlineAccount",
+                        "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid"
+                      ]
+                    } } ] },
       %GroupSpec{
         name: "org",
         useage: [:read, :write, :read_for_write],
