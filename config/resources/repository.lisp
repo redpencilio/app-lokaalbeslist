@@ -31,3 +31,11 @@
 (add-prefix "toezichtReport" "http://mu.semte.ch/vocabularies/ext/supervision/reporting/")
 (add-prefix "nmo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#")
 (add-prefix "lblodlg" "http://data.lblod.info/vocabularies/leidinggevenden/")
+
+(add-prefix "meb" "http://rdf.myexperiment.org/ontologies/base/")
+(add-prefix "melding" "http://lblod.data.gift/vocabularies/automatische-melding/")
+(add-prefix "lblodBesluit" "http://lblod.data.gift/vocabularies/besluit/")
+(add-prefix "muAccount" "http://mu.semte.ch/vocabularies/account/")
+(add-prefix "elod" "http://linkedeconomy.org/ontology#")
+(add-prefix "rdfs" "https://www.w3.org/2000/01/rdf-schema#")
+(add-prefix "sign" "http://mu.semte.ch/vocabularies/ext/signing/")

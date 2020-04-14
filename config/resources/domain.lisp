@@ -15,6 +15,7 @@
 (read-domain-file "slave-besluit-domain.lisp")
 (read-domain-file "slave-users-domain.lisp")
 (read-domain-file "slave-leidinggevenden-domain.lisp")
+(read-domain-file "master-submissions-domain.lisp")
 
 (define-resource inzending-voor-toezicht-melding ()
   :class (s-prefix "toezicht:InzendingVoorToezichtMelding")
