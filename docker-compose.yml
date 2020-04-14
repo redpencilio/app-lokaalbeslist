@@ -140,3 +140,21 @@ services:
     # logging: *default-logging
     # labels:
     #   - "logging=true"
+  import-submission:
+    image: lblod/import-submission-service:0.4.3
+    volumes:
+      - ./data/files:/share
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+  enrich-submission:
+    image: lblod/enrich-submission-service:0.4.1
+    volumes:
+      - ./data/files/submissions:/share/submissions
+      - ./data/static-files/semantic-forms-data:/data/semantic-forms
+  validate-submission:
+    image: lblod/validate-submission-service:0.6.5
+    volumes:
+      - ./data/files/submissions:/share/submissions
+      - ./data/static-files/semantic-forms-data:/data/semantic-forms
