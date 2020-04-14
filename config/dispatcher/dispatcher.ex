@@ -134,9 +134,10 @@ defmodule Dispatcher do
   # Searching
   ###############################################################
 
-  match "/submissions/*path" do
-    Proxy.forward conn, path, "http://search/submissions/"
-  end
+  # TODO rename to something else
+  # match "/submissions/*path" do
+  #   Proxy.forward conn, path, "http://search/submissions/"
+  # end
 
   ###############################################################
   # Registration and login
@@ -158,28 +159,28 @@ defmodule Dispatcher do
   end
 
    #################################################################
-    # Test Stack Auto Meldingen
-    #################################################################
+   # Test Stack Auto Meldingen
+   #################################################################
 
-    get "/submissions/*path" do
-      Proxy.forward conn, path, "http://resource/submissions/"
-    end
+   get "/submissions/*path" do
+     Proxy.forward conn, path, "http://resource/submissions/"
+   end
 
-    get "/authenticity-types/*path" do
-      Proxy.forward conn, path, "http://cache/authenticity-types/"
-    end
+   get "/authenticity-types/*path" do
+     Proxy.forward conn, path, "http://cache/authenticity-types/"
+   end
 
-    get "/tax-types/*path" do
-      Proxy.forward conn, path, "http://cache/tax-types/"
-    end
+   get "/tax-types/*path" do
+     Proxy.forward conn, path, "http://cache/tax-types/"
+   end
 
-    get "/chart-of-accounts/*path" do
-      Proxy.forward conn, path, "http://cache/chart-of-accounts/"
-    end
+   get "/chart-of-accounts/*path" do
+     Proxy.forward conn, path, "http://cache/chart-of-accounts/"
+   end
 
-    match "/submission-document-statuses/*path" do
-      Proxy.forward conn, path, "http://cache/submission-document-statuses/"
-    end
+   get "/submission-document-statuses/*path" do
+     Proxy.forward conn, path, "http://cache/submission-document-statuses/"
+   end
 
     #################################################################
     # manual submission
