@@ -158,53 +158,53 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://mocklogin/sessions/"
   end
 
-   #################################################################
-   # Test Stack Auto Meldingen
-   #################################################################
+  #################################################################
+  # Test Stack Auto Meldingen
+  #################################################################
 
-   get "/submissions/*path" do
-     Proxy.forward conn, path, "http://resource/submissions/"
-   end
+  get "/submissions/*path" do
+    Proxy.forward conn, path, "http://resource/submissions/"
+  end
 
-   get "/authenticity-types/*path" do
-     Proxy.forward conn, path, "http://cache/authenticity-types/"
-   end
+  get "/authenticity-types/*path" do
+    Proxy.forward conn, path, "http://cache/authenticity-types/"
+  end
 
-   get "/tax-types/*path" do
-     Proxy.forward conn, path, "http://cache/tax-types/"
-   end
+  get "/tax-types/*path" do
+    Proxy.forward conn, path, "http://cache/tax-types/"
+  end
 
-   get "/chart-of-accounts/*path" do
-     Proxy.forward conn, path, "http://cache/chart-of-accounts/"
-   end
+  get "/chart-of-accounts/*path" do
+    Proxy.forward conn, path, "http://cache/chart-of-accounts/"
+  end
 
-   get "/submission-document-statuses/*path" do
-     Proxy.forward conn, path, "http://cache/submission-document-statuses/"
-   end
+  get "/submission-document-statuses/*path" do
+    Proxy.forward conn, path, "http://cache/submission-document-statuses/"
+  end
 
-    #################################################################
-    # manual submission
-    #################################################################
+  #################################################################
+  # manual submission
+  #################################################################
 
-    get "/submission-forms/*path" do
-      Proxy.forward conn, path, "http://enrich-submission/submission-documents/"
-    end
+  get "/submission-forms/*path" do
+    Proxy.forward conn, path, "http://enrich-submission/submission-documents/"
+  end
 
-    get "/submission-documents/*path" do
-      Proxy.forward conn, path, "http://cache/submission-documents/"
-    end
+  get "/submission-documents/*path" do
+    Proxy.forward conn, path, "http://cache/submission-documents/"
+  end
 
-    get "/form-data/*path" do
-      Proxy.forward conn, path, "http://resource/form-data/"
-    end
+  get "/form-data/*path" do
+    Proxy.forward conn, path, "http://resource/form-data/"
+  end
 
-    get "/concept-schemes/*path" do
-      Proxy.forward conn, path, "http://cache/concept-schemes/"
-    end
+  get "/concept-schemes/*path" do
+    Proxy.forward conn, path, "http://cache/concept-schemes/"
+  end
 
-    get "/concepts/*path" do
-      Proxy.forward conn, path, "http://cache/concepts/"
-    end
+  get "/concepts/*path" do
+    Proxy.forward conn, path, "http://cache/concepts/"
+  end
 
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
