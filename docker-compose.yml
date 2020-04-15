@@ -54,7 +54,7 @@ services:
       - "logging=true"
     logging: *default-logging
   migrations:
-    image: semtech/mu-migrations-service:0.5.1
+    image: semtech/mu-migrations-service:0.6.0
     links:
       - virtuoso:database
     volumes:
