@@ -134,10 +134,9 @@ defmodule Dispatcher do
   # Searching
   ###############################################################
 
-  # TODO rename to something else
-  # match "/submissions/*path" do
-  #   Proxy.forward conn, path, "http://search/submissions/"
-  # end
+  match "/search/*path" do
+    Proxy.forward conn, path, "http://search/"
+  end
 
   ###############################################################
   # Registration and login
