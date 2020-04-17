@@ -162,6 +162,14 @@ defmodule Dispatcher do
   # Test Stack Auto Meldingen
   #################################################################
 
+  get "/remote-urls/*path" do
+    Proxy.forward conn, path, "http://resource/remote-urls/"
+  end
+
+  match "/inzendingen-voor-toezicht/*path" do
+    Proxy.forward conn, path, "http://cache/inzendingen-voor-toezicht/"
+  end
+
   get "/submissions/*path" do
     Proxy.forward conn, path, "http://resource/submissions/"
   end

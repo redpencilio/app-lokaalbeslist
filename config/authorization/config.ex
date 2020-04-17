@@ -25,7 +25,9 @@ defmodule Acl.UserGroups.Config do
                       resource_types: [
                         "http://xmlns.com/foaf/0.1/Person",
                         "http://xmlns.com/foaf/0.1/OnlineAccount",
-                        "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid"
+                        "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
                       ]
                     } } ] },
       %GroupSpec{
