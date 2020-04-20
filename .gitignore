@@ -9,3 +9,4 @@
 
 docker-compose.override.yml
 config/migrations/*-sensitive*
+config/search/*.store
