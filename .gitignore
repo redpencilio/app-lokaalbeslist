@@ -6,6 +6,7 @@
 !/data/db/toLoad/*
 .DS_Store
 *~
+data/imports/*
 
 docker-compose.override.yml
 config/migrations/*-sensitive*
