@@ -13,6 +13,7 @@
           "tokenizer": "standard",
           "filter": [
             "lowercase",
+            "asciifolding",
             "dutchstemmer"
           ]
         }
@@ -29,19 +30,45 @@
     {
       "type" : "submission",
       "on_path" : "submissions",
-      "rdf_type" : "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht",
+      "rdf_type" : "http://rdf.myexperiment.org/ontologies/base/Submission",
       "properties" : {
-        "decisionType": [ "http://mu.semte.ch/vocabularies/ext/supervision/decisionType", "http://mu.semte.ch/vocabularies/core/uuid" ],
-        "bestuurseenheid": ["http://purl.org/dc/terms/subject","http://www.w3.org/2004/02/skos/core#prefLabel"],
-        "provincie": [ "http://purl.org/dc/terms/subject","http://mu.semte.ch/vocabularies/ext/inProvincie","http://www.w3.org/2000/01/rdf-schema#label" ],
-        "typeBestuur": ["http://purl.org/dc/terms/subject","http://data.vlaanderen.be/ns/besluit#classificatie","http://www.w3.org/2004/02/skos/core#prefLabel" ],
-        "typeDocument": ["http://mu.semte.ch/vocabularies/ext/supervision/decisionType","http://www.w3.org/2004/02/skos/core#prefLabel"],
-        "verstuurd": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
-        "status": ["^http://purl.org/dc/terms/subject","http://www.w3.org/ns/adms#status","http://www.w3.org/2004/02/skos/core#prefLabel"],
-        "sessionDate": "http://mu.semte.ch/vocabularies/ext/supervision/sessionDate",
+        "administrativeUnit": [
+          "http://purl.org/pav/createdBy",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "province": [
+          "http://purl.org/pav/createdBy",
+          "http://mu.semte.ch/vocabularies/ext/inProvincie",
+          "http://www.w3.org/2000/01/rdf-schema#label"
+        ],
+        "administrativeUnitClassification": [
+          "http://purl.org/pav/createdBy",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "documentTypeUuid": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://purl.org/dc/terms/type",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
+        "documentTypeLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://purl.org/dc/terms/type",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "sentDate": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
+        "status": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/adms#status",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "sessionDateTime": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/sessionStartedAtTime"
+        ],
         "data": {
           "via": [
-            "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart",
+            "http://purl.org/dc/terms/hasPart",
             "^http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource"
           ],
           "attachment_pipeline": "attachment"
@@ -49,11 +76,23 @@
       },
       "mappings": {
         "properties": {
+          "data.attachment.content": {
+            "type": "text",
+            "analyzer": "dutchanalyzer",
+            "search_analyzer": "dutchanalyzer",
+            "term_vector": "with_positions_offsets_payloads"
+          },
           "attachment.content": {
             "type": "text",
             "analyzer": "dutchanalyzer",
             "search_analyzer": "dutchanalyzer",
             "term_vector": "with_positions_offsets_payloads"
+          },
+          "sentDate": {
+            "type": "date"
+          },
+          "sessionDateTime": {
+            "type": "date"
           }
         }
       }

@@ -118,7 +118,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.6.0-beta.10
+    image: semtech/mu-search:0.6.0-beta.11
     volumes:
        - ./config/search:/config
        - ./data/files:/data
@@ -145,3 +145,4 @@ services:
     volumes:
       - ./data/files/submissions:/share/submissions
       - ./data/static-files/semantic-forms-data:/data/semantic-forms
+
