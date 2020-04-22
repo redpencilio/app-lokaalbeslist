@@ -27,7 +27,7 @@ defmodule Acl.UserGroups.Config do
                         "http://xmlns.com/foaf/0.1/OnlineAccount",
                         "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
                         "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject",
+                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject"
                       ]
                     } } ] },
       %GroupSpec{
@@ -87,7 +87,9 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/SubmissionDocument",
                         "http://lblod.data.gift/vocabularies/besluit/TaxRate",
                         "http://lblod.data.gift/vocabularies/automatische-melding/FormData",
-                        "http://mu.semte.ch/vocabularies/ext/Vendor"
+                        "http://mu.semte.ch/vocabularies/ext/Vendor",
+                        "http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus",
+                        "http://schema.org/Review"
                       ] } } ] },
 
       # // CLEANUP

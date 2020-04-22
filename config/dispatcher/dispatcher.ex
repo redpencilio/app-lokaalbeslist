@@ -213,6 +213,18 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
+  #################################################################
+  # reviews
+  #################################################################
+
+  get "/submission-review-statuses/*path" do
+    Proxy.forward conn, path, "http://cache/submission-review-statuses/"
+  end
+
+  match "/submission-reviews/*path" do
+    Proxy.forward conn, path, "http://resource/submission-reviews/"
+  end
+
   match _ do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end

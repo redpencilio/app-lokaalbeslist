@@ -18,9 +18,16 @@ services:
     ports:
       - "5601:5601"
     restart: "no"
-  import-submission:
-    restart: "no"
+  file:
+    volumes:
+      - /home/dries/Projects/LBLOD/app-meldingsplichtige-api/data/files:/share
   enrich-submission:
     restart: "no"
-  validate-submission:
-    restart: "no"
+    volumes:
+      - /home/dries/Projects/LBLOD/app-meldingsplichtige-api/data/files/submissions:/share/submissions
+      - /home/dries/Projeects/LBLOD/app-meldingsplichtige-api/data/static-files/semantic-forms-data:/data/semantic-forms
+  database:
+    environment:
+      LOG_OUTGOING_SPARQL_QUERIES: "true"
+      LOG_ACCESS_RIGHTS: "true"
+      LOG_INCOMING_SPARQL_QUERIES: "true"

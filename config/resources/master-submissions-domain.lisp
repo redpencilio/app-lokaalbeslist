@@ -135,3 +135,22 @@
   :features `(include-uri)
   :on-path "concepts"
 )
+
+(define-resource submission-review ()
+  :class (s-prefix "schema:Review")
+  :properties `((:comment :string ,(s-prefix "schema:reviewBody")))
+  :has-one `((submission-review-status :via ,(s-prefix "adms:status")
+                                       :as "status")
+             (submission :via ,(s-prefix "schema:itemReviewed")
+                         :as "submission"))
+  :resource-base (s-url "http://lblod.data.gift/concepts/")
+  :features `(include-uri)
+  :on-path "submission-reviews"
+)
+
+(define-resource submission-review-status () ;; subclass of skos:Concept
+  :class (s-prefix "ext:SubmissionReviewStatus")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :resource-base (s-url "http://lblod.data.gift/concepts/")
+  :features `(include-uri)
+  :on-path "submission-review-statuses")
