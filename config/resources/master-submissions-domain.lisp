@@ -146,7 +146,7 @@
                                        :as "status")
              (submission :via ,(s-prefix "schema:itemReviewed")
                          :as "submission"))
-  :resource-base (s-url "http://lblod.data.gift/concepts/")
+  :resource-base (s-url "http://lblod.data.gift/submission-reviews/")
   :features `(include-uri)
   :on-path "submission-reviews"
 )
