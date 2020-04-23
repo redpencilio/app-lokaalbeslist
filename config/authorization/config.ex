@@ -17,28 +17,13 @@ defmodule Acl.UserGroups.Config do
       # // PUBLIC
       %GroupSpec{
         name: "public",
-        useage: [:read],
-        access: %AlwaysAccessible{}, # TODO: Should be only for logged in users
-        graphs: [ %GraphSpec{
-                    graph: "http://mu.semte.ch/graphs/public",
-                    constraint: %ResourceConstraint{
-                      resource_types: [
-                        "http://xmlns.com/foaf/0.1/Person",
-                        "http://xmlns.com/foaf/0.1/OnlineAccount",
-                        "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject",
-                        "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RemoteDataObject"
-                      ]
-                    } } ] },
-      %GroupSpec{
-        name: "org",
-        useage: [:read, :write, :read_for_write],
+        useage: [:read, :read_for_write],
         access: %AccessByQuery{
           vars: ["session_group"],
           query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
                   PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
                   SELECT DISTINCT ?session_group WHERE {
-                    <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group.
+                    <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group
                     }" },
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
@@ -89,8 +74,26 @@ defmodule Acl.UserGroups.Config do
                         "http://lblod.data.gift/vocabularies/automatische-melding/FormData",
                         "http://mu.semte.ch/vocabularies/ext/Vendor",
                         "http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus",
-                        "http://schema.org/Review",
-                        "http://mu.semte.ch/vocabularies/ext/inProvincie"
+                        "http://schema.org/Review"
+                      ]
+                    } } ] },
+      %GroupSpec{
+        name: "org",
+        useage: [:write],
+        access: %AccessByQuery{
+          vars: ["session_group"],
+          query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+                  PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+                  SELECT DISTINCT ?session_group WHERE {
+                    <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group ;
+                       ext:sessionRole ?role .
+                    VALUES ?role { \"ABBDatabankToezicht-DatabankToezichtEditeur\" }
+                    }" },
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/organizations/",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                        "http://schema.org/Review"
                       ] } } ] },
 
       # // CLEANUP
