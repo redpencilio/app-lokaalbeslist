@@ -141,10 +141,11 @@ services:
     # labels:
     #   - "logging=true"
   enrich-submission:
-    image: lblod/enrich-submission-service:0.4.1
+    image: lblod/enrich-submission-service:0.5.0
     volumes:
       - ./config/semantic-forms:/data/semantic-forms
       - ./data/files/submissions:/share/submissions
     environment:
+      PUBLIC_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
       FILE_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
 
