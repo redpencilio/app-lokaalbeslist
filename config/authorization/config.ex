@@ -17,6 +17,20 @@ defmodule Acl.UserGroups.Config do
       # // PUBLIC
       %GroupSpec{
         name: "public",
+        useage: [:read],
+        access: %AlwaysAccessible{}, # Needed for mock-login page
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/public",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                        "http://xmlns.com/foaf/0.1/Person",
+                        "http://xmlns.com/foaf/0.1/OnlineAccount",
+                        "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid"
+                      ]
+                    } } ] },
+      # // Logged in users
+      %GroupSpec{
+        name: "readers",
         useage: [:read, :read_for_write],
         access: %AccessByQuery{
           vars: ["session_group"],
@@ -78,7 +92,7 @@ defmodule Acl.UserGroups.Config do
                       ]
                     } } ] },
       %GroupSpec{
-        name: "org",
+        name: "editors",
         useage: [:write],
         access: %AccessByQuery{
           vars: ["session_group"],

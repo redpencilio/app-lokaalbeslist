@@ -5,7 +5,9 @@
   "eager_indexing_sparql_query": false,
   "additive_indexes": true,
   "persist_indexes": true,
-  "eager_indexing_groups": [[{"name": "org", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"]}]],
+  "eager_indexing_groups": [
+    [{"name": "readers", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"]}]
+  ],
   "default_settings": {
     "analysis": {
       "analyzer": {
