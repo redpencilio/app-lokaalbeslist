@@ -56,9 +56,19 @@
           "http://purl.org/dc/terms/type",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "decisionTypeLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/decisionType",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "regulationTypeLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/regulationType",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
         "sentDate": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
         "status": [
-          "^http://purl.org/dc/terms/subject",
+          "^http://schema.org/itemReviewed",
           "http://www.w3.org/ns/adms#status",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
@@ -68,6 +78,7 @@
         ],
         "data": {
           "via": [
+            "http://www.w3.org/ns/prov#generated",
             "http://purl.org/dc/terms/hasPart",
             "^http://www.semanticdesktop.org/ontologies/2007/01/19/nie#dataSource"
           ],
