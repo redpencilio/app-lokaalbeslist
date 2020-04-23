@@ -90,7 +90,7 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/Vendor",
                         "http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus",
                         "http://schema.org/Review",
-                        http://mu.semte.ch/vocabularies/ext/inProvincie
+                        "http://mu.semte.ch/vocabularies/ext/inProvincie"
                       ] } } ] },
 
       # // CLEANUP
