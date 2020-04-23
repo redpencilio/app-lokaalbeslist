@@ -24,6 +24,9 @@
              (automatic-submission-task :via ,(s-prefix "prov:generated")
                                         :inverse t
                                         :as "task")
+             (submission-review :via ,(s-prefix "schema:itemReviewed")
+                                :inverse t
+                                :as "review")
              (gebruiker :via ,(s-prefix "ext:lastModifiedBy")
                         :as "last-modifier")
              (form-data :via ,(s-prefix "prov:generated")
