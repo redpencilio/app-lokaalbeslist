@@ -31,3 +31,6 @@ services:
       LOG_OUTGOING_SPARQL_QUERIES: "true"
       LOG_ACCESS_RIGHTS: "true"
       LOG_INCOMING_SPARQL_QUERIES: "true"
+  import:
+    volumes:
+      - /home/dries/Projects/LBLOD/app-digitaal-loket/data/exports/submissions:/data/imports
