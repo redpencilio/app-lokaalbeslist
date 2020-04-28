@@ -54,7 +54,6 @@ defmodule Acl.UserGroups.Config do
                         "http://data.vlaanderen.be/ns/besluit#Bestuursorgaan",
                         "http://mu.semte.ch/vocabularies/ext/BestuursorgaanClassificatieCode",
                         "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
-                        "http://lblod.data.gift/vocabularies/employee/LegalStatus",
                         "http://mu.semte.ch/vocabularies/ext/ChartOfAccount",
                         "http://mu.semte.ch/vocabularies/ext/AuthenticityType",
                         "http://mu.semte.ch/vocabularies/ext/TaxType",
@@ -68,7 +67,8 @@ defmodule Acl.UserGroups.Config do
                         "http://lblod.data.gift/vocabularies/automatische-melding/FormData",
                         "http://mu.semte.ch/vocabularies/ext/Vendor",
                         "http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus",
-                        "http://schema.org/Review"
+                        "http://schema.org/Review",
+                        "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht" # still needed to be able to redirect old URLs correctly
                       ]
                     } } ] },
       %GroupSpec{

@@ -22,28 +22,25 @@ defmodule Dispatcher do
   #   Proxy.forward conn, path, "http://resource/themes/"
   # end
 
-  match "/bestuurseenheden/*path" do
+  get "/bestuurseenheden/*path" do
     Proxy.forward conn, path, "http://cache/bestuurseenheden/"
   end
-  match "/werkingsgebieden/*path" do
+  get "/werkingsgebieden/*path" do
     Proxy.forward conn, path, "http://cache/werkingsgebieden/"
   end
-  match "/bestuurseenheid-classificatie-codes/*path" do
+  get "/bestuurseenheid-classificatie-codes/*path" do
     Proxy.forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
-  match "/bestuursorganen/*path" do
+  get "/bestuursorganen/*path" do
     Proxy.forward conn, path, "http://cache/bestuursorganen/"
   end
-  match "/bestuursorgaan-classificatie-codes/*path" do
+  get "/bestuursorgaan-classificatie-codes/*path" do
     Proxy.forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
-  match "/personen/*path" do
+  get "/personen/*path" do
     Proxy.forward conn, path, "http://cache/personen/"
   end
-  match "/geslacht-codes/*path" do
-    Proxy.forward conn, path, "http://cache/geslacht-codes/"
-  end
-  match "/gebruikers/*path" do
+  get "/gebruikers/*path" do
     Proxy.forward conn, path, "http://cache/gebruikers/"
   end
   get "/files/:id/download" do
@@ -57,7 +54,7 @@ defmodule Dispatcher do
   # Searching
   ###############################################################
 
-  match "/search/*path" do
+  get "/search/*path" do
     Proxy.forward conn, path, "http://search/"
   end
 
@@ -70,9 +67,6 @@ defmodule Dispatcher do
   match "/gebruikers/*path" do
     Proxy.forward conn, path, "http://resource/gebruikers/"
   end
-  match "/permissions/*path" do
-    Proxy.forward conn, path, "http://resource/permissions/"
-  end
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
   end
@@ -81,19 +75,19 @@ defmodule Dispatcher do
   end
 
   #################################################################
-  # Test Stack Auto Meldingen
+  # Submissions
   #################################################################
 
   get "/remote-urls/*path" do
-    Proxy.forward conn, path, "http://resource/remote-urls/"
+    Proxy.forward conn, path, "http://cache/remote-urls/"
   end
 
-  match "/inzendingen-voor-toezicht/*path" do
+  get "/inzendingen-voor-toezicht/*path" do
     Proxy.forward conn, path, "http://cache/inzendingen-voor-toezicht/"
   end
 
   get "/submissions/*path" do
-    Proxy.forward conn, path, "http://resource/submissions/"
+    Proxy.forward conn, path, "http://cache/submissions/"
   end
 
   get "/authenticity-types/*path" do
@@ -112,10 +106,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/submission-document-statuses/"
   end
 
-  #################################################################
-  # Manual submission
-  #################################################################
-
   get "/submission-forms/*path" do
     Proxy.forward conn, path, "http://enrich-submission/submission-documents/"
   end
@@ -125,7 +115,7 @@ defmodule Dispatcher do
   end
 
   get "/form-data/*path" do
-    Proxy.forward conn, path, "http://resource/form-data/"
+    Proxy.forward conn, path, "http://cache/form-data/"
   end
 
   get "/concept-schemes/*path" do
@@ -145,7 +135,7 @@ defmodule Dispatcher do
   end
 
   match "/submission-reviews/*path" do
-    Proxy.forward conn, path, "http://resource/submission-reviews/"
+    Proxy.forward conn, path, "http://cache/submission-reviews/"
   end
 
   match _ do
