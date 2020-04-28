@@ -27,7 +27,6 @@
 (add-prefix "schema" "http://schema.org/")
 (add-prefix "dbpedia" "http://dbpedia.org/ontology/")
 (add-prefix "export" "http://mu.semte.ch/vocabularies/ext/export/")
-(add-prefix "toezicht" "http://mu.semte.ch/vocabularies/ext/supervision/")
 (add-prefix "toezichtReport" "http://mu.semte.ch/vocabularies/ext/supervision/reporting/")
 (add-prefix "nmo" "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#")
 (add-prefix "lblodlg" "http://data.lblod.info/vocabularies/leidinggevenden/")
