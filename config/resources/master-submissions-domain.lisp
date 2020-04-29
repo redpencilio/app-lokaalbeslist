@@ -114,7 +114,8 @@
 
 (define-resource chart-of-account () ;; subclass of skos:Concept
   :class (s-prefix "ext:ChartOfAccount")
-  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :properties `((:label :string ,(s-prefix "skos:prefLabel"))
+                (:notation :string ,(s-prefix "skos:notation")))
   :resource-base (s-url "http://lblod.data.gift/concepts/")
   :features `(include-uri)
   :on-path "chart-of-accounts")
