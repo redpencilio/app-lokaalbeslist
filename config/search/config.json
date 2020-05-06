@@ -38,17 +38,31 @@
           "http://purl.org/pav/createdBy",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "administrativeUnitUUID": [
+          "http://purl.org/pav/createdBy",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
         "province": [
           "http://purl.org/pav/createdBy",
           "http://mu.semte.ch/vocabularies/ext/inProvincie",
           "http://www.w3.org/2000/01/rdf-schema#label"
+        ],
+        "provinceUUID": [
+          "http://purl.org/pav/createdBy",
+          "http://mu.semte.ch/vocabularies/ext/inProvincie",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "administrativeUnitClassification": [
           "http://purl.org/pav/createdBy",
           "http://data.vlaanderen.be/ns/besluit#classificatie",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "documentTypeUuid": [
+        "administrativeUnitClassificationUUID": [
+          "http://purl.org/pav/createdBy",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
+        "documentTypeUUID": [
           "http://www.w3.org/ns/prov#generated",
           "http://purl.org/dc/terms/type",
           "http://mu.semte.ch/vocabularies/core/uuid"
@@ -63,10 +77,20 @@
           "http://mu.semte.ch/vocabularies/ext/decisionType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "decisionTypeUUID": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/decisionType",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
         "regulationTypeLabel": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/regulationType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "regulationTypeUUID": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/regulationType",
+          "http://mu.semte.ch/vocabularies/core/uuid"
         ],
         "sentDate": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
         "status": [
