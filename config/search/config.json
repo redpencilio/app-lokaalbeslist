@@ -98,9 +98,32 @@
           "http://www.w3.org/ns/adms#status",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "statusUUID": [
+          "^http://schema.org/itemReviewed",
+          "http://www.w3.org/ns/adms#status",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
         "sessionDateTime": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/sessionStartedAtTime"
+        ],
+        "chartOfAccountLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "chartOfAccountUUID": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
+        "dateOfEntryIntoForce": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.europa.eu/eli/ontology#first_date_entry_in_force"
+        ],
+        "endDate": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.europa.eu/eli/ontology#date_no_longer_in_force"
         ],
         "data": {
           "via": [
@@ -129,6 +152,12 @@
             "type": "date"
           },
           "sessionDateTime": {
+            "type": "date"
+          },
+          "dateOfEntryIntoForce": {
+            "type": "date"
+          },
+          "endDate": {
             "type": "date"
           }
         }
