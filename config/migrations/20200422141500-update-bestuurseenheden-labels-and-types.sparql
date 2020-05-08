@@ -1,0 +1,14 @@
+DELETE DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
+    <http://data.lblod.info/id/bestuurseenheden/934917cdce95b7d47219ca88ba5dfaf99d41d1580985a3ff521650c115905da1> <http://www.w3.org/2004/02/skos/core#prefLabel> "Infrax West" .
+    <http://data.lblod.info/id/bestuurseenheden/a75bdf601cf1ef3e0667c176348c1453d8513da729c8c9acf0179a2d610b4622> <http://www.w3.org/2004/02/skos/core#prefLabel> "Interkommunale voor Energie" .
+    <http://data.lblod.info/id/bestuurseenheden/da9f38da-eb84-4578-a206-72baee1865fe> <http://data.vlaanderen.be/ns/besluit#classificatie> <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/b156b67f-c5f4-4584-9b30-4c090be02fdc> .
+  }
+}
+;
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
+    <http://data.lblod.info/id/bestuurseenheden/934917cdce95b7d47219ca88ba5dfaf99d41d1580985a3ff521650c115905da1> <http://www.w3.org/2004/02/skos/core#prefLabel> "Fluvius West" .
+    <http://data.lblod.info/id/bestuurseenheden/a75bdf601cf1ef3e0667c176348c1453d8513da729c8c9acf0179a2d610b4622> <http://www.w3.org/2004/02/skos/core#prefLabel> "Fluvius Antwerpen" .
+  }
+}
