@@ -121,7 +121,7 @@
           "http://www.w3.org/ns/prov#generated",
           "http://data.europa.eu/eli/ontology#first_date_entry_in_force"
         ],
-        "endDate": [
+        "dateNoLongerInForce": [
           "http://www.w3.org/ns/prov#generated",
           "http://data.europa.eu/eli/ontology#date_no_longer_in_force"
         ],
@@ -157,7 +157,7 @@
           "dateOfEntryIntoForce": {
             "type": "date"
           },
-          "endDate": {
+          "dateNoLongerInForce": {
             "type": "date"
           }
         }
