@@ -1,0 +1,7 @@
+<http://lblod.data.gift/concept-schemes/0b77534f-d635-42a9-a80b-fdc98f3a7dbe> <http://mu.semte.ch/vocabularies/core/uuid> "0b77534f-d635-42a9-a80b-fdc98f3a7dbe" .
+
+<http://lblod.data.gift/concepts/d72999bf-2ef4-4332-bd6e-49c8a9e2498e> <http://mu.semte.ch/vocabularies/core/uuid> "d72999bf-2ef4-4332-bd6e-49c8a9e2498e" .
+<http://lblod.data.gift/concepts/d72999bf-2ef4-4332-bd6e-49c8a9e2498e> a <http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus> .
+
+<http://lblod.data.gift/concepts/5b36ed48-491c-4177-ae31-31338dc46de1> <http://mu.semte.ch/vocabularies/core/uuid> "5b36ed48-491c-4177-ae31-31338dc46de1" .
+<http://lblod.data.gift/concepts/5b36ed48-491c-4177-ae31-31338dc46de1> a <http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus> .

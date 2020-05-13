@@ -1,0 +1,8 @@
+PREFIX toezicht: <http://mu.semte.ch/vocabularies/ext/supervision/>
+
+DELETE WHERE {
+GRAPH <http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b> {
+ ?subject a toezicht:MeldingStatus ;
+ ?predicate ?object .
+ }
+}
