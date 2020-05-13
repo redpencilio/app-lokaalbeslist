@@ -68,6 +68,16 @@
           "http://mu.semte.ch/vocabularies/ext/regulationType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "taxTypeUuid": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/taxType",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
+        "taxTypeLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://mu.semte.ch/vocabularies/ext/taxType",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
         "sentDate": "http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#sentDate",
         "status": [
           "^http://schema.org/itemReviewed",
