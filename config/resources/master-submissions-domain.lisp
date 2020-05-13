@@ -65,7 +65,7 @@
                 (:first-date-in-force :date ,(s-prefix "eli:first_date_entry_in_force"))
                 (:date-no-longer-in-force :date ,(s-prefix "eli:date_no_longer_in_force"))
                 (:authenticity-type :url ,(s-prefix "lblodBesluit:authenticityType"))
-                (:tax-type :url ,(s-prefix "lblodBesluit:taxType"))
+                (:tax-type :url ,(s-prefix "ext:taxType"))
                 (:tax-rate :url ,(s-prefix "lblodBesluit:taxRate"))
                 (:has-additional-tax-rate :boolean ,(s-prefix "lblodBesluit:hasAdditionalTaxRate"))
                 (:link :url ,(s-prefix "dct:hasPart"))
