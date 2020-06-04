@@ -122,6 +122,11 @@
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+        "chartOfAccountSearchLabel": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
+          "http://mu.semte.ch/vocabularies/ext/searchLabel"
+        ],
         "chartOfAccountUUID": [
           "http://www.w3.org/ns/prov#generated",
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
