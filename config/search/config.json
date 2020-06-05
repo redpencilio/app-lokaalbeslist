@@ -67,12 +67,12 @@
           "http://purl.org/dc/terms/type",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "documentTypeLabel": [
+        "documentType": [
           "http://www.w3.org/ns/prov#generated",
           "http://purl.org/dc/terms/type",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "decisionTypeLabel": [
+        "decisionType": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/decisionType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
@@ -82,7 +82,7 @@
           "http://mu.semte.ch/vocabularies/ext/decisionType",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "regulationTypeLabel": [
+        "regulationType": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/regulationType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
@@ -92,12 +92,12 @@
           "http://mu.semte.ch/vocabularies/ext/regulationType",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "taxTypeUuid": [
+        "taxTypeUUID": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/taxType",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "taxTypeLabel": [
+        "taxType": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/taxType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
@@ -113,16 +113,16 @@
           "http://www.w3.org/ns/adms#status",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "sessionDateTime": [
+        "sessionDatetime": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/sessionStartedAtTime"
         ],
-        "chartOfAccountLabel": [
+        "chartOfAccount": [
           "http://www.w3.org/ns/prov#generated",
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "chartOfAccountSearchLabel": [
+        "chartOfAccountSearch": [
           "http://www.w3.org/ns/prov#generated",
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
           "http://mu.semte.ch/vocabularies/ext/searchLabel"
@@ -163,10 +163,28 @@
             "search_analyzer": "dutchanalyzer",
             "term_vector": "with_positions_offsets_payloads"
           },
+          "province": {
+            "type": "keyword"
+          },
+          "status": {
+            "type": "keyword"
+          },
+          "administrativeUnit": {
+            "type": "keyword"
+          },
+          "administrativeUnitClassification":{
+            "type": "keyword"
+          },
+          "decisionType": {
+            "type": "keyword"
+          },
+          "documentType": {
+            "type": "keyword"
+          },
           "sentDate": {
             "type": "date"
           },
-          "sessionDateTime": {
+          "sessionDatetime": {
             "type": "date"
           },
           "dateOfEntryIntoForce": {
