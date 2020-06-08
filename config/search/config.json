@@ -6,7 +6,14 @@
   "additive_indexes": true,
   "persist_indexes": true,
   "eager_indexing_groups": [
-    [{"name": "readers", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"]}]
+    [
+      {
+        "name": "readers",
+        "variables": [
+          "141d9d6b-54af-4d17-b313-8d1c30bc3f5b"
+        ]
+      }
+    ]
   ],
   "default_settings": {
     "analysis": {
@@ -28,12 +35,12 @@
       }
     }
   },
-  "types" : [
+  "types": [
     {
-      "type" : "submission",
-      "on_path" : "submissions",
-      "rdf_type" : "http://rdf.myexperiment.org/ontologies/base/Submission",
-      "properties" : {
+      "type": "submission",
+      "on_path": "submissions",
+      "rdf_type": "http://rdf.myexperiment.org/ontologies/base/Submission",
+      "properties": {
         "administrativeUnit": [
           "http://purl.org/pav/createdBy",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
@@ -70,6 +77,20 @@
         "documentType": [
           "http://www.w3.org/ns/prov#generated",
           "http://purl.org/dc/terms/type",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "governingBodyClassificationUUID": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.europa.eu/eli/ontology#passed_by",
+          "http://data.vlaanderen.be/ns/mandaat#isTijdspecialisatieVan",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
+          "http://mu.semte.ch/vocabularies/core/uuid"
+        ],
+        "governingBodyClassification": [
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.europa.eu/eli/ontology#passed_by",
+          "http://data.vlaanderen.be/ns/mandaat#isTijdspecialisatieVan",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
         "decisionType": [
@@ -172,7 +193,7 @@
           "administrativeUnit": {
             "type": "keyword"
           },
-          "administrativeUnitClassification":{
+          "administrativeUnitClassification": {
             "type": "keyword"
           },
           "decisionType": {
