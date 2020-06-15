@@ -1,52 +1,42 @@
 defmodule Dispatcher do
-  use Plug.Router
+  use Matcher
 
-  def start(_argv) do
-    port = 80
-    IO.puts "Starting Plug with Cowboy on port #{port}"
-    Plug.Adapters.Cowboy.http __MODULE__, [], port: port
-    :timer.sleep(:infinity)
-  end
+  define_accept_types [
+    json: [ "application/json", "application/vnd.api+json" ],
+    any: ["*/*"]
+  ]
 
-  plug Plug.Logger
-  plug :match
-  plug :dispatch
+  @json %{ accept: %{ json: true } }
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule.
-  #
-  # docker-compose stop; docker-compose rm; docker-compose up
-  # after altering this file.
-  #
-  # match "/themes/*path" do
-  #   Proxy.forward conn, path, "http://resource/themes/"
-  # end
+  ###############################################################
+  # General/Shared
+  ###############################################################
 
-  get "/bestuurseenheden/*path" do
+  get "/bestuurseenheden/*path", @json do
     Proxy.forward conn, path, "http://cache/bestuurseenheden/"
   end
-  get "/werkingsgebieden/*path" do
+  get "/werkingsgebieden/*path", @json do
     Proxy.forward conn, path, "http://cache/werkingsgebieden/"
   end
-  get "/bestuurseenheid-classificatie-codes/*path" do
+  get "/bestuurseenheid-classificatie-codes/*path", @json do
     Proxy.forward conn, path, "http://cache/bestuurseenheid-classificatie-codes/"
   end
-  get "/bestuursorganen/*path" do
+  get "/bestuursorganen/*path", @json do
     Proxy.forward conn, path, "http://cache/bestuursorganen/"
   end
-  get "/bestuursorgaan-classificatie-codes/*path" do
+  get "/bestuursorgaan-classificatie-codes/*path", @json do
     Proxy.forward conn, path, "http://cache/bestuursorgaan-classificatie-codes/"
   end
-  get "/personen/*path" do
+  get "/personen/*path", @json do
     Proxy.forward conn, path, "http://cache/personen/"
   end
-  get "/gebruikers/*path" do
+  get "/gebruikers/*path", @json do
     Proxy.forward conn, path, "http://cache/gebruikers/"
   end
-  get "/files/:id/download" do
+  get "/files/:id/download", @json do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
   end
-  get "/files/*path" do
+  get "/files/*path", @json do
     Proxy.forward conn, path, "http://resource/files/"
   end
 
@@ -54,23 +44,24 @@ defmodule Dispatcher do
   # Searching
   ###############################################################
 
-  get "/search/*path" do
+  get "/search/*path", @json do
     Proxy.forward conn, path, "http://search/"
   end
 
   ###############################################################
   # Registration and login
   ###############################################################
-  match "/accounts/*path" do
+
+  match "/accounts/*path", @json do
     Proxy.forward conn, path, "http://resource/accounts/"
   end
-  match "/gebruikers/*path" do
+  match "/gebruikers/*path", @json do
     Proxy.forward conn, path, "http://resource/gebruikers/"
   end
-  match "/sessions/*path" do
+  match "/sessions/*path", @json do
     Proxy.forward conn, path, "http://login/sessions/"
   end
-  match "/mock/sessions/*path" do
+  match "/mock/sessions/*path", @json do
     Proxy.forward conn, path, "http://mocklogin/sessions/"
   end
 
@@ -78,51 +69,51 @@ defmodule Dispatcher do
   # Submissions
   #################################################################
 
-  get "/remote-urls/*path" do
+  get "/remote-urls/*path", @json do
     Proxy.forward conn, path, "http://cache/remote-urls/"
   end
 
-  get "/inzendingen-voor-toezicht/*path" do
+  get "/inzendingen-voor-toezicht/*path", @json do
     Proxy.forward conn, path, "http://cache/inzendingen-voor-toezicht/"
   end
 
-  get "/submissions/*path" do
+  get "/submissions/*path", @json do
     Proxy.forward conn, path, "http://cache/submissions/"
   end
 
-  get "/authenticity-types/*path" do
+  get "/authenticity-types/*path", @json do
     Proxy.forward conn, path, "http://cache/authenticity-types/"
   end
 
-  get "/tax-types/*path" do
+  get "/tax-types/*path", @json do
     Proxy.forward conn, path, "http://cache/tax-types/"
   end
 
-  get "/chart-of-accounts/*path" do
+  get "/chart-of-accounts/*path", @json do
     Proxy.forward conn, path, "http://cache/chart-of-accounts/"
   end
 
-  get "/submission-document-statuses/*path" do
+  get "/submission-document-statuses/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-document-statuses/"
   end
 
-  get "/submission-forms/*path" do
+  get "/submission-forms/*path", @json do
     Proxy.forward conn, path, "http://enrich-submission/submission-documents/"
   end
 
-  get "/submission-documents/*path" do
+  get "/submission-documents/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-documents/"
   end
 
-  get "/form-data/*path" do
+  get "/form-data/*path", @json do
     Proxy.forward conn, path, "http://cache/form-data/"
   end
 
-  get "/concept-schemes/*path" do
+  get "/concept-schemes/*path", @json do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
   end
 
-  get "/concepts/*path" do
+  get "/concepts/*path", @json do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
@@ -130,15 +121,15 @@ defmodule Dispatcher do
   # Review
   #################################################################
 
-  get "/submission-review-statuses/*path" do
+  get "/submission-review-statuses/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-review-statuses/"
   end
 
-  match "/submission-reviews/*path" do
+  match "/submission-reviews/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-reviews/"
   end
 
-  match _ do
+  match "/*_", %{ last_call: true } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
 
