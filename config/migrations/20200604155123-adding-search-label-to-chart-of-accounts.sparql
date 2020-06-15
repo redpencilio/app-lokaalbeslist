@@ -1,0 +1,17 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+
+INSERT {
+	GRAPH ?g {
+ 		?subject ext:searchLabel ?searchLabel .
+	}
+} 
+WHERE {
+	GRAPH ?h {
+ 		?subject skos:inScheme <http://lblod.data.gift/concept-schemes/b65b15ba-6755-4cd2-bd07-2c2cf3c0e4d3> ;
+          		 skos:prefLabel ?label ;
+          		 skos:notation  ?notation .
+	}
+	BIND(CONCAT("MAR", STR( ?notation ), " - ", STR(?label))  AS ?searchLabel ) 
+	BIND(?h as ?g)
+}
