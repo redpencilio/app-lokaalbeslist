@@ -68,7 +68,8 @@ defmodule Acl.UserGroups.Config do
                         "http://mu.semte.ch/vocabularies/ext/Vendor",
                         "http://mu.semte.ch/vocabularies/ext/SubmissionReviewStatus",
                         "http://schema.org/Review",
-                        "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht" # still needed to be able to redirect old URLs correctly
+                        "http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht", # still needed to be able to redirect old URLs correctly
+                        "http://lblod.data.gift/vocabularies/search-queries-toezicht/SearchQuery"
                       ]
                     } } ] },
       %GroupSpec{

@@ -3,10 +3,12 @@ defmodule Dispatcher do
 
   define_accept_types [
     json: [ "application/json", "application/vnd.api+json" ],
+    turtle: ["text/turtle", "application/n-triples"],
     any: ["*/*"]
   ]
 
   @json %{ accept: %{ json: true } }
+  @turtle %{ accept: %{ turtle: true } }
 
   ###############################################################
   # General/Shared
@@ -46,6 +48,21 @@ defmodule Dispatcher do
 
   get "/search/*path", @json do
     Proxy.forward conn, path, "http://search/"
+  end
+  get "/search-queries/*path", @json do
+    Proxy.forward conn, path, "http://resource/search-queries/"
+  end
+  get "/search-queries/*path", @turtle do
+    Proxy.forward conn, path, "http://search-query-management/search-queries/"
+  end
+  put "/search-queries/*path", @turtle do
+    Proxy.forward conn, path, "http://search-query-management/search-queries/"
+  end
+  delete "/search-queries/*path", @turtle do
+    Proxy.forward conn, path, "http://search-query-management/search-queries/"
+  end
+  match "/search-query-forms/*path", @turtle do
+    Proxy.forward conn, path, "http://search-query-management/search-query-forms/"
   end
 
   ###############################################################

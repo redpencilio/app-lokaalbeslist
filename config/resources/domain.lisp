@@ -15,3 +15,4 @@
 (read-domain-file "slave-users-domain.lisp")
 (read-domain-file "slave-leidinggevenden-domain.lisp")
 (read-domain-file "master-submissions-domain.lisp")
+(read-domain-file "master-search-query.lisp")
