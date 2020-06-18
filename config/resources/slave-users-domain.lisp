@@ -8,6 +8,8 @@
                        :as "account")
               (bestuurseenheid :via ,(s-prefix "foaf:member")
                               :as "bestuurseenheden")
+              (search-query :via ,(s-prefix "searchToezicht:hasSearchQuery")
+                              :as "search-queries")
              )
   :on-path "gebruikers"
 )
