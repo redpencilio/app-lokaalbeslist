@@ -57,23 +57,23 @@ fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
 ###     form:displayType displayTypes:checkbox ; # TODO: create a form field checkbox.
 ###     sh:group fields:aDynamicPropertyGroup .
 
-### fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
-###     mu:uuid "8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91" ;
-###     sh:name "Besuurseenheid" ;
-###     sh:order 50 ;
-###     sh:path searchToezicht:administrativeUnit ;
-###     form:options  """{"conceptScheme":""}""" ; # TODO: add correct concept-scheme
-###     form:displayType displayTypes:conceptSchemeSelector ;
-###     sh:group fields:aDynamicPropertyGroup .
+fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
+    mu:uuid "8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91" ;
+    sh:name "Besuurseenheid" ;
+    sh:order 50 ;
+    sh:path searchToezicht:administrativeUnit ;
+    form:options  """{"conceptScheme":"http://concept-scheme/administrative-unit"}""" ; # TODO: add correct concept-scheme
+    form:displayType displayTypes:conceptSchemeSelector ;
+    sh:group fields:aDynamicPropertyGroup .
 
-### fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
-###     mu:uuid "73370536-ff00-4fc5-9c6a-40aeea9c14ee" ;
-###     sh:name "Provincie" ;
-###     sh:order 60 ;
-###     sh:path searchToezicht:province ;
-###     form:options  """{"conceptScheme":""}""" ; # TODO: add correct concept-scheme
-###     form:displayType displayTypes:conceptSchemeSelector ;
-###     sh:group fields:aDynamicPropertyGroup .
+fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
+    mu:uuid "73370536-ff00-4fc5-9c6a-40aeea9c14ee" ;
+    sh:name "Provincie" ;
+    sh:order 60 ;
+    sh:path searchToezicht:province ;
+    form:options  """{"conceptScheme":"http://concept-scheme/province"}""" ; # TODO: add correct concept-scheme
+    form:displayType displayTypes:conceptSchemeSelector ;
+    sh:group fields:aDynamicPropertyGroup .
 
 fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     mu:uuid "35465e1a-531a-4bab-8b19-bbd59f19cd4a" ;
@@ -84,15 +84,14 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
-### fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
-###     mu:uuid "d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6" ;
-###     sh:name "Type bestuursorgaan" ;
-###     sh:order 80 ;
-###     sh:path searchToezicht:governingBodyClassification ;
-###     form:options  """{"conceptScheme":""}""" ; # TODO: add correct concept-scheme
-###     form:displayType displayTypes:conceptSchemeSelector ;
-###     sh:group fields:aDynamicPropertyGroup .
-###
+fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
+    mu:uuid "d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6" ;
+    sh:name "Type bestuursorgaan" ;
+    sh:order 80 ;
+    sh:path searchToezicht:governingBodyClassification ;
+    form:options  """{"conceptScheme":"http://concept-scheme/governing-body-classification"}""" ; # TODO: add correct concept-scheme
+    form:displayType displayTypes:conceptSchemeSelector ;
+    sh:group fields:aDynamicPropertyGroup .
 
 # ------- -------
 
@@ -166,10 +165,10 @@ fieldGroups:configuration a form:FieldGroup ;
                 ## fields:b57d25cf-58b7-4933-b7d4-04820980ae01, TODO: enable when ready
 
                 ### Administrative Unit select
-                ## fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91, TODO: enable when ready
+                fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91,
 
                 ### Province select
-                ## fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee, TODO: enable when ready
+                fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee,
 
                 ### Administrative Unit Classification select
                 fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a,
