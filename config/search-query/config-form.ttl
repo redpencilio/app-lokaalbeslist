@@ -105,7 +105,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     sh:name "Type bestuursorgaan" ;
     sh:order 80 ;
     sh:path searchToezicht:governingBodyClassification ;
-    form:options  """{"conceptScheme":"http://concept-scheme/governing-body-classification"}""" ; # TODO: add correct concept-scheme
+    form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ; # TODO: add correct concept-scheme
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
