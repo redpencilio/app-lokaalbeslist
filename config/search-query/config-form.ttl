@@ -82,7 +82,23 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     sh:path searchToezicht:administrativeUnitClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuurseenheidClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:aDynamicPropertyGroup ;
+    form:hasConditionalFieldGroup fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2. ## Governing Body Classification
+
+fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2 a form:ConditionalFieldGroup ;
+    mu:uuid "0fe2e436-673e-4cc8-9e29-f227f18dabb2";
+    form:conditions
+      [ a form:RequiredConstraint ;
+        form:grouping form:Bag ;
+        sh:path searchToezicht:administrativeUnitClassification
+      ] ;
+    form:hasFieldGroup fieldGroups:e982310c-1c90-43a6-bdd2-a1d15ad740aa .
+
+fieldGroups:e982310c-1c90-43a6-bdd2-a1d15ad740aa a form:FieldGroup;
+    mu:uuid "e982310c-1c90-43a6-bdd2-a1d15ad740aa" ;
+    form:hasField
+                ### Governing Body Classification
+                fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 .
 
 fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     mu:uuid "d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6" ;
@@ -92,8 +108,6 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     form:options  """{"conceptScheme":"http://concept-scheme/governing-body-classification"}""" ; # TODO: add correct concept-scheme
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
-
-# ------- -------
 
 fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     mu:uuid "edcd6b86-2a9c-4c2a-a283-e536f49fbe7b" ;
@@ -149,6 +163,8 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
 # TODO: add custom date picker for "Belasting geldt vanaf"
 # TODO: add custom date picker for "Belasting geldt tot"
 
+## -- MAIN FIELD-GROUP --
+
 fieldGroups:configuration a form:FieldGroup ;
     mu:uuid "70eebdf0-14dc-47f7-85df-e1cfd41c3855" ;
     form:hasField
@@ -172,9 +188,6 @@ fieldGroups:configuration a form:FieldGroup ;
 
                 ### Administrative Unit Classification select
                 fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a,
-
-                # TODO: Should appear when a Administrative Unit Classification has been selected
-                ### Governing Body Classification select
 
                 ### Decision Type select
                 fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b,
