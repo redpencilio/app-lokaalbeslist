@@ -71,7 +71,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     sh:name "Provincie" ;
     sh:order 60 ;
     sh:path searchToezicht:province ;
-    form:options  """{"conceptScheme":"http://concept-scheme/province"}""" ; # TODO: add correct concept-scheme
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ; # TODO: add correct concept-scheme
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
