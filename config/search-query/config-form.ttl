@@ -62,7 +62,7 @@ fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
     sh:name "Besuurseenheid" ;
     sh:order 50 ;
     sh:path searchToezicht:administrativeUnit ;
-    form:options  """{"conceptScheme":"http://concept-scheme/administrative-unit"}""" ; # TODO: add correct concept-scheme
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ; # TODO: add correct concept-scheme
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
@@ -71,7 +71,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     sh:name "Provincie" ;
     sh:order 60 ;
     sh:path searchToezicht:province ;
-    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ; # TODO: add correct concept-scheme
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ;
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
@@ -105,7 +105,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     sh:name "Type bestuursorgaan" ;
     sh:order 80 ;
     sh:path searchToezicht:governingBodyClassification ;
-    form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ; # TODO: add correct concept-scheme
+    form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
