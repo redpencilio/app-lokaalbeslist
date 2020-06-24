@@ -52,6 +52,9 @@ defmodule Dispatcher do
   get "/search-queries/*path", @json do
     Proxy.forward conn, path, "http://resource/search-queries/"
   end
+  post "/search-queries/*path", @json do
+    Proxy.forward conn, path, "http://resource/search-queries/"
+  end
   get "/search-queries/*path", @turtle do
     Proxy.forward conn, path, "http://search-query-management/search-queries/"
   end
