@@ -27,7 +27,7 @@
 
 fields:147a32fe-f3dd-47f0-9dc5-43e46acc32cb a form:Field ;
     mu:uuid "147a32fe-f3dd-47f0-9dc5-43e46acc32cb";
-    sh:name "Naam filterset" ;
+    sh:name "Naam zoekopdracht" ;
     sh:order 10 ;
     sh:path skos:prefLabel ;
     form:displayType displayTypes:defaultInput ;
@@ -49,21 +49,21 @@ fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
     form:displayType displayTypes:defaultInput ;
     sh:group fields:aDynamicPropertyGroup .
 
-### fields:b57d25cf-58b7-4933-b7d4-04820980ae01 a form:Field ;
-###     mu:uuid "b57d25cf-58b7-4933-b7d4-04820980ae01";
-###     sh:name "Toon enkel te behandelen dossiers" ;
-###     sh:order 40 ;
-###     sh:path searchToezicht:status ;
-###     form:displayType displayTypes:checkbox ; # TODO: create a form field checkbox.
-###     sh:group fields:aDynamicPropertyGroup .
+fields:b57d25cf-58b7-4933-b7d4-04820980ae01 a form:Field ;
+    mu:uuid "b57d25cf-58b7-4933-b7d4-04820980ae01";
+    sh:name "Toon enkel te behandelen dossiers" ;
+    sh:order 40 ;
+    sh:path searchToezicht:status ;
+    form:displayType displayTypes:checkbox ;
+    sh:group fields:aDynamicPropertyGroup .
 
 fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
     mu:uuid "8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91" ;
     sh:name "Besuurseenheid" ;
     sh:order 50 ;
     sh:path searchToezicht:administrativeUnit ;
-    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ; # TODO: add correct concept-scheme
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
 fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
@@ -72,7 +72,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     sh:order 60 ;
     sh:path searchToezicht:province ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
 fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
@@ -81,7 +81,7 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     sh:order 70 ;
     sh:path searchToezicht:administrativeUnitClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuurseenheidClassificatieCode"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup ;
     form:hasConditionalFieldGroup fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2. ## Governing Body Classification
 
@@ -106,7 +106,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     sh:order 80 ;
     sh:path searchToezicht:governingBodyClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
 fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
@@ -115,7 +115,7 @@ fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     sh:order 90 ;
     sh:path searchToezicht:decisionType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup ;
     form:hasConditionalFieldGroup fields:0ae400e4-6897-4d86-982a-e1f74ead1f93. ### Regelementen en Verorderingen
 
@@ -142,7 +142,7 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     sh:order 100 ;
     sh:path searchToezicht:regulationType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
 # TODO: add custom date picker for "Periode zitting / besluit"
@@ -157,7 +157,7 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
     sh:order 130 ;
     sh:path searchToezicht:chartOfAccount ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/b65b15ba-6755-4cd2-bd07-2c2cf3c0e4d3"}""" ;
-    form:displayType displayTypes:conceptSchemeSelector ;
+    form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
 # TODO: add custom date picker for "Belasting geldt vanaf"
@@ -178,7 +178,7 @@ fieldGroups:configuration a form:FieldGroup ;
                 fields:be405a12-0e67-453b-8773-2e4e340f4b82,
 
                 ### Status checkbox
-                ## fields:b57d25cf-58b7-4933-b7d4-04820980ae01, TODO: enable when ready
+                fields:b57d25cf-58b7-4933-b7d4-04820980ae01,
 
                 ### Administrative Unit select
                 fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91,
