@@ -155,12 +155,24 @@ fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
  sh:path searchToezicht:sessionDate ;
  form:displayType displayTypes:dateRange ;
  sh:group fields:aDynamicPropertyGroup .
+##########################################################
+#  END session date
+##########################################################
 
 ##########################################################
-#  END Periode zitting / Besluit
+# START sent date [First version]
+##########################################################
+fields:b965ac5a-b057-44cb-98b6-602de06001c1 a form:Field ;
+ mu:uuid "b965ac5a-b057-44cb-98b6-602de06001c1" ;
+ sh:name "Periode verstuurd" ;
+ sh:order 120 ;
+ sh:path searchToezicht:sentDate ;
+ form:displayType displayTypes:dateRange ;
+ sh:group fields:aDynamicPropertyGroup .
+##########################################################
+#  END sent date
 ##########################################################
 
-# TODO: add custom date picker for "Periode verstuurd"
 
 # TODO: possible to show this in the form?
 # -- fields for "Belastingsdienst" --
@@ -174,8 +186,33 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
-# TODO: add custom date picker for "Belasting geldt vanaf"
-# TODO: add custom date picker for "Belasting geldt tot"
+##########################################################
+# START date-of-entry-into-force [First version]
+##########################################################
+fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
+ mu:uuid "ebb08452-0f6d-4125-a04a-52cb75d95bf8" ;
+ sh:name "Belasting geldt vanaf" ;
+ sh:order 140 ;
+ sh:path searchToezicht:dateOfEntryIntoForce ;
+ form:displayType displayTypes:dateRange ;
+ sh:group fields:aDynamicPropertyGroup .
+##########################################################
+#  END date-of-entry-into-force
+##########################################################
+
+##########################################################
+# START date-no-longer-in-force [First version]
+##########################################################
+fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
+ mu:uuid "fbcfc425-b7a2-4212-a649-de9998280e5a" ;
+ sh:name "Belasting geldt tot" ;
+ sh:order 150 ;
+ sh:path searchToezicht:dateNoLongerInForce ;
+ form:displayType displayTypes:dateRange ;
+ sh:group fields:aDynamicPropertyGroup .
+##########################################################
+#  END date-no-longer-in-force
+##########################################################
 
 ## -- MAIN FIELD-GROUP --
 
@@ -208,13 +245,18 @@ fieldGroups:configuration a form:FieldGroup ;
 
                 ### Session Date From-To datepicker
                 fields:6565db60-c0d3-4878-b240-35d661b3ca86,
+
                 ### Sent Date From-To datepicker
+                fields:b965ac5a-b057-44cb-98b6-602de06001c1,
 
                 ### Chart Of Accounts select
-                fields:23094e06-3d68-4c90-b4a6-725893feddeb .
+                fields:23094e06-3d68-4c90-b4a6-725893feddeb,
 
                 ### Date Of Entry Into Force From-To datepicker
+                fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8,
+
                 ### Date No Longer In Force From-To datepicker
+                fields:fbcfc425-b7a2-4212-a649-de9998280e5a.
 
 form: a form:Form ;
     mu:uuid "6b70a6f0-cce2-4afe-81f5-5911f45b0b27" ;
