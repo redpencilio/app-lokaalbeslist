@@ -145,7 +145,21 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     sh:group fields:aDynamicPropertyGroup .
 
-# TODO: add custom date picker for "Periode zitting / besluit"
+##########################################################
+# START session date [First version]
+##########################################################
+fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
+ mu:uuid "6565db60-c0d3-4878-b240-35d661b3ca86" ;
+ sh:name "Periode zitting / besluit" ;
+ sh:order 110 ;
+ sh:path searchToezicht:sessionDate ;
+ form:displayType displayTypes:dateRange ;
+ sh:group fields:aDynamicPropertyGroup .
+
+##########################################################
+#  END Periode zitting / Besluit
+##########################################################
+
 # TODO: add custom date picker for "Periode verstuurd"
 
 # TODO: possible to show this in the form?
@@ -193,6 +207,7 @@ fieldGroups:configuration a form:FieldGroup ;
                 fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b,
 
                 ### Session Date From-To datepicker
+                fields:6565db60-c0d3-4878-b240-35d661b3ca86,
                 ### Sent Date From-To datepicker
 
                 ### Chart Of Accounts select
