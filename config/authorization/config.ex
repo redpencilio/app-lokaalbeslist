@@ -73,6 +73,24 @@ defmodule Acl.UserGroups.Config do
                       ]
                     } } ] },
       %GroupSpec{
+        name: "users",
+        useage: [:write],
+        access: %AccessByQuery{
+          vars: ["session_group"],
+          query: "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+                  PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+                  SELECT DISTINCT ?session_group WHERE {
+                    <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group
+                    }" },
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/organizations/",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                       "http://xmlns.com/foaf/0.1/Person",
+                       "http://lblod.data.gift/vocabularies/search-queries-toezicht/SearchQuery"
+                      ]
+                    } } ] },
+      %GroupSpec{
         name: "editors",
         useage: [:write],
         access: %AccessByQuery{
@@ -88,9 +106,7 @@ defmodule Acl.UserGroups.Config do
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{
                       resource_types: [
-                        "http://schema.org/Review",
-                         "http://xmlns.com/foaf/0.1/Person",
-                        "http://lblod.data.gift/vocabularies/search-queries-toezicht/SearchQuery"
+                        "http://schema.org/Review"
                       ] } } ] },
 
       # // CLEANUP
