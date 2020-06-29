@@ -23,49 +23,80 @@
 @prefix search: <http://redpencil.data.gift/vocabularies/search-queries/> .
 @prefix searchToezicht: <http://lblod.data.gift/vocabularies/search-queries-toezicht/> .
 
-# -- FIELDS --
-
+##########################################################
+# START name
+##########################################################
 fields:147a32fe-f3dd-47f0-9dc5-43e46acc32cb a form:Field ;
     mu:uuid "147a32fe-f3dd-47f0-9dc5-43e46acc32cb";
     sh:name "Naam zoekopdracht" ;
     sh:order 10 ;
     sh:path skos:prefLabel ;
     form:displayType displayTypes:defaultInput ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:06a9d9de-8498-461a-8862-60edce232c7f .
+##########################################################
+# START name
+##########################################################
 
+##########################################################
+# START comment
+##########################################################
 fields:90d8c997-eb61-4fed-9ece-dd4c16dd648c a form:Field ;
     mu:uuid "90d8c997-eb61-4fed-9ece-dd4c16dd648c";
     sh:name "Beschrijving" ;
     sh:order 20 ;
     sh:path skos:comment ;
     form:displayType displayTypes:textArea ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:06a9d9de-8498-461a-8862-60edce232c7f .
+##########################################################
+# END comment
+##########################################################
 
+##########################################################
+# START search-term
+##########################################################
 fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
     mu:uuid "be405a12-0e67-453b-8773-2e4e340f4b82";
     sh:name "Zoekterm" ;
     sh:order 30 ;
     sh:path search:term ;
     form:displayType displayTypes:defaultInput ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+##########################################################
+# END search-term
+##########################################################
 
+##########################################################
+# START status
+##########################################################
 fields:b57d25cf-58b7-4933-b7d4-04820980ae01 a form:Field ;
     mu:uuid "b57d25cf-58b7-4933-b7d4-04820980ae01";
     sh:name "Toon enkel te behandelen dossiers" ;
     sh:order 40 ;
     sh:path searchToezicht:status ;
     form:displayType displayTypes:checkbox ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+##########################################################
+# END status
+##########################################################
 
+##########################################################
+# START administrative unit
+##########################################################
 fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
     mu:uuid "8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91" ;
-    sh:name "Besuurseenheid" ;
+    sh:name "Bestuurseenheid" ;
     sh:order 50 ;
     sh:path searchToezicht:administrativeUnit ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+##########################################################
+# END administrative unit
+##########################################################
 
+##########################################################
+# START province
+##########################################################
 fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     mu:uuid "73370536-ff00-4fc5-9c6a-40aeea9c14ee" ;
     sh:name "Provincie" ;
@@ -73,8 +104,14 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     sh:path searchToezicht:province ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+##########################################################
+# START province
+##########################################################
 
+##########################################################
+# START administrative unit classification
+##########################################################
 fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     mu:uuid "35465e1a-531a-4bab-8b19-bbd59f19cd4a" ;
     sh:name "Type bestuur" ;
@@ -82,7 +119,7 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     sh:path searchToezicht:administrativeUnitClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuurseenheidClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup ;
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 ;
     form:hasConditionalFieldGroup fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2. ## Governing Body Classification
 
 fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2 a form:ConditionalFieldGroup ;
@@ -99,7 +136,13 @@ fieldGroups:e982310c-1c90-43a6-bdd2-a1d15ad740aa a form:FieldGroup;
     form:hasField
                 ### Governing Body Classification
                 fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 .
+##########################################################
+# END administrative unit classification
+##########################################################
 
+##########################################################
+# START governing body classification
+##########################################################
 fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     mu:uuid "d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6" ;
     sh:name "Type bestuursorgaan" ;
@@ -107,8 +150,14 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     sh:path searchToezicht:governingBodyClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+##########################################################
+# START governing body classification
+##########################################################
 
+##########################################################
+# START decision type
+##########################################################
 fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     mu:uuid "edcd6b86-2a9c-4c2a-a283-e536f49fbe7b" ;
     sh:name "Categorie dossier" ;
@@ -116,7 +165,7 @@ fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     sh:path searchToezicht:decisionType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup ;
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e ;
     form:hasConditionalFieldGroup fields:0ae400e4-6897-4d86-982a-e1f74ead1f93. ### Regelementen en Verorderingen
 
 fields:0ae400e4-6897-4d86-982a-e1f74ead1f93 a form:ConditionalFieldGroup ;
@@ -135,7 +184,13 @@ fieldGroups:3a60def6-107e-4716-bc5f-2f2e108f7fab a form:FieldGroup;
     form:hasField
                 ### Regulation Type
                 fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f .
+##########################################################
+# END decision type
+##########################################################
 
+##########################################################
+# START regulation type
+##########################################################
 fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     mu:uuid "4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f" ;
     sh:name "Subcategorie: Type reglement of verordening" ;
@@ -143,7 +198,10 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     sh:path searchToezicht:regulationType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+##########################################################
+# END regulation type
+##########################################################
 
 ##########################################################
 # START session date [First version]
@@ -154,7 +212,7 @@ fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
  sh:order 110 ;
  sh:path searchToezicht:sessionDate ;
  form:displayType displayTypes:dateRange ;
- sh:group fields:aDynamicPropertyGroup .
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 #  END session date
 ##########################################################
@@ -168,15 +226,14 @@ fields:b965ac5a-b057-44cb-98b6-602de06001c1 a form:Field ;
  sh:order 120 ;
  sh:path searchToezicht:sentDate ;
  form:displayType displayTypes:dateRange ;
- sh:group fields:aDynamicPropertyGroup .
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 #  END sent date
 ##########################################################
 
-
-# TODO: possible to show this in the form?
-# -- fields for "Belastingsdienst" --
-
+##########################################################
+# START chart of account
+##########################################################
 fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
     mu:uuid "23094e06-3d68-4c90-b4a6-725893feddeb" ;
     sh:name "MAR-code" ;
@@ -184,7 +241,10 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
     sh:path searchToezicht:chartOfAccount ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/b65b15ba-6755-4cd2-bd07-2c2cf3c0e4d3"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
-    sh:group fields:aDynamicPropertyGroup .
+    sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
+##########################################################
+# END chart of account
+##########################################################
 
 ##########################################################
 # START date-of-entry-into-force [First version]
@@ -195,7 +255,7 @@ fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
  sh:order 140 ;
  sh:path searchToezicht:dateOfEntryIntoForce ;
  form:displayType displayTypes:dateRange ;
- sh:group fields:aDynamicPropertyGroup .
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
 #  END date-of-entry-into-force
 ##########################################################
@@ -209,13 +269,42 @@ fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
  sh:order 150 ;
  sh:path searchToezicht:dateNoLongerInForce ;
  form:displayType displayTypes:dateRange ;
- sh:group fields:aDynamicPropertyGroup .
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
 #  END date-no-longer-in-force
 ##########################################################
 
-## -- MAIN FIELD-GROUP --
+##########################################################
+#  START property-groups
+##########################################################
+### TODO : improve descriptions so that they give a better indications on what this property-groups hold
+fields:06a9d9de-8498-461a-8862-60edce232c7f a form:PropertyGroup;
+    mu:uuid "06a9d9de-8498-461a-8862-60edce232c7f";
+    sh:description "used to split-up the form in different sections, mainly for styling";
+    sh:order 1 .
 
+fields:015d85ac-7ff0-424d-862e-6c38626ea915 a form:PropertyGroup;
+    mu:uuid "015d85ac-7ff0-424d-862e-6c38626ea915";
+    sh:description "used to split-up the form in different sections, mainly for styling";
+    sh:order 2 .
+
+fields:cb08e556-459d-4378-a79b-51f35c9a965e a form:PropertyGroup;
+    mu:uuid "cb08e556-459d-4378-a79b-51f35c9a965e";
+    sh:description "used to split-up the form in different sections, mainly for styling";
+    sh:order 3 .
+
+fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
+    mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
+    sh:description "used to split-up the form in different sections, mainly for styling";
+    sh:order 4;
+    sh:name "Subcategorie: Belasting of retributie".
+##########################################################
+#  END property-groups
+##########################################################
+
+##########################################################
+#  START main-form
+##########################################################
 fieldGroups:configuration a form:FieldGroup ;
     mu:uuid "70eebdf0-14dc-47f7-85df-e1cfd41c3855" ;
     form:hasField
@@ -261,9 +350,6 @@ fieldGroups:configuration a form:FieldGroup ;
 form: a form:Form ;
     mu:uuid "6b70a6f0-cce2-4afe-81f5-5911f45b0b27" ;
     form:hasFieldGroup fieldGroups:configuration .
-
-fields:aDynamicPropertyGroup a form:PropertyGroup;
-    mu:uuid "8c71b3db-db4b-45ea-8333-ab000adcca4e";
-    sh:description "A dynamic property group";
-    sh:order 3;
-    sh:name "aDynamicPropertyGroup".
+##########################################################
+#  END main-form
+##########################################################
