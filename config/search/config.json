@@ -5,6 +5,8 @@
   "eager_indexing_sparql_query": false,
   "additive_indexes": true,
   "persist_indexes": true,
+  "update_wait_interval_minutes": 0,
+  "automatic_index_updates": true,
   "eager_indexing_groups": [
     [{ "name": "clean", "variables": [] }],
     [{ "name": "public", "variables": [] }],
