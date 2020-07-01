@@ -7,6 +7,7 @@ defmodule Dispatcher do
   ]
 
   @json %{ accept: %{ json: true } }
+  @any %{ accept: %{ any: true } }
 
   ###############################################################
   # General/Shared
@@ -33,7 +34,7 @@ defmodule Dispatcher do
   get "/gebruikers/*path", @json do
     Proxy.forward conn, path, "http://cache/gebruikers/"
   end
-  get "/files/:id/download", @json do
+  get "/files/:id/download", @any do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
   end
   get "/files/*path", @json do
