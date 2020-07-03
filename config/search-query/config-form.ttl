@@ -5,6 +5,7 @@
 @prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
 @prefix fieldGroups: <http://data.lblod.info/field-groups/> .
 @prefix fields: <http://data.lblod.info/fields/> .
+@prefix dateRange: <http://data.lblod.info/form-fields/date-range/> .
 @prefix displayTypes: <http://lblod.data.gift/display-types/> .
 @prefix eli: <http://data.europa.eu/eli/ontology#>.
 @prefix besluit: <http://data.vlaanderen.be/ns/besluit#>.
@@ -210,28 +211,54 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
 ##########################################################
 
 ##########################################################
-# START session date [First version]
+# START session date [second version]
 ##########################################################
 fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
  mu:uuid "6565db60-c0d3-4878-b240-35d661b3ca86" ;
  sh:name "Periode zitting / besluit" ;
  sh:order 110 ;
- sh:path searchToezicht:sessionDate ;
  form:displayType displayTypes:dateRange ;
+ dateRange:from fields:272dfe20-518b-4025-b782-a0ec06b48850;
+ dateRange:to fields:db613412-727e-486f-8a11-7fc25abed640;
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+
+fields:272dfe20-518b-4025-b782-a0ec06b48850 a form:Field ;
+ mu:uuid "272dfe20-518b-4025-b782-a0ec06b48850" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:sessionDateFrom ;
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+
+fields:db613412-727e-486f-8a11-7fc25abed640 a form:Field ;
+ mu:uuid "db613412-727e-486f-8a11-7fc25abed640" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:sessionDateTo ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 #  END session date
 ##########################################################
 
 ##########################################################
-# START sent date [First version]
+# START sent date [second version]
 ##########################################################
 fields:b965ac5a-b057-44cb-98b6-602de06001c1 a form:Field ;
  mu:uuid "b965ac5a-b057-44cb-98b6-602de06001c1" ;
  sh:name "Periode verstuurd" ;
  sh:order 120 ;
- sh:path searchToezicht:sentDate ;
  form:displayType displayTypes:dateRange ;
+ dateRange:from fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288;
+ dateRange:to fields:a4317e79-bf56-4a8d-95c9-35960a44ec05;
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+
+fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288 a form:Field ;
+ mu:uuid "c5ef6328-dca5-4e65-b9d8-0a1b5387f288" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:sentDateFrom ;
+ sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+
+fields:a4317e79-bf56-4a8d-95c9-35960a44ec05 a form:Field ;
+ mu:uuid "a4317e79-bf56-4a8d-95c9-35960a44ec05" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:sentDateTo ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 #  END sent date
@@ -254,28 +281,54 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
 ##########################################################
 
 ##########################################################
-# START date-of-entry-into-force [First version]
+# START date-of-entry-into-force [second version]
 ##########################################################
 fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
  mu:uuid "ebb08452-0f6d-4125-a04a-52cb75d95bf8" ;
  sh:name "Belasting geldt vanaf" ;
  sh:order 140 ;
- sh:path searchToezicht:dateOfEntryIntoForce ;
  form:displayType displayTypes:dateRange ;
+ dateRange:from fields:f93be419-4d2c-470f-8ad5-36ec90c8870d;
+ dateRange:to fields:4f61e446-1a15-4ffc-b474-f74c8e059bef;
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
+
+fields:f93be419-4d2c-470f-8ad5-36ec90c8870d a form:Field ;
+ mu:uuid "f93be419-4d2c-470f-8ad5-36ec90c8870d" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:dateOfEntryIntoForceFrom ;
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
+
+fields:4f61e446-1a15-4ffc-b474-f74c8e059bef a form:Field ;
+ mu:uuid "4f61e446-1a15-4ffc-b474-f74c8e059bef" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:dateOfEntryIntoForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
 #  END date-of-entry-into-force
 ##########################################################
 
 ##########################################################
-# START date-no-longer-in-force [First version]
+# START date-no-longer-in-force [second version]
 ##########################################################
 fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
  mu:uuid "fbcfc425-b7a2-4212-a649-de9998280e5a" ;
  sh:name "Belasting geldt tot" ;
  sh:order 150 ;
- sh:path searchToezicht:dateNoLongerInForce ;
  form:displayType displayTypes:dateRange ;
+ dateRange:from fields:2a7bec27-1094-4254-86d1-4c63d90ca61e;
+ dateRange:to fields:9fcec521-f610-47c7-b9d3-9258ade026f8;
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
+
+fields:2a7bec27-1094-4254-86d1-4c63d90ca61e a form:Field ;
+ mu:uuid "2a7bec27-1094-4254-86d1-4c63d90ca61e" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:dateNoLongerInForceFrom ;
+ sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
+
+fields:9fcec521-f610-47c7-b9d3-9258ade026f8 a form:Field ;
+ mu:uuid "9fcec521-f610-47c7-b9d3-9258ade026f8" ;
+ sh:order 2001 ;
+ sh:path searchToezicht:dateNoLongerInForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
 #  END date-no-longer-in-force
