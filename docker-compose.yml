@@ -137,6 +137,7 @@ services:
     restart: always
     environment:
       - discovery.type=single-node
+      - http.max_content_length=2000MB
     # logging: *default-logging
     # labels:
     #   - "logging=true"
