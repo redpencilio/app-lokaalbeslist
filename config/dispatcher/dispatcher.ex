@@ -153,6 +153,10 @@ defmodule Dispatcher do
     forward conn, [], "http://toezicht-abb/index.html"
   end
 
+  #################################################################
+  # 404
+  #################################################################
+
   match "/*_", %{ last_call: true } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
