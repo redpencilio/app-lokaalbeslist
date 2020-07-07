@@ -45,46 +45,41 @@
           "http://purl.org/pav/createdBy",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "administrativeUnitUUID": [
-          "http://purl.org/pav/createdBy",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+        "administrativeUnitURI": [
+          "http://purl.org/pav/createdBy"
         ],
         "province": [
           "http://purl.org/pav/createdBy",
           "http://mu.semte.ch/vocabularies/ext/inProvincie",
           "http://www.w3.org/2000/01/rdf-schema#label"
         ],
-        "provinceUUID": [
+        "provinceURI": [
           "http://purl.org/pav/createdBy",
-          "http://mu.semte.ch/vocabularies/ext/inProvincie",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://mu.semte.ch/vocabularies/ext/inProvincie"
         ],
         "administrativeUnitClassification": [
           "http://purl.org/pav/createdBy",
           "http://data.vlaanderen.be/ns/besluit#classificatie",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "administrativeUnitClassificationUUID": [
+        "administrativeUnitClassificationURI": [
           "http://purl.org/pav/createdBy",
-          "http://data.vlaanderen.be/ns/besluit#classificatie",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://data.vlaanderen.be/ns/besluit#classificatie"
         ],
-        "documentTypeUUID": [
+        "documentTypeURI": [
           "http://www.w3.org/ns/prov#generated",
-          "http://purl.org/dc/terms/type",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://purl.org/dc/terms/type"
         ],
         "documentType": [
           "http://www.w3.org/ns/prov#generated",
           "http://purl.org/dc/terms/type",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "governingBodyClassificationUUID": [
+        "governingBodyClassificationURI": [
           "http://www.w3.org/ns/prov#generated",
           "http://data.europa.eu/eli/ontology#passed_by",
           "http://data.vlaanderen.be/ns/mandaat#isTijdspecialisatieVan",
-          "http://data.vlaanderen.be/ns/besluit#classificatie",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://data.vlaanderen.be/ns/besluit#classificatie"
         ],
         "governingBodyClassification": [
           "http://www.w3.org/ns/prov#generated",
@@ -98,25 +93,22 @@
           "http://mu.semte.ch/vocabularies/ext/decisionType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "decisionTypeUUID": [
+        "decisionTypeURI": [
           "http://www.w3.org/ns/prov#generated",
-          "http://mu.semte.ch/vocabularies/ext/decisionType",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://mu.semte.ch/vocabularies/ext/decisionType"
         ],
         "regulationType": [
           "http://www.w3.org/ns/prov#generated",
           "http://mu.semte.ch/vocabularies/ext/regulationType",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "regulationTypeUUID": [
+        "regulationTypeURI": [
           "http://www.w3.org/ns/prov#generated",
-          "http://mu.semte.ch/vocabularies/ext/regulationType",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://mu.semte.ch/vocabularies/ext/regulationType"
         ],
-        "taxTypeUUID": [
+        "taxTypeURI": [
           "http://www.w3.org/ns/prov#generated",
-          "http://mu.semte.ch/vocabularies/ext/taxType",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://mu.semte.ch/vocabularies/ext/taxType"
         ],
         "taxType": [
           "http://www.w3.org/ns/prov#generated",
@@ -148,10 +140,9 @@
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
           "http://mu.semte.ch/vocabularies/ext/searchLabel"
         ],
-        "chartOfAccountUUID": [
+        "chartOfAccountURI": [
           "http://www.w3.org/ns/prov#generated",
-          "http://lblod.data.gift/vocabularies/besluit/chartOfAccount",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://lblod.data.gift/vocabularies/besluit/chartOfAccount"
         ],
         "dateOfEntryIntoForce": [
           "http://www.w3.org/ns/prov#generated",
