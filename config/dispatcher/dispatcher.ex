@@ -3,11 +3,13 @@ defmodule Dispatcher do
 
   define_accept_types [
     json: [ "application/json", "application/vnd.api+json" ],
+    html: [ "text/html", "application/xhtml+html" ],
     any: ["*/*"]
   ]
 
   @json %{ accept: %{ json: true } }
   @any %{ accept: %{ any: true } }
+  @html %{ accept: %{ html: true } }
 
   ###############################################################
   # General/Shared
@@ -128,6 +130,27 @@ defmodule Dispatcher do
 
   match "/submission-reviews/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-reviews/"
+  end
+
+  ###############################################################
+  # Frontend (toezicht-abb)
+  ###############################################################
+  get "/favicon.ico", @any do
+    send_resp( conn, 404, "" )
+  end
+
+  get "/assets/*path", @any do
+    forward conn, path, "http://toezicht-abb/assets/"
+  end
+
+  get "/@appuniversum/*path", @any do
+    forward conn, path, "http://toezicht-abb/@appuniversum/"
+  end
+
+  match "/*_path", @html do
+    # *_path allows a path to be supplied, but will not yield
+    # an error that we don't use the path variable.
+    forward conn, [], "http://toezicht-abb/index.html"
   end
 
   match "/*_", %{ last_call: true } do
