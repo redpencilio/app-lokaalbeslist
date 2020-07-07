@@ -4,11 +4,15 @@ defmodule Dispatcher do
   define_accept_types [
     json: [ "application/json", "application/vnd.api+json" ],
     turtle: ["text/turtle", "application/n-triples"],
+    html: [ "text/html", "application/xhtml+html" ],
     any: ["*/*"]
   ]
 
   @json %{ accept: %{ json: true } }
   @turtle %{ accept: %{ turtle: true } }
+  @any %{ accept: %{ any: true } }
+  @html %{ accept: %{ html: true } }
+>>>>>>> feature/dispatcher-version-2.0.0
 
   ###############################################################
   # General/Shared
@@ -35,7 +39,7 @@ defmodule Dispatcher do
   get "/gebruikers/*path", @json do
     Proxy.forward conn, path, "http://cache/gebruikers/"
   end
-  get "/files/:id/download", @json do
+  get "/files/:id/download", @any do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
   end
   get "/files/*path", @json do
@@ -148,6 +152,31 @@ defmodule Dispatcher do
   match "/submission-reviews/*path", @json do
     Proxy.forward conn, path, "http://cache/submission-reviews/"
   end
+
+  ###############################################################
+  # Frontend (toezicht-abb)
+  ###############################################################
+  get "/favicon.ico", @any do
+    send_resp( conn, 404, "" )
+  end
+
+  get "/assets/*path", @any do
+    forward conn, path, "http://toezicht-abb/assets/"
+  end
+
+  get "/@appuniversum/*path", @any do
+    forward conn, path, "http://toezicht-abb/@appuniversum/"
+  end
+
+  match "/*_path", @html do
+    # *_path allows a path to be supplied, but will not yield
+    # an error that we don't use the path variable.
+    forward conn, [], "http://toezicht-abb/index.html"
+  end
+
+  #################################################################
+  # 404
+  #################################################################
 
   match "/*_", %{ last_call: true } do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
