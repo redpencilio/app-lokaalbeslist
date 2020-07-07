@@ -158,7 +158,7 @@ services:
     restart: always
     logging: *default-logging
   search-query-management:
-    image: lblod/toezicht-search-query-management-service:0.2.1
+    image: lblod/toezicht-search-query-management-service:0.2.2
     volumes:
       - ./config/search-query:/share/search-query
 
