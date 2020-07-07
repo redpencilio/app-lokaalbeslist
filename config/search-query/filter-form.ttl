@@ -48,7 +48,7 @@ fields:b57d25cf-58b7-4933-b7d4-04820980ae01 a form:Field ;
     sh:order 40 ;
     search:key "status" ;
     sh:path searchToezicht:status ;
-    form:displayType displayTypes:checkbox ;
+    form:displayType displayTypes:switch ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
 ##########################################################
 # END status
@@ -356,7 +356,7 @@ fieldGroups:configuration a form:FieldGroup ;
                 ### Search input-field
                 fields:be405a12-0e67-453b-8773-2e4e340f4b82,
 
-                ### Status checkbox
+                ### Status switch
                 fields:b57d25cf-58b7-4933-b7d4-04820980ae01,
 
                 ### Administrative Unit select
