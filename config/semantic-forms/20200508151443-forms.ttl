@@ -27,7 +27,7 @@
 # TODO: the list of dossiers to propose should differ from bestuurseenheidType to bestuurseenheidtype
 fields:0827fafe-ad19-49e1-8b2e-105d2c08a54a a form:Field ;
     mu:uuid "0827fafe-ad19-49e1-8b2e-105d2c08a54a" ;
-    sh:name "Type dossier" ;
+    sh:name "Categorie dossier" ;
     sh:order 100 ;
     sh:path rdf:type ;
     form:validations
