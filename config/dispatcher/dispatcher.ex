@@ -12,7 +12,6 @@ defmodule Dispatcher do
   @turtle %{ accept: %{ turtle: true } }
   @any %{ accept: %{ any: true } }
   @html %{ accept: %{ html: true } }
->>>>>>> feature/dispatcher-version-2.0.0
 
   ###############################################################
   # General/Shared
