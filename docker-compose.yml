@@ -118,7 +118,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.6.1
+    image: semtech/mu-search:0.6.2
     volumes:
        - ./config/search:/config
        - ./data/files:/data
@@ -137,6 +137,7 @@ services:
     restart: always
     environment:
       - discovery.type=single-node
+      - http.max_content_length=2000MB
     # logging: *default-logging
     # labels:
     #   - "logging=true"
