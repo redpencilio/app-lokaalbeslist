@@ -119,10 +119,9 @@
           "http://www.w3.org/ns/adms#status",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
-        "statusUUID": [
+        "statusURI": [
           "^http://schema.org/itemReviewed",
-          "http://www.w3.org/ns/adms#status",
-          "http://mu.semte.ch/vocabularies/core/uuid"
+          "http://www.w3.org/ns/adms#status"
         ],
         "sessionDatetime": [
           "http://www.w3.org/ns/prov#generated",
@@ -173,22 +172,25 @@
             "search_analyzer": "dutchanalyzer",
             "term_vector": "with_positions_offsets_payloads"
           },
-          "province": {
+          "administrativeUnitURI": {
             "type": "keyword"
           },
-          "status": {
+          "administrativeUnitClassificationURI": {
             "type": "keyword"
           },
-          "administrativeUnit": {
+          "governingBodyClassificationURI": {
             "type": "keyword"
           },
-          "administrativeUnitClassification": {
+          "provinceURI": {
             "type": "keyword"
           },
-          "decisionType": {
+          "documentTypeURI": {
             "type": "keyword"
           },
-          "documentType": {
+          "regulationTypeURI": {
+            "type": "keyword"
+          },
+          "statusURI": {
             "type": "keyword"
           },
           "sentDate": {
