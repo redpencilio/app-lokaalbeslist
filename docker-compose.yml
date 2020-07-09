@@ -11,7 +11,7 @@ services:
   toezicht-abb:
     image: lblod/frontend-toezicht-abb:0.20.2
     links:
-      - identifier:backend
+      - identifier:backend  # Note: with mu-dispatcher:2.0.0, this becomes obsolete, but needs fixing..
     restart: always
     labels:
       - "logging=true"
