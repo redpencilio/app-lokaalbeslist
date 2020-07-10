@@ -9,12 +9,12 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.20.2
-    links:
-      - identifier:backend  # Note: with mu-dispatcher:2.0.0, this becomes obsolete, but needs fixing..
+    image: lblod/frontend-toezicht-abb:0.21.0
     restart: always
     labels:
       - "logging=true"
+    volumes:
+      - ./config/frontend:/config
     logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.8.0
