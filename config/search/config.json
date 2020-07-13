@@ -172,6 +172,24 @@
             "search_analyzer": "dutchanalyzer",
             "term_vector": "with_positions_offsets_payloads"
           },
+          "province": {
+            "type": "keyword"
+          },
+          "status": {
+            "type": "keyword"
+          },
+          "administrativeUnit": {
+            "type": "keyword"
+          },
+          "administrativeUnitClassification": {
+            "type": "keyword"
+          },
+          "decisionType": {
+            "type": "keyword"
+          },
+          "documentType": {
+            "type": "keyword"
+          },
           "administrativeUnitURI": {
             "type": "keyword"
           },
