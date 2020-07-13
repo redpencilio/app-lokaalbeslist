@@ -11,6 +11,7 @@
               (search-query :via ,(s-prefix "searchToezicht:hasSearchQuery")
                               :as "search-queries")
              )
+  :features `(include-uri)
   :on-path "gebruikers"
 )
 

@@ -3,6 +3,9 @@
   :properties `((:label :string ,(s-prefix "skos:prefLabel"))
                 (:comment :string ,(s-prefix "skos:comment"))
                 (:created :datetime ,(s-prefix "dct:created")))
+  :has-one `((gebruiker :via ,(s-prefix "searchToezicht:hasSearchQuery")
+                         :inverse t
+                         :as "user"))
   :resource-base (s-url "http://lblod.data.gift/vocabularies/search-queries-toezicht/")
   :features `(include-uri)
   :on-path "search-queries")
