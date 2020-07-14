@@ -31,7 +31,7 @@ fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
     mu:uuid "be405a12-0e67-453b-8773-2e4e340f4b82";
     sh:name "Zoekterm" ;
     sh:order 30 ;
-    search:key "search" ;
+    search:emberQueryParameterKey "search" ;
     sh:path search:term ;
     form:displayType displayTypes:defaultInput ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
@@ -46,7 +46,7 @@ fields:b57d25cf-58b7-4933-b7d4-04820980ae01 a form:Field ;
     mu:uuid "b57d25cf-58b7-4933-b7d4-04820980ae01";
     sh:name "Toon enkel te behandelen dossiers" ;
     sh:order 40 ;
-    search:key "status" ;
+    search:emberQueryParameterKey "status" ;
     sh:path searchToezicht:status ;
     form:displayType displayTypes:switch ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
@@ -61,7 +61,7 @@ fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
     mu:uuid "8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91" ;
     sh:name "Bestuurseenheid" ;
     sh:order 50 ;
-    search:key "administrativeUnites" ;
+    search:emberQueryParameterKey "administrativeUnites" ;
     sh:path searchToezicht:administrativeUnit ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -78,7 +78,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     mu:uuid "73370536-ff00-4fc5-9c6a-40aeea9c14ee" ;
     sh:name "Provincie" ;
     sh:order 60 ;
-    search:key "provinces" ;
+    search:emberQueryParameterKey "provinces" ;
     sh:path searchToezicht:province ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -95,7 +95,7 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     mu:uuid "35465e1a-531a-4bab-8b19-bbd59f19cd4a" ;
     sh:name "Type bestuur" ;
     sh:order 70 ;
-    search:key "administrativeUnitClassifications" ;
+    search:emberQueryParameterKey "administrativeUnitClassifications" ;
     sh:path searchToezicht:administrativeUnitClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuurseenheidClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -128,7 +128,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     mu:uuid "d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6" ;
     sh:name "Type bestuursorgaan" ;
     sh:order 80 ;
-    search:key "governingBodyClassifications" ;
+    search:emberQueryParameterKey "governingBodyClassifications" ;
     sh:path searchToezicht:governingBodyClassification ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -146,7 +146,7 @@ fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     sh:name "Categorie dossier" ;
     sh:order 90 ;
     sh:path searchToezicht:decisionType ;
-    search:key "decisionTypes" ;
+    search:emberQueryParameterKey "decisionTypes" ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Specifiek besluiten: Reglementen en verordeningen, belasting of retributie, ... of agenda, besluitenlijst of notulen" ;
@@ -180,7 +180,7 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     mu:uuid "4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f" ;
     sh:name "Subcategorie: Type reglement of verordening" ;
     sh:order 100 ;
-    search:key "regulationTypes" ;
+    search:emberQueryParameterKey "regulationTypes" ;
     sh:path searchToezicht:regulationType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -205,14 +205,14 @@ fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
 fields:272dfe20-518b-4025-b782-a0ec06b48850 a form:Field ;
  mu:uuid "272dfe20-518b-4025-b782-a0ec06b48850" ;
  sh:order 2001 ;
- search:key "sessionDateFrom" ;
+ search:emberQueryParameterKey "sessionDateFrom" ;
  sh:path searchToezicht:sessionDateFrom ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 
 fields:db613412-727e-486f-8a11-7fc25abed640 a form:Field ;
  mu:uuid "db613412-727e-486f-8a11-7fc25abed640" ;
  sh:order 2001 ;
- search:key "sessionDateTo" ;
+ search:emberQueryParameterKey "sessionDateTo" ;
  sh:path searchToezicht:sessionDateTo ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
@@ -234,14 +234,14 @@ fields:b965ac5a-b057-44cb-98b6-602de06001c1 a form:Field ;
 fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288 a form:Field ;
  mu:uuid "c5ef6328-dca5-4e65-b9d8-0a1b5387f288" ;
  sh:order 2001 ;
- search:key "sentDateFrom" ;
+ search:emberQueryParameterKey "sentDateFrom" ;
  sh:path searchToezicht:sentDateFrom ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 
 fields:a4317e79-bf56-4a8d-95c9-35960a44ec05 a form:Field ;
  mu:uuid "a4317e79-bf56-4a8d-95c9-35960a44ec05" ;
  sh:order 2001 ;
- search:key "sentDateTo" ;
+ search:emberQueryParameterKey "sentDateTo" ;
  sh:path searchToezicht:sentDateTo ;
  sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
@@ -255,7 +255,7 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
     mu:uuid "23094e06-3d68-4c90-b4a6-725893feddeb" ;
     sh:name "MAR-code" ;
     sh:order 130 ;
-    search:key "chartOfAccounts" ;
+    search:emberQueryParameterKey "chartOfAccounts" ;
     sh:path searchToezicht:chartOfAccount ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/b65b15ba-6755-4cd2-bd07-2c2cf3c0e4d3"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
@@ -280,14 +280,14 @@ fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
 fields:f93be419-4d2c-470f-8ad5-36ec90c8870d a form:Field ;
  mu:uuid "f93be419-4d2c-470f-8ad5-36ec90c8870d" ;
  sh:order 2001 ;
- search:key "dateOfEntryIntoForceFrom" ;
+ search:emberQueryParameterKey "dateOfEntryIntoForceFrom" ;
  sh:path searchToezicht:dateOfEntryIntoForceFrom ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 
 fields:4f61e446-1a15-4ffc-b474-f74c8e059bef a form:Field ;
  mu:uuid "4f61e446-1a15-4ffc-b474-f74c8e059bef" ;
  sh:order 2001 ;
- search:key "dateOfEntryIntoForceTo" ;
+ search:emberQueryParameterKey "dateOfEntryIntoForceTo" ;
  sh:path searchToezicht:dateOfEntryIntoForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
@@ -309,14 +309,14 @@ fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
 fields:2a7bec27-1094-4254-86d1-4c63d90ca61e a form:Field ;
  mu:uuid "2a7bec27-1094-4254-86d1-4c63d90ca61e" ;
  sh:order 2001 ;
- search:key "dateNoLongerInForceFrom" ;
+ search:emberQueryParameterKey "dateNoLongerInForceFrom" ;
  sh:path searchToezicht:dateNoLongerInForceFrom ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 
 fields:9fcec521-f610-47c7-b9d3-9258ade026f8 a form:Field ;
  mu:uuid "9fcec521-f610-47c7-b9d3-9258ade026f8" ;
  sh:order 2001 ;
- search:key "dateNoLongerInForceTo" ;
+ search:emberQueryParameterKey "dateNoLongerInForceTo" ;
  sh:path searchToezicht:dateNoLongerInForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 ##########################################################
