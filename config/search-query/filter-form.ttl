@@ -33,7 +33,7 @@ fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
     sh:order 30 ;
     search:emberQueryParameterKey "search" ;
     sh:path search:term ;
-    form:displayType displayTypes:defaultInput ;
+    form:displayType displayTypes:search ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
 ##########################################################
 # END search-term
