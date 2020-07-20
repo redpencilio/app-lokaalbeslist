@@ -103,6 +103,8 @@ services:
     logging: *default-logging
   resource:
     image: semtech/mu-cl-resources:1.19.0
+    environment:
+      CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     volumes:
       - ./config/resources:/config
     restart: always
@@ -162,4 +164,5 @@ services:
     image: lblod/toezicht-search-query-management-service:0.2.5
     volumes:
       - ./config/search-query:/share/search-query
-
+    restart: always
+    logging: *default-logging
