@@ -2,12 +2,13 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 
 INSERT {
-    GRAPH <http://mu.semte.ch/graphs/public> {
+    GRAPH ?g {
         ?s skos:topConceptOf <http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083>.
         ?s skos:inScheme <http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083>.
     }
 } WHERE {
-    GRAPH <http://mu.semte.ch/graphs/public> {
+    GRAPH ?h {
         ?s a besluit:Bestuurseenheid .
     }
+    BIND(?h as ?g)
 }
