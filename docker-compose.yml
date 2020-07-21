@@ -9,15 +9,15 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.20.2
-    links:
-      - identifier:backend
+    image: lblod/frontend-toezicht-abb:0.21.0
     restart: always
     labels:
       - "logging=true"
+    volumes:
+      - ./config/frontend:/config
     logging: *default-logging
   identifier:
-    image: semtech/mu-identifier:1.7.0
+    image: semtech/mu-identifier:1.8.0
     environment:
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
     restart: always
@@ -25,7 +25,7 @@ services:
       - "logging=true"
     logging: *default-logging
   dispatcher:
-    image: semtech/mu-dispatcher:1.1.2
+    image: semtech/mu-dispatcher:2.0.0
     volumes:
       - ./config/dispatcher:/config
     restart: always
