@@ -25,6 +25,58 @@
 @prefix searchToezicht: <http://lblod.data.gift/vocabularies/search-queries-toezicht/> .
 
 ##########################################################
+#  START property-groups
+##########################################################
+fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 a form:PropertyGroup;
+    mu:uuid "8e24d707-0e29-45b5-9bbf-a39e4fdb2c11";
+    sh:description "used to split-up the form in different sections, mainly for scaling";
+    sh:order 1 .
+
+fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e a form:PropertyGroup;
+    mu:uuid "7fe1a020-7e48-44c2-b7f0-6b7943ddff3e";
+    sh:description "configuration input-fields";
+    sh:order 2 ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:015d85ac-7ff0-424d-862e-6c38626ea915 a form:PropertyGroup;
+    mu:uuid "015d85ac-7ff0-424d-862e-6c38626ea915";
+    sh:description "elastic-search filter-group";
+    sh:order 3 ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:cb08e556-459d-4378-a79b-51f35c9a965e a form:PropertyGroup;
+    mu:uuid "cb08e556-459d-4378-a79b-51f35c9a965e";
+    sh:description "governing entities filter-group";
+    sh:order 4 ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 a form:PropertyGroup;
+    mu:uuid "f950e7b3-b09b-4343-84aa-6083aa0241c6";
+    sh:description "document/file filter-group";
+    sh:order 5 ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
+    mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
+    sh:description "date-ranges filter-group";
+    sh:order 6 ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
+    mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
+    sh:description "subcategory for taxes and retributions";
+    sh:order 7;
+    sh:name "Subcategorie: Belasting of retributie" ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+##########################################################
+#  END property-groups
+##########################################################
+
+##########################################################
+#  START fields
+##########################################################
+
+##########################################################
 # START name
 ##########################################################
 fields:147a32fe-f3dd-47f0-9dc5-43e46acc32cb a form:Field ;
@@ -33,7 +85,7 @@ fields:147a32fe-f3dd-47f0-9dc5-43e46acc32cb a form:Field ;
     sh:order 10 ;
     sh:path skos:prefLabel ;
     form:displayType displayTypes:defaultInput ;
-    sh:group fields:06a9d9de-8498-461a-8862-60edce232c7f .
+    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 ##########################################################
 # START name
 ##########################################################
@@ -47,7 +99,7 @@ fields:90d8c997-eb61-4fed-9ece-dd4c16dd648c a form:Field ;
     sh:order 20 ;
     sh:path skos:comment ;
     form:displayType displayTypes:textArea ;
-    sh:group fields:06a9d9de-8498-461a-8862-60edce232c7f .
+    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e.
 ##########################################################
 # END comment
 ##########################################################
@@ -60,7 +112,7 @@ fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
     sh:name "Zoekterm" ;
     sh:order 30 ;
     sh:path search:term ;
-    form:displayType displayTypes:defaultInput ;
+    form:displayType displayTypes:search ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
 ##########################################################
 # END search-term
@@ -91,7 +143,7 @@ fields:8f6ee5fa-4d2b-40a3-86ab-a9d2115f4f91 a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/7e2b965e-c824-474f-b5d5-b1c115740083"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Gemeente Hasselt, OCMW Gent" ;
-    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 # END administrative unit
 ##########################################################
@@ -107,7 +159,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/372797ff-917c-4572-925f-f09cc30932e6"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Antwerpen of Oost-Vlaanderen" ;
-    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 # START province
 ##########################################################
@@ -123,7 +175,7 @@ fields:35465e1a-531a-4bab-8b19-bbd59f19cd4a a form:Field ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuurseenheidClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. OCMW of gemeente" ;
-    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 ;
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e ;
     form:hasConditionalFieldGroup fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2. ## Governing Body Classification
 
 fields:0fe2e436-673e-4cc8-9e29-f227f18dabb2 a form:ConditionalFieldGroup ;
@@ -155,7 +207,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     form:options  """{"conceptScheme":"http://data.vlaanderen.be/id/conceptscheme/BestuursorgaanClassificatieCode"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Burgemeester of gemeenteraad" ;
-    sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
+    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
 # START governing body classification
 ##########################################################
@@ -171,7 +223,7 @@ fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Specifiek besluiten: Reglementen en verordeningen, belasting of retributie, ... of agenda, besluitenlijst of notulen" ;
-    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e ;
+    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 ;
     form:hasConditionalFieldGroup fields:0ae400e4-6897-4d86-982a-e1f74ead1f93. ### Regelementen en Verorderingen
 
 fields:0ae400e4-6897-4d86-982a-e1f74ead1f93 a form:ConditionalFieldGroup ;
@@ -205,7 +257,7 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Politiereglement of personeelsregelment";
-    sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 .
 ##########################################################
 # END regulation type
 ##########################################################
@@ -220,19 +272,19 @@ fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
  form:displayType displayTypes:dateRange ;
  dateRange:from fields:272dfe20-518b-4025-b782-a0ec06b48850;
  dateRange:to fields:db613412-727e-486f-8a11-7fc25abed640;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 
 fields:272dfe20-518b-4025-b782-a0ec06b48850 a form:Field ;
  mu:uuid "272dfe20-518b-4025-b782-a0ec06b48850" ;
  sh:order 2001 ;
  sh:path searchToezicht:sessionDateFrom ;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 
 fields:db613412-727e-486f-8a11-7fc25abed640 a form:Field ;
  mu:uuid "db613412-727e-486f-8a11-7fc25abed640" ;
  sh:order 2001 ;
  sh:path searchToezicht:sessionDateTo ;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 ##########################################################
 #  END session date
 ##########################################################
@@ -247,19 +299,19 @@ fields:b965ac5a-b057-44cb-98b6-602de06001c1 a form:Field ;
  form:displayType displayTypes:dateRange ;
  dateRange:from fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288;
  dateRange:to fields:a4317e79-bf56-4a8d-95c9-35960a44ec05;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 
 fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288 a form:Field ;
  mu:uuid "c5ef6328-dca5-4e65-b9d8-0a1b5387f288" ;
  sh:order 2001 ;
  sh:path searchToezicht:sentDateFrom ;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 
 fields:a4317e79-bf56-4a8d-95c9-35960a44ec05 a form:Field ;
  mu:uuid "a4317e79-bf56-4a8d-95c9-35960a44ec05" ;
  sh:order 2001 ;
  sh:path searchToezicht:sentDateTo ;
- sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
+ sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 ##########################################################
 #  END sent date
 ##########################################################
@@ -335,31 +387,7 @@ fields:9fcec521-f610-47c7-b9d3-9258ade026f8 a form:Field ;
 ##########################################################
 
 ##########################################################
-#  START property-groups
-##########################################################
-### TODO : improve descriptions so that they give a better indications on what this property-groups hold
-fields:06a9d9de-8498-461a-8862-60edce232c7f a form:PropertyGroup;
-    mu:uuid "06a9d9de-8498-461a-8862-60edce232c7f";
-    sh:description "used to split-up the form in different sections, mainly for styling";
-    sh:order 1 .
-
-fields:015d85ac-7ff0-424d-862e-6c38626ea915 a form:PropertyGroup;
-    mu:uuid "015d85ac-7ff0-424d-862e-6c38626ea915";
-    sh:description "used to split-up the form in different sections, mainly for styling";
-    sh:order 2 .
-
-fields:cb08e556-459d-4378-a79b-51f35c9a965e a form:PropertyGroup;
-    mu:uuid "cb08e556-459d-4378-a79b-51f35c9a965e";
-    sh:description "used to split-up the form in different sections, mainly for styling";
-    sh:order 3 .
-
-fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
-    mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
-    sh:description "used to split-up the form in different sections, mainly for styling";
-    sh:order 4;
-    sh:name "Subcategorie: Belasting of retributie".
-##########################################################
-#  END property-groups
+#  END fields
 ##########################################################
 
 ##########################################################
@@ -368,13 +396,14 @@ fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
 fieldGroups:configuration a form:FieldGroup ;
     mu:uuid "70eebdf0-14dc-47f7-85df-e1cfd41c3855" ;
     form:hasField
+
                 ### Name of input-field
                 fields:147a32fe-f3dd-47f0-9dc5-43e46acc32cb,
 
                 ### Description text-area
                 fields:90d8c997-eb61-4fed-9ece-dd4c16dd648c,
 
-                ### Search input-field
+                ### Search search field
                 fields:be405a12-0e67-453b-8773-2e4e340f4b82,
 
                 ### Status switch

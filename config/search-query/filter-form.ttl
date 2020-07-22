@@ -27,51 +27,44 @@
 ##########################################################
 #  START property-groups
 ##########################################################
-### TODO : improve descriptions so that they give a better indications on what this property-groups hold
 fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 a form:PropertyGroup;
     mu:uuid "8e24d707-0e29-45b5-9bbf-a39e4fdb2c11";
-    form:class "au-o-grid__item au-u-1-2 au-u-1-1@large" ;
     sh:description "used to split-up the form in different sections, mainly for scaling";
     sh:order 1 .
 
 fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e a form:PropertyGroup;
     mu:uuid "7fe1a020-7e48-44c2-b7f0-6b7943ddff3e";
-    form:class "au-o-grid__item au-u-1-2 au-u-1-1@large" ;
     sh:description "used to split-up the form in different sections, mainly for scaling";
     sh:order 2 .
 
 fields:015d85ac-7ff0-424d-862e-6c38626ea915 a form:PropertyGroup;
     mu:uuid "015d85ac-7ff0-424d-862e-6c38626ea915";
-    form:class "au-c-hr" ;
     sh:description "elastic-search filter-group";
     sh:order 3 ;
     sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
 
 fields:cb08e556-459d-4378-a79b-51f35c9a965e a form:PropertyGroup;
     mu:uuid "cb08e556-459d-4378-a79b-51f35c9a965e";
-    form:class "au-c-hr" ;
     sh:description "governing entities filter-group";
     sh:order 4 ;
     sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
 
 fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 a form:PropertyGroup;
     mu:uuid "f950e7b3-b09b-4343-84aa-6083aa0241c6";
-    form:class "au-c-hr" ;
     sh:description "document/file filter-group";
-    sh:order 4 ;
+    sh:order 5 ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
 fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
     mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
-    form:class "au-c-hr" ;
     sh:description "date-ranges filter-group";
-    sh:order 4 ;
+    sh:order 6 ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
 fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
     mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
     sh:description "subcategory for taxes and retributions";
-    sh:order 5;
+    sh:order 7;
     sh:name "Subcategorie: Belasting of retributie" ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 ##########################################################
