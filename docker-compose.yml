@@ -160,7 +160,7 @@ services:
     restart: always
     logging: *default-logging
   search-query-management:
-    image: lblod/toezicht-search-query-management-service:0.2.6
+    image: lblod/toezicht-search-query-management-service:0.3.0
     volumes:
       - ./config/search-query:/share/search-query
     restart: always
