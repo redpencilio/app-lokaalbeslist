@@ -167,6 +167,11 @@ defmodule Dispatcher do
     forward conn, path, "http://toezicht-abb/@appuniversum/"
   end
 
+  match "/authorization/callback" , @html do
+    # For ACM/IDM login and torii
+    forward conn, [], "http://toezicht-abb/torii/redirect.html"
+  end
+
   match "/*_path", @html do
     # *_path allows a path to be supplied, but will not yield
     # an error that we don't use the path variable.

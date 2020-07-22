@@ -9,12 +9,12 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.20.2
-    links:
-      - identifier:backend
+    image: lblod/frontend-toezicht-abb:0.21.0
     restart: always
     labels:
       - "logging=true"
+    volumes:
+      - ./config/frontend:/config
     logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.8.0
@@ -33,7 +33,7 @@ services:
       - "logging=true"
     logging: *default-logging
   database:
-    image: semtech/mu-authorization:0.6.0-beta.4
+    image: semtech/mu-authorization:0.6.0-beta.5
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
     volumes:
@@ -120,14 +120,13 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.6.2
+    image: semtech/mu-search:0.6.3
     volumes:
        - ./config/search:/config
        - ./data/files:/data
     environment:
-      NUMBER_OF_THREADS: 4
-      JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
-      # LOG_LEVEL: "info"
+      NUMBER_OF_THREADS: 16 # overwrite for development
+      JRUBY_OPTIONS: "-J-Xmx16g" # overwrite for development
     logging: *default-logging
     # labels:
     #  - "logging=true"

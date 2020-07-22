@@ -18,3 +18,8 @@ services:
     ports:
       - "5601:5601"
     restart: "no"
+  search:
+    restart: "no"
+    environment:
+      NUMBER_OF_THREADS: 4 # overwrite for development
+      JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
