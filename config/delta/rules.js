@@ -1,30 +1,28 @@
 export default [
   {
     match: {
-      subject: { }
+      subject: {},
     },
     callback: {
-      url: "http://resource/.mu/delta",
-      method: "POST"
+      url: 'http://resource/.mu/delta',
+      method: 'POST',
     },
     options: {
-      resourceFormat: "v0.0.1",
+      resourceFormat: 'v0.0.1',
       gracePeriod: 250,
-      ignoreFromSelf: true
-    }
+      ignoreFromSelf: true,
+    },
   },
   {
-    match: {
-
-    },
+    match: {},
     callback: {
       method: 'POST',
-      url: 'http://search/update'
+      url: 'http://search/update',
     },
     options: {
       resourceFormat: 'v0.0.1',
       gracePeriod: 1000,
-      ignoreFromSelf: true
-    }
-  }
+      ignoreFromSelf: true,
+    },
+  },
 ];

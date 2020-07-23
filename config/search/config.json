@@ -8,10 +8,34 @@
   "update_wait_interval_minutes": 0,
   "automatic_index_updates": true,
   "eager_indexing_groups": [
-    [{ "name": "clean", "variables": [] }],
-    [{ "name": "public", "variables": [] }],
-    [{ "name": "readers", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"] }],
-    [{ "name": "editors", "variables" : ["141d9d6b-54af-4d17-b313-8d1c30bc3f5b"] }]
+    [
+      {
+        "name": "clean",
+        "variables": []
+      }
+    ],
+    [
+      {
+        "name": "public",
+        "variables": []
+      }
+    ],
+    [
+      {
+        "name": "readers",
+        "variables": [
+          "141d9d6b-54af-4d17-b313-8d1c30bc3f5b"
+        ]
+      }
+    ],
+    [
+      {
+        "name": "editors",
+        "variables": [
+          "141d9d6b-54af-4d17-b313-8d1c30bc3f5b"
+        ]
+      }
+    ]
   ],
   "default_settings": {
     "analysis": {

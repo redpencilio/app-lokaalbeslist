@@ -122,8 +122,8 @@ services:
   search:
     image: semtech/mu-search:0.6.3
     volumes:
-       - ./config/search:/config
-       - ./data/files:/data
+      - ./config/search:/config
+      - ./data/files:/data
     environment:
       NUMBER_OF_THREADS: 16 # overwrite for development
       JRUBY_OPTIONS: "-J-Xmx16g" # overwrite for development
