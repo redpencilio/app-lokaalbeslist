@@ -40,3 +40,4 @@
 (add-prefix "sign" "http://mu.semte.ch/vocabularies/ext/signing/")
 
 (add-prefix "searchToezicht" "http://lblod.data.gift/vocabularies/search-queries-toezicht/")
+(add-prefix "toezicht" "http://mu.semte.ch/vocabularies/ext/supervision/")
