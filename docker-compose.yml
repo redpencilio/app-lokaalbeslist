@@ -162,7 +162,7 @@ services:
   search-query-management:
     image: lblod/toezicht-search-query-management-service:0.3.2
     environment:
-      META_CONSTRUCTION_CRON_PATTERN: "0 0 12 1/1 * ? *"
+      META_CONSTRUCTION_CRON_PATTERN: "0 12 * * *"
     volumes:
       - ./config/search-query:/share/search-query
     restart: always
