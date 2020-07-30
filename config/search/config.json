@@ -235,6 +235,9 @@
           "statusURI": {
             "type": "keyword"
           },
+          "chartOfAccountURI": {
+            "type": "keyword"
+          },
           "sentDate": {
             "type": "date"
           },
