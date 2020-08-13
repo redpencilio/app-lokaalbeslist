@@ -78,13 +78,13 @@ fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
 ##########################################################
 # START search-term
 ##########################################################
-fields:be405a12-0e67-453b-8773-2e4e340f4b82 a form:Field ;
-    mu:uuid "be405a12-0e67-453b-8773-2e4e340f4b82";
+fields:747f627d-9301-40b3-986d-ad7c335b275f a form:Field ;
+    mu:uuid "747f627d-9301-40b3-986d-ad7c335b275f2";
     sh:name "Zoekterm" ;
     sh:order 30 ;
     search:emberQueryParameterKey "search" ;
     sh:path search:term ;
-    form:displayType displayTypes:search ;
+    form:displayType displayTypes:customSearch ;
     sh:group fields:015d85ac-7ff0-424d-862e-6c38626ea915 .
 ##########################################################
 # END search-term
@@ -386,7 +386,7 @@ fieldGroups:filter a form:FieldGroup ;
     form:hasField
 
                 ### Search search field
-                fields:be405a12-0e67-453b-8773-2e4e340f4b82,
+                fields:747f627d-9301-40b3-986d-ad7c335b275f,
 
                 ### Status switch
                 fields:b57d25cf-58b7-4933-b7d4-04820980ae01,
