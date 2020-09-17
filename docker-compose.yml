@@ -9,7 +9,7 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.22.0
+    image: lblod/frontend-toezicht-abb:0.23.0
     restart: always
     labels:
       - "logging=true"
