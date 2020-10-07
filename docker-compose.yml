@@ -160,7 +160,7 @@ services:
     restart: always
     logging: *default-logging
   search-query-management:
-    image: lblod/toezicht-search-query-management-service:0.3.3
+    image: lblod/toezicht-search-query-management-service:0.3.4
     environment:
       META_CONSTRUCTION_CRON_PATTERN: "0 12 * * *"
     volumes:
