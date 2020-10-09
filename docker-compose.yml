@@ -10,27 +10,27 @@ x-logging:
 services:
   toezicht-abb:
     image: lblod/frontend-toezicht-abb:0.23.0
-    restart: always
-    labels:
-      - "logging=true"
     volumes:
       - ./config/frontend:/config
+    labels:
+      - "logging=true"
+    restart: always
     logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.8.0
     environment:
       DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   dispatcher:
     image: semtech/mu-dispatcher:2.0.0
     volumes:
       - ./config/dispatcher:/config
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   database:
     image: semtech/mu-authorization:0.6.0-beta.5
@@ -49,9 +49,9 @@ services:
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
     volumes:
       - ./data/db:/data
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service:0.6.0
@@ -59,9 +59,9 @@ services:
       - virtuoso:database
     volumes:
       - ./config/migrations:/data/migrations
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   import:
     image: lblod/mandaten-import-service:0.3.2
@@ -74,9 +74,9 @@ services:
       KEEP_DATA: "true"
       CRON_PATTERN: "0 4 * * *"
       DEFAULT_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   login:
     image: lblod/acmidm-login-service:0.9.0
@@ -107,9 +107,9 @@ services:
       CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
     volumes:
       - ./config/resources:/config
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   file:
     image: semtech/mu-file-service:3.1.0
@@ -127,21 +127,21 @@ services:
     environment:
       NUMBER_OF_THREADS: 16 # overwrite for development
       JRUBY_OPTIONS: "-J-Xmx16g" # overwrite for development
-    logging: *default-logging
-    # labels:
-    #  - "logging=true"
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   elasticsearch:
     image: semtech/mu-search-elastic-backend:1.0.0
     volumes:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
-    restart: always
     environment:
       - discovery.type=single-node
       - http.max_content_length=2000MB
-    # logging: *default-logging
-    # labels:
-    #   - "logging=true"
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   enrich-submission:
     image: lblod/enrich-submission-service:0.7.3
     volumes:
@@ -151,6 +151,10 @@ services:
       ACTIVE_FORM_FILE: "share://semantic-forms/20200508151443-forms.ttl"
       PUBLIC_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
       FILE_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   deltanotifier:
     image: semtech/mu-delta-notifier:0.1.0
     volumes:
@@ -165,5 +169,7 @@ services:
       META_CONSTRUCTION_CRON_PATTERN: "0 12 * * *"
     volumes:
       - ./config/search-query:/share/search-query
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
