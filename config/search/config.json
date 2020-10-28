@@ -165,10 +165,6 @@
           "http://www.w3.org/ns/prov#generated",
           "http://lblod.data.gift/vocabularies/besluit/chartOfAccount"
         ],
-        "taxTypeUri": [
-          "http://www.w3.org/ns/prov#generated",
-          "http://purl.org/dc/terms/type"
-        ],
         "dateOfEntryIntoForce": [
           "http://www.w3.org/ns/prov#generated",
           "http://data.europa.eu/eli/ontology#first_date_entry_in_force"
@@ -240,9 +236,6 @@
             "type": "keyword"
           },
           "chartOfAccountURI": {
-            "type": "keyword"
-          },
-          "taxTypeURI": {
             "type": "keyword"
           },
           "sentDate": {
