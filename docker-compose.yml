@@ -64,7 +64,7 @@ services:
     restart: always
     logging: *default-logging
   import:
-    image: lblod/mandaten-import-service:0.3.2
+    image: lblod/mandaten-import-service:0.4.3
     links:
       - virtuoso:database
     volumes:
