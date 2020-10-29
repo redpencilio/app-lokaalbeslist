@@ -56,17 +56,17 @@ fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 a form:PropertyGroup;
     sh:order 5 ;
     sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
 
-fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
-    mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
-    sh:description "date-ranges filter-group";
-    sh:order 6 ;
-    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
-
 fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
     mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
     sh:description "subcategory for taxes and retributions";
-    sh:order 7;
+    sh:order 6;
     sh:name "Subcategorie: Belasting of retributie" ;
+    sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
+
+fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
+    mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
+    sh:description "date-ranges filter-group";
+    sh:order 7 ;
     sh:group fields:8e24d707-0e29-45b5-9bbf-a39e4fdb2c11 .
 
 ##########################################################
