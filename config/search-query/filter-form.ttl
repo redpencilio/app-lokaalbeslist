@@ -55,19 +55,18 @@ fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 a form:PropertyGroup;
     sh:order 5 ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
-fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
-    mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
-    sh:description "subcategory for taxes and retributions";
-    sh:order 6;
-    sh:name "Subcategorie: Belasting of retributie" ;
-    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
-
 fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
     mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
     sh:description "date-ranges filter-group";
-    sh:order 7 ;
+    sh:order 6 ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
+fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
+    mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
+    sh:description "subcategory for taxes and retributions";
+    sh:order 7;
+    sh:name "Subcategorie: Belasting of retributie" ;
+    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 ##########################################################
 #  END property-groups
 ##########################################################
@@ -221,7 +220,6 @@ fieldGroups:3a60def6-107e-4716-bc5f-2f2e108f7fab a form:FieldGroup;
     form:hasField
                 ### Regulation Type
                 fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f .
-
 ##########################################################
 # END decision type
 ##########################################################
@@ -238,35 +236,7 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Politiereglement of personeelsregelment";
-    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 ;
-    form:hasConditionalFieldGroup fields:677d5e15-bb3f-41b7-bc4f-f8b7cb620d46. ### MAR Code, Soort belasting, Belasting geldt vanaf, Belasting geldt tot
-
-fields:677d5e15-bb3f-41b7-bc4f-f8b7cb620d46 a form:ConditionalFieldGroup ;
-    mu:uuid "677d5e15-bb3f-41b7-bc4f-f8b7cb620d46";
-    form:conditions
-      [ a form:SingleCodelistValue ;
-        form:grouping form:Bag ;
-        sh:path searchToezicht:regulationType ;
-        form:conceptScheme <http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a> ;
-        form:customValue <https://data.vlaanderen.be/id/concept/BesluitType/efa4ec5a-b006-453f-985f-f986ebae11bc> # Belastingreglement
-      ] ;
-    form:hasFieldGroup fieldGroups:cb4d9fb6-6867-4cdd-9581-494c99d6f30e .
-
-fieldGroups:cb4d9fb6-6867-4cdd-9581-494c99d6f30e a form:FieldGroup;
-    mu:uuid "cb4d9fb6-6867-4cdd-9581-494c99d6f30e" ;
-    form:hasField
-                ### MAR Code
-                fields:23094e06-3d68-4c90-b4a6-725893feddeb ,
-
-                ### Soort belasting
-                fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b ,
-
-                ### Belasting geldt vanaf
-                fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 ,
-
-                ### Belasting geldt tot
-                fields:fbcfc425-b7a2-4212-a649-de9998280e5a .
-
+    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 .
 ##########################################################
 # END regulation type
 ##########################################################
@@ -453,7 +423,19 @@ fieldGroups:filter a form:FieldGroup ;
                 fields:6565db60-c0d3-4878-b240-35d661b3ca86,
 
                 ### Sent Date From-To datepicker
-                fields:b965ac5a-b057-44cb-98b6-602de06001c1.
+                fields:b965ac5a-b057-44cb-98b6-602de06001c1,
+
+                ### Chart Of Accounts select
+                fields:23094e06-3d68-4c90-b4a6-725893feddeb,
+
+                ### TaxType
+                fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b,
+
+                ### Date Of Entry Into Force From-To datepicker
+                fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8,
+
+                ### Date No Longer In Force From-To datepicker
+                fields:fbcfc425-b7a2-4212-a649-de9998280e5a.
 
 form: a form:Form ;
     mu:uuid "6b70a6f0-cce2-4afe-81f5-5911f45b0b27" ;
