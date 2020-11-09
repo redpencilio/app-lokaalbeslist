@@ -120,7 +120,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.6.3
+    image: dhugaerts/mu-search:0.6.4-beta
     volumes:
       - ./config/search:/config
       - ./data/files:/data
