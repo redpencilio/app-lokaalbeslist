@@ -66,7 +66,6 @@ fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
     mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
     sh:description "date-ranges filter-group";
     sh:order 7 ;
-    sh:name "WHY AM I BEING REMOVED!!!!!!!!!!" ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
 ##########################################################
