@@ -127,8 +127,6 @@ services:
     environment:
       NUMBER_OF_THREADS: 16 # overwrite for development
       JRUBY_OPTIONS: "-J-Xmx16g" # overwrite for development
-    labels:
-      - "logging=true"
     restart: always
     logging: *default-logging
   elasticsearch:
@@ -137,9 +135,7 @@ services:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
-      - http.max_content_length=2000MB
-    labels:
-      - "logging=true"
+      - http.max_content_length=2000MB  
     restart: always
     logging: *default-logging
   enrich-submission:
