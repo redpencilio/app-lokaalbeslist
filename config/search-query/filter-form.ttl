@@ -55,18 +55,19 @@ fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 a form:PropertyGroup;
     sh:order 5 ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
 
-fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
-    mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
-    sh:description "date-ranges filter-group";
-    sh:order 6 ;
-    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
-
 fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 a form:PropertyGroup;
     mu:uuid "b729fd8e-62a1-4e20-8faf-ce32e625a938";
     sh:description "subcategory for taxes and retributions";
-    sh:order 7;
+    sh:order 6;
     sh:name "Subcategorie: Belasting of retributie" ;
     sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
+
+fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 a form:PropertyGroup;
+    mu:uuid "2c6ae26c-c3de-4bbc-9021-9cb45b886742";
+    sh:description "date-ranges filter-group";
+    sh:order 7 ;
+    sh:group fields:7fe1a020-7e48-44c2-b7f0-6b7943ddff3e .
+
 ##########################################################
 #  END property-groups
 ##########################################################
@@ -136,7 +137,7 @@ fields:73370536-ff00-4fc5-9c6a-40aeea9c14ee a form:Field ;
     form:help "vb. Antwerpen of Oost-Vlaanderen" ;
     sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
-# START province
+# END province
 ##########################################################
 
 ##########################################################
@@ -186,7 +187,7 @@ fields:d18e810d-1ec8-4cdc-ac17-ee6b9d8958b6 a form:Field ;
     form:help "vb. Burgemeester of gemeenteraad" ;
     sh:group fields:cb08e556-459d-4378-a79b-51f35c9a965e .
 ##########################################################
-# START governing body classification
+# END governing body classification
 ##########################################################
 
 ##########################################################
@@ -207,7 +208,7 @@ fields:edcd6b86-2a9c-4c2a-a283-e536f49fbe7b a form:Field ;
 fields:0ae400e4-6897-4d86-982a-e1f74ead1f93 a form:ConditionalFieldGroup ;
     mu:uuid "0ae400e4-6897-4d86-982a-e1f74ead1f93";
     form:conditions
-      [ a form:SingleCodelistValue ;
+      [ a form:ContainsCodelistValue ;
         form:grouping form:Bag ;
         sh:path searchToezicht:decisionType ;
         form:conceptScheme <http://lblod.data.gift/concept-schemes/71e6455e-1204-46a6-abf4-87319f58eaa5> ;
@@ -236,7 +237,35 @@ fields:4f174cb2-6c9b-42ac-ba62-5fb5d738ca7f a form:Field ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a"}""" ;
     form:displayType displayTypes:conceptSchemeMultiSelector ;
     form:help "vb. Politiereglement of personeelsregelment";
-    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 .
+    sh:group fields:f950e7b3-b09b-4343-84aa-6083aa0241c6 ;
+    form:hasConditionalFieldGroup fields:677d5e15-bb3f-41b7-bc4f-f8b7cb620d46. ### MAR Code, Soort belasting, Belasting geldt vanaf, Belasting geldt tot
+
+fields:677d5e15-bb3f-41b7-bc4f-f8b7cb620d46 a form:ConditionalFieldGroup ;
+    mu:uuid "677d5e15-bb3f-41b7-bc4f-f8b7cb620d46";
+    form:conditions
+      [ a form:ContainsCodelistValue ;
+        form:grouping form:Bag ;
+        sh:path searchToezicht:regulationType ;
+        form:conceptScheme <http://lblod.data.gift/concept-schemes/c93ccd41-aee7-488f-86d3-038de890d05a> ;
+        form:customValue <https://data.vlaanderen.be/id/concept/BesluitType/efa4ec5a-b006-453f-985f-f986ebae11bc> # Belastingreglement
+      ] ;
+    form:hasFieldGroup fieldGroups:cb4d9fb6-6867-4cdd-9581-494c99d6f30e .
+
+fieldGroups:cb4d9fb6-6867-4cdd-9581-494c99d6f30e a form:FieldGroup;
+    mu:uuid "cb4d9fb6-6867-4cdd-9581-494c99d6f30e" ;
+    form:hasField
+                ### MAR Code
+                fields:23094e06-3d68-4c90-b4a6-725893feddeb ,
+
+                ### Soort belasting
+                fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b ,
+
+                ### Belasting geldt vanaf
+                fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 ,
+
+                ### Belasting geldt tot
+                fields:fbcfc425-b7a2-4212-a649-de9998280e5a .
+
 ##########################################################
 # END regulation type
 ##########################################################
@@ -255,14 +284,14 @@ fields:6565db60-c0d3-4878-b240-35d661b3ca86 a form:Field ;
 
 fields:272dfe20-518b-4025-b782-a0ec06b48850 a form:Field ;
  mu:uuid "272dfe20-518b-4025-b782-a0ec06b48850" ;
- sh:order 2001 ;
+ sh:order 1001 ;
  search:emberQueryParameterKey "sessionDateFrom" ;
  sh:path searchToezicht:sessionDateFrom ;
  sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
 
 fields:db613412-727e-486f-8a11-7fc25abed640 a form:Field ;
  mu:uuid "db613412-727e-486f-8a11-7fc25abed640" ;
- sh:order 2001 ;
+ sh:order 1002 ;
  search:emberQueryParameterKey "sessionDateTo" ;
  sh:path searchToezicht:sessionDateTo ;
  sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
@@ -291,7 +320,7 @@ fields:c5ef6328-dca5-4e65-b9d8-0a1b5387f288 a form:Field ;
 
 fields:a4317e79-bf56-4a8d-95c9-35960a44ec05 a form:Field ;
  mu:uuid "a4317e79-bf56-4a8d-95c9-35960a44ec05" ;
- sh:order 2001 ;
+ sh:order 2002 ;
  search:emberQueryParameterKey "sentDateTo" ;
  sh:path searchToezicht:sentDateTo ;
  sh:group fields:2c6ae26c-c3de-4bbc-9021-9cb45b886742 .
@@ -322,7 +351,7 @@ fields:23094e06-3d68-4c90-b4a6-725893feddeb a form:Field ;
 fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b a form:Field ;
     mu:uuid "5fadd9bf-25be-4098-bc9a-a46d3d51f39b" ;
     sh:name "Soort belasting" ;
-    sh:order 135 ;
+    sh:order 140 ;
     search:emberQueryParameterKey "taxType" ;
     sh:path searchToezicht:taxType ;
     form:options  """{"conceptScheme":"http://lblod.data.gift/concept-schemes/3037c4f4-1c63-43ac-bfc4-b41d098b15a6"}""" ;
@@ -338,7 +367,7 @@ fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b a form:Field ;
 fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
  mu:uuid "ebb08452-0f6d-4125-a04a-52cb75d95bf8" ;
  sh:name "Belasting geldt vanaf" ;
- sh:order 140 ;
+ sh:order 150 ;
  form:displayType displayTypes:dateRange ;
  dateRange:from fields:f93be419-4d2c-470f-8ad5-36ec90c8870d;
  dateRange:to fields:4f61e446-1a15-4ffc-b474-f74c8e059bef;
@@ -346,14 +375,14 @@ fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8 a form:Field ;
 
 fields:f93be419-4d2c-470f-8ad5-36ec90c8870d a form:Field ;
  mu:uuid "f93be419-4d2c-470f-8ad5-36ec90c8870d" ;
- sh:order 2001 ;
+ sh:order 3001 ;
  search:emberQueryParameterKey "dateOfEntryIntoForceFrom" ;
  sh:path searchToezicht:dateOfEntryIntoForceFrom ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 
 fields:4f61e446-1a15-4ffc-b474-f74c8e059bef a form:Field ;
  mu:uuid "4f61e446-1a15-4ffc-b474-f74c8e059bef" ;
- sh:order 2001 ;
+ sh:order 3002 ;
  search:emberQueryParameterKey "dateOfEntryIntoForceTo" ;
  sh:path searchToezicht:dateOfEntryIntoForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
@@ -367,7 +396,7 @@ fields:4f61e446-1a15-4ffc-b474-f74c8e059bef a form:Field ;
 fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
  mu:uuid "fbcfc425-b7a2-4212-a649-de9998280e5a" ;
  sh:name "Belasting geldt tot" ;
- sh:order 150 ;
+ sh:order 160 ;
  form:displayType displayTypes:dateRange ;
  dateRange:from fields:2a7bec27-1094-4254-86d1-4c63d90ca61e;
  dateRange:to fields:9fcec521-f610-47c7-b9d3-9258ade026f8;
@@ -375,14 +404,14 @@ fields:fbcfc425-b7a2-4212-a649-de9998280e5a a form:Field ;
 
 fields:2a7bec27-1094-4254-86d1-4c63d90ca61e a form:Field ;
  mu:uuid "2a7bec27-1094-4254-86d1-4c63d90ca61e" ;
- sh:order 2001 ;
+ sh:order 4001 ;
  search:emberQueryParameterKey "dateNoLongerInForceFrom" ;
  sh:path searchToezicht:dateNoLongerInForceFrom ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
 
 fields:9fcec521-f610-47c7-b9d3-9258ade026f8 a form:Field ;
  mu:uuid "9fcec521-f610-47c7-b9d3-9258ade026f8" ;
- sh:order 2001 ;
+ sh:order 4002 ;
  search:emberQueryParameterKey "dateNoLongerInForceTo" ;
  sh:path searchToezicht:dateNoLongerInForceTo ;
  sh:group fields:b729fd8e-62a1-4e20-8faf-ce32e625a938 .
@@ -423,19 +452,7 @@ fieldGroups:filter a form:FieldGroup ;
                 fields:6565db60-c0d3-4878-b240-35d661b3ca86,
 
                 ### Sent Date From-To datepicker
-                fields:b965ac5a-b057-44cb-98b6-602de06001c1,
-
-                ### Chart Of Accounts select
-                fields:23094e06-3d68-4c90-b4a6-725893feddeb,
-
-                ### TaxType
-                fields:5fadd9bf-25be-4098-bc9a-a46d3d51f39b,
-
-                ### Date Of Entry Into Force From-To datepicker
-                fields:ebb08452-0f6d-4125-a04a-52cb75d95bf8,
-
-                ### Date No Longer In Force From-To datepicker
-                fields:fbcfc425-b7a2-4212-a649-de9998280e5a.
+                fields:b965ac5a-b057-44cb-98b6-602de06001c1.
 
 form: a form:Form ;
     mu:uuid "6b70a6f0-cce2-4afe-81f5-5911f45b0b27" ;
