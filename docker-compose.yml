@@ -9,7 +9,7 @@ x-logging:
 
 services:
   toezicht-abb:
-    image: lblod/frontend-toezicht-abb:0.24.1
+    image: lblod/frontend-toezicht-abb:0.24.2
     volumes:
       - ./config/frontend:/config
     labels:
@@ -120,7 +120,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: dhugaerts/mu-search:0.6.4-beta.2
+    image: semtech/mu-search:0.6.3
     volumes:
       - ./config/search:/config
       - ./data/files:/data
@@ -161,8 +161,6 @@ services:
     logging: *default-logging
   search-query-management:
     image: lblod/toezicht-search-query-management-service:0.3.6
-    environment:
-      META_CONSTRUCTION_CRON_PATTERN: "0 12 * * *"
     volumes:
       - ./config/search-query:/share/search-query
     labels:
