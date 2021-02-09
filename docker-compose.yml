@@ -144,7 +144,7 @@ services:
       - ./config/semantic-forms:/share/semantic-forms
       - ./data/files/submissions:/share/submissions
     environment:
-      ACTIVE_FORM_FILE: "share://semantic-forms/20201028125351-forms.ttl"
+      ACTIVE_FORM_FILE: "share://semantic-forms/20210120121332-forms.ttl"
       PUBLIC_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
       FILE_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
     labels:
