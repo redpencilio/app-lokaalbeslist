@@ -1,0 +1,12 @@
+# Can take a while to process
+DELETE {
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+}
+WHERE  {
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
+  FILTER regex(str(?g), "http://data.lblod.info/temp")
+}
