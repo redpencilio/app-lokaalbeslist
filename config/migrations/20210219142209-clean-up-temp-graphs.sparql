@@ -4,9 +4,17 @@ DELETE {
     ?s ?p ?o .
   }
 }
-WHERE  {
+WHERE {
+    {
+    SELECT DISTINCT ?g
+      WHERE {
+        GRAPH ?g {
+          ?s a <http://mu.semte.ch/vocabularies/ext/supervision/InzendingVoorToezicht> . # The magical property available in every temp graph.
+        }
+        FILTER regex(str(?g), "http://data.lblod.info/temp")
+      }
+    }
   GRAPH ?g {
     ?s ?p ?o .
   }
-  FILTER regex(str(?g), "http://data.lblod.info/temp")
 }
