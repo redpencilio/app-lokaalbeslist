@@ -55,6 +55,8 @@ services:
     logging: *default-logging
   migrations:
     image: semtech/mu-migrations-service:0.6.0
+    environment:
+      MU_SPARQL_TIMEOUT: '300'
     links:
       - virtuoso:database
     volumes:
