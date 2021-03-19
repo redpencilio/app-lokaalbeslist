@@ -1,7 +1,8 @@
-# Toezicht ABB
+# Participatie App
 
 ## Running the application
-```
+
+```shell
 docker-compose up
 ```
 
