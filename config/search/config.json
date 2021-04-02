@@ -4,7 +4,7 @@
   "attachments_path_base": "/data/",
   "eager_indexing_sparql_query": false,
   "additive_indexes": true,
-  "persist_indexes": true,
+  "persist_indexes": false,
   "update_wait_interval_minutes": 0,
   "automatic_index_updates": true,
   "eager_indexing_groups": [
@@ -47,7 +47,18 @@
       "on_path": "agendapunten",
       "rdf_type": "http://data.vlaanderen.be/ns/besluit#Agendapunt",
       "properties": {
-        "title": "http://purl.org/dc/terms/title"
+        "title": "http://purl.org/dc/terms/title",
+        "description": "http://purl.org/dc/terms/description"
+      },
+      "mappings": {
+        "properties": {
+          "title": {
+            "type": "text"
+          },
+          "description": {
+            "type": "text"
+          }
+        }
       }
     }
   ]
