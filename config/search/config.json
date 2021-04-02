@@ -26,11 +26,7 @@
       "analyzer": {
         "dutchanalyzer": {
           "tokenizer": "standard",
-          "filter": [
-            "lowercase",
-            "asciifolding",
-            "dutchstemmer"
-          ]
+          "filter": ["lowercase", "asciifolding", "dutchstemmer"]
         }
       },
       "filter": {
@@ -48,7 +44,60 @@
       "rdf_type": "http://data.vlaanderen.be/ns/besluit#Agendapunt",
       "properties": {
         "title": "http://purl.org/dc/terms/title",
-        "description": "http://purl.org/dc/terms/description"
+        "description": "http://purl.org/dc/terms/description",
+        "zittingURI": "^http://data.vlaanderen.be/ns/besluit#behandelt",
+        "zittingPlannedStart": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#geplandeStart"
+        ],
+        "zittingStartedAtTime": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://www.w3.org/ns/prov#startedAtTime"
+        ],
+        "governingBodyURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor"
+        ],
+        "governingBody": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "governingBodyClassificationURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#classificatie"
+        ],
+        "governingBodyClassification": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "administrativeUnitURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#bestuurt"
+        ],
+        "administrativeUnit": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#bestuurt",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "administrativeUnitClassificationURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#bestuurt",
+          "http://data.vlaanderen.be/ns/besluit#classificatie"
+        ],
+        "administrativeUnitClassification": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+          "http://data.vlaanderen.be/ns/besluit#bestuurt",
+          "http://data.vlaanderen.be/ns/besluit#classificatie",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ]
       },
       "mappings": {
         "properties": {
@@ -57,7 +106,21 @@
           },
           "description": {
             "type": "text"
-          }
+          },
+          "zittingPlannedStart": {
+            "type": "date"
+          },
+          "zittingStartedAtTime": {
+            "type": "date"
+          },
+          "governingBodyURI": { "type": "keyword" },
+          "governingBody": {"type": "keyword"},
+          "governingBodyClassificationURI": {"type": "keyword"},
+          "governingBodyClassification": {"type": "keyword"},
+          "administrativeUnitURI": {"type": "keyword"},
+          "administrativeUnit": {"type": "keyword"},
+          "administrativeUnitClassification": {"type": "keyword"},
+          "administrativeUnitClassificationURI": {"type": "keyword"}
         }
       }
     }
