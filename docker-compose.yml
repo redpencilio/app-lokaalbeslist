@@ -1,14 +1,14 @@
-version: '3.4'
+version: "3.4"
 
-x-logging:
-  &default-logging
+x-logging: &default-logging
   driver: "json-file"
   options:
     max-size: "10m"
     max-file: "3"
 
 services:
-  toezicht-abb:
+  poc-participatie:
+    # TODO: Change to own image, currently is fine cause it's the same anyway
     image: lblod/frontend-toezicht-abb:0.25.3
     volumes:
       - ./config/frontend:/config
@@ -19,7 +19,7 @@ services:
   identifier:
     image: semtech/mu-identifier:1.8.1
     environment:
-      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: "[{\"variables\":[],\"name\":\"public\"}]"
+      DEFAULT_MU_AUTH_ALLOWED_GROUPS_HEADER: '[{"variables":[],"name":"public"}]'
     labels:
       - "logging=true"
     restart: always
@@ -56,67 +56,11 @@ services:
   migrations:
     image: semtech/mu-migrations-service:0.6.0
     environment:
-      MU_SPARQL_TIMEOUT: '300'
+      MU_SPARQL_TIMEOUT: "300"
     links:
       - virtuoso:database
     volumes:
       - ./config/migrations:/data/migrations
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  import:
-    image: lblod/mandaten-import-service:0.4.3
-    links:
-      - virtuoso:database
-    volumes:
-      - ./data/imports:/data/imports # map to actual directory on your system
-      - ./config/import/queries:/data/queries
-    environment:
-      KEEP_DATA: "true"
-      CRON_PATTERN: "0 4 * * *"
-      DEFAULT_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  login:
-    image: lblod/acmidm-login-service:0.9.0
-    environment:
-      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op/.well-known/openid-configuration"
-      MU_APPLICATION_AUTH_CLIENT_ID: "68799bf1-f9eb-4d23-be16-c07c31ae342c"
-      MU_APPLICATION_AUTH_REDIRECT_URI: "https://besluiten.abb.lblod.info/authorization/callback"
-      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
-      MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_databanktoezicht_rol_3d"
-      MU_APPLICATION_AUTH_USERID_CLAIM: "sub"
-      MU_APPLICATION_AUTH_ACCOUNTID_CLAIM: "sub"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  cache:
-    image: semtech/mu-cache:2.0.0
-    links:
-      - resource:backend
-    restart: always
-    labels:
-      - "logging=true"
-    logging: *default-logging
-  resource:
-    image: semtech/mu-cl-resources:1.19.0
-    environment:
-      CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
-    volumes:
-      - ./config/resources:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  file:
-    image: semtech/mu-file-service:3.1.0
-    volumes:
-      - ./data/files:/share
     labels:
       - "logging=true"
     restart: always
@@ -137,35 +81,6 @@ services:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
-      - http.max_content_length=2000MB  
-    restart: always
-    logging: *default-logging
-  enrich-submission:
-    image: lblod/enrich-submission-service:0.7.5
-    volumes:
-      - ./config/semantic-forms:/share/semantic-forms
-      - ./data/files/submissions:/share/submissions
-    environment:
-      ACTIVE_FORM_FILE: "share://semantic-forms/20210222214348-forms.ttl"
-      PUBLIC_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
-      FILE_GRAPH: "http://mu.semte.ch/graphs/organizations/141d9d6b-54af-4d17-b313-8d1c30bc3f5b" # ABB
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  deltanotifier:
-    image: semtech/mu-delta-notifier:0.1.0
-    volumes:
-      - ./config/delta:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  search-query-management:
-    image: lblod/toezicht-search-query-management-service:0.3.6
-    volumes:
-      - ./config/search-query:/share/search-query
-    labels:
-      - "logging=true"
+      - http.max_content_length=2000MB
     restart: always
     logging: *default-logging
