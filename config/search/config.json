@@ -45,6 +45,16 @@
       "properties": {
         "title": "http://purl.org/dc/terms/title",
         "description": "http://purl.org/dc/terms/description",
+        "plannedPublic": "http://data.vlaanderen.be/ns/besluit#geplandOpenbaar",
+        "references": "http://purl.org/dc/terms/references",
+
+        "typeURI": "http://data.vlaanderen.be/ns/besluit#Agendapunt.type",
+        "type": [
+          "http://data.vlaanderen.be/ns/besluit#Agendapunt.type",
+          "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+        "draftResolutionURIs": "http://data.vlaanderen.be/ns/besluit#heeftOntwerpbesluit",
+
         "zittingURI": "^http://data.vlaanderen.be/ns/besluit#behandelt",
         "zittingPlannedStart": [
           "^http://data.vlaanderen.be/ns/besluit#behandelt",
@@ -54,6 +64,15 @@
           "^http://data.vlaanderen.be/ns/besluit#behandelt",
           "http://www.w3.org/ns/prov#startedAtTime"
         ],
+        "zittingVerslagURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#heeftZittingsverslag"
+        ],
+        "zittingNotulenURI": [
+          "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "http://data.vlaanderen.be/ns/besluit#heeftNotulen"
+        ],
+
         "governingBodyURI": [
           "^http://data.vlaanderen.be/ns/besluit#behandelt",
           "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor"
@@ -74,6 +93,7 @@
           "http://data.vlaanderen.be/ns/besluit#classificatie",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
         ],
+
         "administrativeUnitURI": [
           "^http://data.vlaanderen.be/ns/besluit#behandelt",
           "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
@@ -97,30 +117,69 @@
           "http://data.vlaanderen.be/ns/besluit#bestuurt",
           "http://data.vlaanderen.be/ns/besluit#classificatie",
           "http://www.w3.org/2004/02/skos/core#prefLabel"
+        ],
+
+        "agendaItemHandlingURI": [
+          "^http://purl.org/dc/terms/subject"
+        ],
+        "agendaItemHandlingIsPublic": [
+          "^http://purl.org/dc/terms/subject",
+          "http://data.vlaanderen.be/ns/besluit#openbaar"
+        ],
+
+        "generatedResolutionURIs": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/prov#generated"
+        ],
+        "generatedResolutionTitleShorts": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.europa.eu/eli/ontology#title_short"
+        ],
+        "generatedResolutionDescriptions": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.vlaanderen.be/ns/besluit#motivering"
+        ],
+        "generatedResolutionMotivations": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/prov#generated",
+          "http://data.vlaanderen.be/ns/besluit#motivering"
+        ],
+        "generatedResolutionPublicationDates": [
+          "^http://purl.org/dc/terms/subject",
+          "http://www.w3.org/ns/prov#generated",
+          "http://www.w3.org/2001/XMLSchema#date"
         ]
       },
       "mappings": {
         "properties": {
-          "title": {
-            "type": "text"
-          },
-          "description": {
-            "type": "text"
-          },
-          "zittingPlannedStart": {
-            "type": "date"
-          },
-          "zittingStartedAtTime": {
-            "type": "date"
-          },
+          "title": { "type": "text" },
+          "description": { "type": "text" },
+          "plannedPublic": { "type" : "boolean" },
+  
+          "typeURI": { "type": "keyword" },
+          "type": { "type": "keyword" },
+
+          "zittingPlannedStart": { "type": "date" },
+          "zittingStartedAtTime": { "type": "date" },
+
           "governingBodyURI": { "type": "keyword" },
           "governingBody": {"type": "keyword"},
           "governingBodyClassificationURI": {"type": "keyword"},
           "governingBodyClassification": {"type": "keyword"},
+
           "administrativeUnitURI": {"type": "keyword"},
           "administrativeUnit": {"type": "keyword"},
           "administrativeUnitClassification": {"type": "keyword"},
-          "administrativeUnitClassificationURI": {"type": "keyword"}
+          "administrativeUnitClassificationURI": {"type": "keyword"},
+
+          "agendaItemHandlingIsPublic": { "type": "boolean" },
+
+          "generatedResolutionTitleShort": { "type": "text" },
+          "generatedResolutionDescription": { "type": "text" },
+          "generatedResolutionMotivation": { "type": "text" },
+          "generatedResolutionPublicationDate": { "type": "date" }
         }
       }
     }
