@@ -1,0 +1,21 @@
+PREFIX ext:  <http://mu.semte.ch/vocabularies/ext/>
+PREFIX mu:   <http://mu.semte.ch/vocabularies/core/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+INSERT {
+  GRAPH ext:uuids { ?s mu:uuid ?realUUID . }
+}
+WHERE {
+  {
+    SELECT DISTINCT ?s
+    WHERE {
+      GRAPH ?g { ?s a ?type . }
+      MINUS { ?s mu:uuid []}
+      VALUES ?type {
+        besluit:Agendapunt besluit:Artikel besluit:BehandelingVanAgendapunt besluit:Besluit besluit:Bestuurseenheid prov:Location ext:BestuurseenheidClassificatieCode besluit:Bestuursorgaan ext:BestuursorgaanClassificatieCode eli:LegalResource eli:LegalResourceSubdivision besluit:Stemming besluit:Zitting
+      }
+    }
+  }
+  OPTIONAL { ?s mu:uuid ?uuid }
+  BIND(IF(BOUND(?uuid), ?uuid, LCASE(STRUUID())) as ?realUUID)
+}
