@@ -55,131 +55,90 @@
         ],
         "draftResolutionURIs": "http://data.vlaanderen.be/ns/besluit#heeftOntwerpbesluit",
 
-        "zittingURI": "^http://data.vlaanderen.be/ns/besluit#behandelt",
-        "zittingPlannedStart": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#geplandeStart"
-        ],
-        "zittingStartedAtTime": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://www.w3.org/ns/prov#startedAtTime"
-        ],
-        "zittingVerslagURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#heeftZittingsverslag"
-        ],
-        "zittingNotulenURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#heeftNotulen"
-        ],
+        "zitting": {
+          "rdf_type": "http://data.vlaanderen.be/ns/besluit#Zitting",
+          "via": "^http://data.vlaanderen.be/ns/besluit#behandelt",
+          "properties": {
+            "plannedStart": "http://data.vlaanderen.be/ns/besluit#geplandeStart",
+            "startedAtTime": "http://www.w3.org/ns/prov#startedAtTime",
+            "verslagURI": "http://data.vlaanderen.be/ns/besluit#heeftZittingsverslag",
+            "notulenURI": "http://data.vlaanderen.be/ns/besluit#heeftNotulen",
 
-        "governingBodyURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor"
-        ],
-        "governingBody": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://www.w3.org/2004/02/skos/core#prefLabel"
-        ],
-        "governingBodyClassificationURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#classificatie"
-        ],
-        "governingBodyClassification": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#classificatie",
-          "http://www.w3.org/2004/02/skos/core#prefLabel"
-        ],
+            "governingBody": {
+              "rdf_type": "http://data.vlaanderen.be/ns/besluit#Bestuursorgaan",
+              "via": "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+              "properties": {
+                "label": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "classificationURI": "http://data.vlaanderen.be/ns/besluit#classificatie",
+                "classification": [
+                  "http://data.vlaanderen.be/ns/besluit#classificatie",
+                  "http://www.w3.org/2004/02/skos/core#prefLabel"
+                ]
+              }
+            },
 
-        "administrativeUnitURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#bestuurt"
-        ],
-        "administrativeUnit": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#bestuurt",
-          "http://www.w3.org/2004/02/skos/core#prefLabel"
-        ],
-        "administrativeUnitClassificationURI": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#bestuurt",
-          "http://data.vlaanderen.be/ns/besluit#classificatie"
-        ],
-        "administrativeUnitClassification": [
-          "^http://data.vlaanderen.be/ns/besluit#behandelt",
-          "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
-          "http://data.vlaanderen.be/ns/besluit#bestuurt",
-          "http://data.vlaanderen.be/ns/besluit#classificatie",
-          "http://www.w3.org/2004/02/skos/core#prefLabel"
-        ],
+            "administrativeBody": {
+              "rdf_type": "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+              "via": [
+                "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
+                "http://data.vlaanderen.be/ns/besluit#bestuurt"
+              ],
+              "properties": {
+                "label": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "classificationURI": "http://data.vlaanderen.be/ns/besluit#classificatie",
+                "classification": [
+                  "http://data.vlaanderen.be/ns/besluit#classificatie",
+                  "http://www.w3.org/2004/02/skos/core#prefLabel"
+                ]
+              }
+            }
+          }
+        },
 
-        "agendaItemHandlingURI": [
-          "^http://purl.org/dc/terms/subject"
-        ],
-        "agendaItemHandlingIsPublic": [
-          "^http://purl.org/dc/terms/subject",
-          "http://data.vlaanderen.be/ns/besluit#openbaar"
-        ],
-
-        "generatedResolutionURIs": [
-          "^http://purl.org/dc/terms/subject",
-          "http://www.w3.org/ns/prov#generated"
-        ],
-        "generatedResolutionTitleShorts": [
-          "^http://purl.org/dc/terms/subject",
-          "http://www.w3.org/ns/prov#generated",
-          "http://data.europa.eu/eli/ontology#title_short"
-        ],
-        "generatedResolutionDescriptions": [
-          "^http://purl.org/dc/terms/subject",
-          "http://www.w3.org/ns/prov#generated",
-          "http://data.vlaanderen.be/ns/besluit#motivering"
-        ],
-        "generatedResolutionMotivations": [
-          "^http://purl.org/dc/terms/subject",
-          "http://www.w3.org/ns/prov#generated",
-          "http://data.vlaanderen.be/ns/besluit#motivering"
-        ],
-        "generatedResolutionPublicationDates": [
-          "^http://purl.org/dc/terms/subject",
-          "http://www.w3.org/ns/prov#generated",
-          "http://www.w3.org/2001/XMLSchema#date"
-        ]
+        "agendaItemHandling": {
+          "rdf_type": "http://data.vlaanderen.be/ns/besluit#BehandelingVanAgendapunt",
+          "via": "^http://purl.org/dc/terms/subject",
+          "properties": {
+            "isPublic": "http://data.vlaanderen.be/ns/besluit#openbaar",
+            "generatedResolutions": {
+              "rdf_type": "http://data.vlaanderen.be/ns/besluit#Besluit",
+              "via": "http://www.w3.org/ns/prov#generated",
+              "properties": {
+                "titleShort": "http://data.europa.eu/eli/ontology#title_short",
+                "description": "http://data.vlaanderen.be/ns/besluit#motivering",
+                "motivation": "http://data.vlaanderen.be/ns/besluit#motivering",
+                "publicationDate": "http://www.w3.org/2001/XMLSchema#date"
+              }
+            }
+          }
+        }
       },
       "mappings": {
         "properties": {
           "title": { "type": "text" },
           "description": { "type": "text" },
-          "plannedPublic": { "type" : "boolean" },
-  
+          "plannedPublic": { "type": "boolean" },
+
           "typeURI": { "type": "keyword" },
           "type": { "type": "keyword" },
 
-          "zittingPlannedStart": { "type": "date" },
-          "zittingStartedAtTime": { "type": "date" },
+          "zitting.plannedStart": { "type": "date" },
+          "zitting.startedAtTime": { "type": "date" },
+          "zitting.governingBodyURI": { "type": "keyword" },
+          "zitting.governingBody.label": { "type": "keyword" },
+          "zitting.governingBody.classificationURI": { "type": "keyword" },
+          "zitting.governingBody.classification": { "type": "keyword" },
 
-          "governingBodyURI": { "type": "keyword" },
-          "governingBody": {"type": "keyword"},
-          "governingBodyClassificationURI": {"type": "keyword"},
-          "governingBodyClassification": {"type": "keyword"},
+          "zitting.administrativeUnitURI": { "type": "keyword" },
+          "zitting.administrativeUnit.label": { "type": "keyword" },
+          "zitting.administrativeUnit.classification": { "type": "keyword" },
+          "zitting.administrativeUnit.classificationURI": { "type": "keyword" },
 
-          "administrativeUnitURI": {"type": "keyword"},
-          "administrativeUnit": {"type": "keyword"},
-          "administrativeUnitClassification": {"type": "keyword"},
-          "administrativeUnitClassificationURI": {"type": "keyword"},
-
-          "agendaItemHandlingIsPublic": { "type": "boolean" },
-
-          "generatedResolutionTitleShort": { "type": "text" },
-          "generatedResolutionDescription": { "type": "text" },
-          "generatedResolutionMotivation": { "type": "text" },
-          "generatedResolutionPublicationDate": { "type": "date" }
+          "agendaItemHandling.isPublic": { "type": "boolean" },
+          "agendaItemHandling.generatedResolutions.titleShort": { "type": "text" },
+          "agendaItemHandling.generatedResolutions.description": { "type": "text" },
+          "agendaItemHandling.generatedResolutions.motivation": { "type": "text" },
+          "agendaItemHandling.generatedResolutions.publicationDate": { "type": "date" }
         }
       }
     }
