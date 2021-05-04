@@ -77,7 +77,7 @@
               }
             },
 
-            "administrativeBody": {
+            "administrativeUnit": {
               "rdf_type": "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
               "via": [
                 "http://data.vlaanderen.be/ns/besluit#isGehoudenDoor",
