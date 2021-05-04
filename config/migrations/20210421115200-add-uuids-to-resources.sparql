@@ -1,9 +1,11 @@
-PREFIX ext:  <http://mu.semte.ch/vocabularies/ext/>
 PREFIX mu:   <http://mu.semte.ch/vocabularies/core/>
 PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX ext:  <http://mu.semte.ch/vocabularies/ext/>
+PREFIX eli:  <http://data.europa.eu/eli/ontology#>
 
 INSERT {
-  GRAPH ext:uuids { ?s mu:uuid ?realUUID . }
+  GRAPH <http://mu.semte.ch/graphs/public> { ?s mu:uuid ?realUUID . }
 }
 WHERE {
   {
