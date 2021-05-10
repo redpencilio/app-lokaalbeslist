@@ -55,7 +55,7 @@
         ],
         "draftResolutionURIs": "http://data.vlaanderen.be/ns/besluit#heeftOntwerpbesluit",
 
-        "zitting": {
+        "session": {
           "rdf_type": "http://data.vlaanderen.be/ns/besluit#Zitting",
           "via": "^http://data.vlaanderen.be/ns/besluit#behandelt",
           "properties": {
@@ -134,17 +134,17 @@
           "typeURI": { "type": "keyword" },
           "type": { "type": "keyword" },
 
-          "zitting.plannedStart": { "type": "date" },
-          "zitting.startedAtTime": { "type": "date" },
-          "zitting.governingBodyURI": { "type": "keyword" },
-          "zitting.governingBody.label": { "type": "keyword" },
-          "zitting.governingBody.classificationURI": { "type": "keyword" },
-          "zitting.governingBody.classification": { "type": "keyword" },
+          "session.plannedStart": { "type": "date" },
+          "session.startedAtTime": { "type": "date" },
+          "session.governingBodyURI": { "type": "keyword" },
+          "session.governingBody.label": { "type": "keyword" },
+          "session.governingBody.classificationURI": { "type": "keyword" },
+          "session.governingBody.classification": { "type": "keyword" },
 
-          "zitting.administrativeUnitURI": { "type": "keyword" },
-          "zitting.administrativeUnit.label": { "type": "keyword" },
-          "zitting.administrativeUnit.classification": { "type": "keyword" },
-          "zitting.administrativeUnit.classificationURI": { "type": "keyword" },
+          "session.administrativeUnitURI": { "type": "keyword" },
+          "session.administrativeUnit.label": { "type": "keyword" },
+          "session.administrativeUnit.classification": { "type": "keyword" },
+          "session.administrativeUnit.classificationURI": { "type": "keyword" },
 
           "agendaItemHandling.isPublic": { "type": "boolean" },
           "agendaItemHandling.generatedResolutions.titleShort": { "type": "text" },
