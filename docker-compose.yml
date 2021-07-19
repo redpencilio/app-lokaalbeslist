@@ -84,11 +84,7 @@ services:
     restart: unless-stopped
     logging: *default-logging
   search:
-    # image: semtech/mu-search:0.8.0-beta.3
-    # Currently we need mu-search on branch https://github.com/wschella/mu-search/tree/feature/nested-resource-uris
-    # until https://github.com/mu-semtech/mu-search/pull/23 is merged.
-    # Clone it locally to set up.
-    build: ../mu-search
+    image: semtech/mu-search:0.8.0-beta.3
     volumes:
       - ./config/search:/config
       - ./data/files:/data
