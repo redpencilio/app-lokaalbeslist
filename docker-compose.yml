@@ -102,3 +102,30 @@ services:
       - http.max_content_length=2000MB
     restart: unless-stopped
     logging: *default-logging
+  subscription:
+    image: robbe7730/subscription-service:latest
+    restart: unless-stopped
+    links:
+      - virtuoso:db
+      - deliver-mail-service:deliver-mail-service
+    logging: *default-logging
+  deliver-email-service:
+    image: redpencil/deliver-email-service:0.1.3
+    ports:
+      - 8888:80
+      - 9229:9229
+    environment:
+      MAILBOX_URI: 'http://xxxparticipatie.redpencil.io/id/mailboxes/1'
+      NODE_ENV: "production"
+      FROM_NAME: "XXXParticipatie"
+      EMAIL_CRON_PATTERN: "*/1 * * * *"
+      LOG_ERRORS: "true"
+      NODE_TLS_REJECT_UNAUTHORIZED: "0"
+    links:
+      - database:database
+    labels:
+      - "logging=true"
+    restart: always
+    volumes:
+      - ./data/files:/share
+

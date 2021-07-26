@@ -18,4 +18,7 @@ services:
     restart: "no"
     environment:
       NUMBER_OF_THREADS: 4 # overwrite for development
-      JRUBY_OPTIONS: "-J-Xmx8g" # overwrite for development
+      JRUBY_OPTIONS: "-J-Xmx4g" # overwrite for development
+  deliver-mail-service:
+    environment:
+      NODE_ENV: "development"
