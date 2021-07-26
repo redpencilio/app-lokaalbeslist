@@ -107,7 +107,7 @@ services:
     restart: unless-stopped
     links:
       - virtuoso:db
-      - deliver-mail-service:deliver-mail-service
+      - deliver-email-service:deliver-email-service
     logging: *default-logging
   deliver-email-service:
     image: redpencil/deliver-email-service:0.1.3
