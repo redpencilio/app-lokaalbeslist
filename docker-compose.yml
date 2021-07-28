@@ -7,7 +7,7 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
-  poc-participatie:
+  lokaalbeslist:
     # TODO: Change to own image, currently is fine cause it's the same anyway
     image: lblod/frontend-toezicht-abb:0.25.3
     volumes:
@@ -116,9 +116,9 @@ services:
       - 8888:80
       - 9229:9229
     environment:
-      MAILBOX_URI: 'http://xxxparticipatie.redpencil.io/id/mailboxes/1'
+      MAILBOX_URI: 'http://lokaalbeslist.be/id/mailboxes/1'
       NODE_ENV: "production"
-      FROM_NAME: "XXXParticipatie"
+      FROM_NAME: "LokaalBeslist"
       EMAIL_CRON_PATTERN: "*/1 * * * *"
       LOG_ERRORS: "true"
       NODE_TLS_REJECT_UNAUTHORIZED: "0"

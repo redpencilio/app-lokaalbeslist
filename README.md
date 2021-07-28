@@ -1,4 +1,4 @@
-# Participatie App
+# LokaalBeslist.be
 
 ## Running the application
 
