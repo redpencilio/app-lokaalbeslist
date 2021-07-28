@@ -22,3 +22,8 @@ services:
   deliver-email-service:
     environment:
       NODE_ENV: "development"
+  deltanotifier:
+    environment:
+      DEBUG_DELTA_SEND: "yes"
+      DEBUG_DELTA_MATCH: "yes"
+      DEBUG_TRIPLE_MATCHES_SPEC: "yes"
