@@ -1,0 +1,64 @@
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX terms: <http://purl.org/dc/terms/>
+
+CONSTRUCT {
+    ?agendapunt     a besluit:Agendapunt;
+                    terms:title ?agendapuntTitel;
+                    owl:sameAs ?agendapuntExtern;
+                    ext:zitting ?zitting;
+                    ext:stemming ?stemming.
+
+    ?zitting        a besluit:Zitting;
+                    owl:sameAs ?zittingExtern;
+                    prov:startedAtTime ?zittingStart;
+                    besluit:geplandeStart ?zittingStartGeplandeStart;
+                    besluit:heeftNotulen ?zittingNotulen.
+
+    ?zittingNotulen a besluit:Notulen;
+                    owl:sameAs ?zittingNotulenExtern.
+    
+    ?stemming       a besluit:Stemming;
+                    besluit:gevolg ?stemmingGevolg;
+                    besluit:aantalVoorstanders ?stemmingAantalVoorstanders;
+                    besluit:aantalTegenstanders ?stemmingAantalTegenstanders;
+                    besluit:aantalOnthouders ?stemmingAantalOnthouders.
+} WHERE {
+    BIND(<CONTENT_URL> as ?agendapunt)
+    ?agendapunt a besluit:Agendapunt.
+    ?agendapunt terms:title ?agendapuntTitel.
+    OPTIONAL {
+        ?agendapunt owl:sameAs ?agendapuntExtern.
+    }
+    OPTIONAL {
+        ?zitting besluit:behandelt ?agendapunt.
+        OPTIONAL {
+            ?zitting owl:sameAs ?zittingExtern. 
+        }
+        OPTIONAL {
+            ?zitting prov:startedAtTime ?zittingStart.
+        }
+        OPTIONAL {
+            ?zitting besluit:geplandeStart ?zittingStartGeplandeStart.
+        }
+        OPTIONAL {
+            ?zitting besluit:heeftNotulen ?zittingNotulen.
+            ?zittingNotulen owl:sameAs ?zittingNotulenExtern.
+        }
+    }
+    OPTIONAL {
+        ?behandeling terms:subject ?agendapunt.
+        ?behandeling besluit:heeftStemming ?stemming.
+        OPTIONAL {
+            ?stemming besluit:gevolg ?stemmingGevolg.
+        }
+        OPTIONAL {
+            ?stemming besluit:aantalVoorstanders ?stemmingAantalVoorstanders.
+            ?stemming besluit:aantalTegenstanders ?stemmingAantalTegenstanders.
+            ?stemming besluit:aantalOnthouders ?stemmingAantalOnthouders.
+        }
+    }
+}
+LIMIT 1

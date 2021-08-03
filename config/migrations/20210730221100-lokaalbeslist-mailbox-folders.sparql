@@ -1,5 +1,5 @@
 INSERT DATA {
-  GRAPH <http://mu.semte.ch/graphs/system/email> {
+  GRAPH <http://lokaalbeslist.be/graphs/system/email> {
     <http://lokaalbeslist.be/id/mailboxes/1> a <http://www.semanticdesktop.org/ontologies/2007/03/22/nmo#Mailbox>;
        <http://mu.semte.ch/vocabularies/core/uuid> "cf9cb7e4-9a00-4855-9ee0-e8e3bbeba9e9";
        <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#hasPart> <http://lokaalbeslist.be/id/mail-folders/1>;

@@ -105,8 +105,15 @@ services:
   subscription:
     image: robbe7730/subscription-service:latest
     restart: unless-stopped
+    environment:
+      EMAIL_SUBJECT: "Nieuwe agendapunten beschikbaar"
+      EMAIL_FROM: "noreply@lokaalbeslist.be"
+      BASE_URL: "http://lokaalbeslist.be"
+      MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
+    volumes:
+      - ./config/subscription/:/config
     links:
-      - database:db
+      - database:database
       - deliver-email-service:deliver-email-service
       # - deltanotifier:deltanotifier
     logging: *default-logging

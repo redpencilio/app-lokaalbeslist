@@ -1,0 +1,21 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX terms: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT
+    ?content
+WHERE {
+    BIND(<SUBJECT_URL> as ?firstNode)
+    ?content a besluit:Agendapunt.
+    {
+        ?firstNode a besluit:Agendapunt.
+        BIND(?firstNode as ?content)
+    } UNION {
+        ?firstNode besluit:behandelt ?content.
+    } UNION {
+        ?firstNode terms:subject ?content.
+    } UNION {
+        ?behandeling terms:subject ?content.
+        ?behandeling besluit:heeftStemming ?firstNode.
+    }
+}
+

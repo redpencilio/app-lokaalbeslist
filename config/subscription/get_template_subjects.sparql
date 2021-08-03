@@ -1,0 +1,19 @@
+SELECT
+  ?agendapunt
+  ?zitting
+  ?zitting_notulen
+  ?stemming
+WHERE {
+  BIND(<CONTENT_URL> as ?agendapunt)
+
+  OPTIONAL {
+    ?agendapunt ext:zitting ?zitting.
+    OPTIONAL {
+      ?zitting besluit:heeftNotulen ?zitting_notulen.
+    }
+  }
+
+  OPTIONAL {
+    ?agendapunt ext:stemming ?stemming.
+  }
+}
