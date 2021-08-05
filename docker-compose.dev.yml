@@ -27,3 +27,6 @@ services:
       DEBUG_DELTA_SEND: "yes"
       DEBUG_DELTA_MATCH: "yes"
       DEBUG_TRIPLE_MATCHES_SPEC: "yes"
+  lokaalbeslist-subscription:
+    environment:
+      NODE_ENV: 'development'

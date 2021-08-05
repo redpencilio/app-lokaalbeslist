@@ -142,3 +142,9 @@ services:
       - subscription:subscription
     volumes:
       - ./config/delta:/config
+  lokaalbeslist-subscription:
+    image: robbe7730/lokaalbeslist-subscription-service
+    environment:
+      NODE_ENV: 'production'
+    links:
+      - database:database
