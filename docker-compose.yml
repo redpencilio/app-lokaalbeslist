@@ -143,7 +143,7 @@ services:
     volumes:
       - ./config/delta:/config
   lokaalbeslist-subscription:
-    image: robbe7730/lokaalbeslist-subscription-service
+    image: robbe7730/lokaalbeslist-subscription-service:1.0.0
     environment:
       NODE_ENV: 'production'
     links:
