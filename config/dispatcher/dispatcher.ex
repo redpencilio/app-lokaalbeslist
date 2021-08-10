@@ -40,7 +40,7 @@ defmodule Dispatcher do
   # subscription-service
   ###############################################################
   
-  post "/subscription/*path", @json do
+  match "/subscription/*path", @json do
     Proxy.forward conn, path, "http://lokaalbeslist-subscription/"
   end
 
