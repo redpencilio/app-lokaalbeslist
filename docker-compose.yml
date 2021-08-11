@@ -107,7 +107,7 @@ services:
     restart: unless-stopped
     environment:
       EMAIL_SUBJECT: "Nieuwe agendapunten beschikbaar"
-      EMAIL_FROM: "noreply@lokaalbeslist.be"
+      EMAIL_FROM: "lokaalbeslist@semantic.works"
       BASE_URL: "http://lokaalbeslist.be"
       MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
     volumes:
