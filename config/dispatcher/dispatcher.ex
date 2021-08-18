@@ -14,14 +14,6 @@ defmodule Dispatcher do
   @html %{ accept: %{ html: true } }
 
   ###############################################################
-  # General/shared
-  ###############################################################
-
-  get "/resource/*path", @json do
-    Proxy.forward conn, path, "http://resource/"
-  end
-
-  ###############################################################
   # Searching
   ###############################################################
 
@@ -32,6 +24,7 @@ defmodule Dispatcher do
   ###############################################################
   # Frontend (toezicht-abb)
   ###############################################################
+
   get "/favicon.ico", @any do
     send_resp( conn, 404, "" )
   end
@@ -42,6 +35,26 @@ defmodule Dispatcher do
   
   match "/subscription/*path", @json do
     Proxy.forward conn, path, "http://lokaalbeslist-subscription/"
+  end
+
+  ###############################################################
+  # Resources
+  ###############################################################
+
+  get "/agendapunten/*path", @json do
+    Proxy.forward conn, path, "http://resource/agendapunten"
+  end
+
+  get "/behandelingen-van-agendapunten/*path", @json do
+    Proxy.forward conn, path, "http://resource/behandelingen-van-agendapunten"
+  end
+
+  get "/werkingsgebieden/*path", @json do
+    Proxy.forward conn, path, "http://resource/werkingsgebieden"
+  end
+
+  get "/bestuurseenheden/*path", @json do
+    Proxy.forward conn, path, "http://resource/bestuurseenheden"
   end
 
   #################################################################
