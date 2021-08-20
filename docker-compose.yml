@@ -33,7 +33,9 @@ services:
     restart: unless-stopped
     logging: *default-logging
   database:
-    image: semtech/mu-authorization:0.6.0-beta.7
+    #TODO replace with semtech/mu-authorization when
+    # https://github.com/mu-semtech/mu-authorization/pull/7 is merged
+    image: cecemel/mu-authorization:0.6.0-beta.8
     environment:
       MU_SPARQL_ENDPOINT: "http://virtuoso:8890/sparql"
     volumes:
@@ -137,7 +139,9 @@ services:
     volumes:
       - ./data/files:/share
   deltanotifier:
-    image: semtech/mu-delta-notifier
+    # TODO: replace with semtech/mu-delta-notifier when
+    # https://github.com/mu-semtech/delta-notifier/pull/9 is merged
+    image: cecemel/delta-notifier:0.2.0-beta.2
     links:
       - subscription:subscription
     volumes:
@@ -148,3 +152,23 @@ services:
       NODE_ENV: 'production'
     links:
       - database:database
+  besluiten-consumer:
+    image: lblod/delta-consumer-single-graph-maintainer:0.4.1
+    environment:
+      SYNC_BASE_URL: 'https://dev.harvesting-self-service.lblod.info'
+      SERVICE_NAME: 'besluiten-consumer'
+      SYNC_FILES_PATH: '/sync/besluiten/files'
+      SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/BesluitenCacheGraphDump"
+      INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/besluiten"
+      JOB_CREATOR_URI: "http://data.lblod.info/services/id/besluiten-consumer"
+      DISABLE_INITIAL_SYNC: 'true'
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
+      KEEP_DELTA_FILES: 'true'
+      DELTA_FILE_FOLDER: '/consumer-files'
+      BATCH_SIZE: 500 # if virtuoso is in prod mode, you can safely beef this up to 500/1000
+    volumes:
+      - ./data/files/consumer-files/besluiten:/consumer-files/
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
