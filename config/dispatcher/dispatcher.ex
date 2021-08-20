@@ -42,19 +42,35 @@ defmodule Dispatcher do
   ###############################################################
 
   get "/agendapunten/*path", @json do
-    Proxy.forward conn, path, "http://resource/agendapunten"
+    Proxy.forward conn, path, "http://resource/agendapunten/"
   end
 
   get "/behandelingen-van-agendapunten/*path", @json do
-    Proxy.forward conn, path, "http://resource/behandelingen-van-agendapunten"
+    Proxy.forward conn, path, "http://resource/behandelingen-van-agendapunten/"
   end
 
   get "/werkingsgebieden/*path", @json do
-    Proxy.forward conn, path, "http://resource/werkingsgebieden"
+    Proxy.forward conn, path, "http://resource/werkingsgebieden/"
   end
 
   get "/bestuurseenheden/*path", @json do
-    Proxy.forward conn, path, "http://resource/bestuurseenheden"
+    Proxy.forward conn, path, "http://resource/bestuurseenheden/"
+  end
+
+  get "/bestuursorganen/*path", @json do
+    Proxy.forward conn, path, "http://resource/bestuursorganen/"
+  end
+
+  get "/zittingen/*path", @json do
+    Proxy.forward conn, path, "http://resource/zittingen/"
+  end
+
+  get "/mandatarissen/*path", @json do
+    Proxy.forward conn, path, "http://resource/mandatarissen/"
+  end
+
+  get "/personen/*path", @json do
+    Proxy.forward conn, path, "http://resource/personen/"
   end
 
   #################################################################
