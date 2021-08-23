@@ -13,6 +13,8 @@ services:
       - ./config/frontend:/config
     labels:
       - "logging=true"
+    links:
+      - identifier:backend
     restart: unless-stopped
     logging: *default-logging
   identifier:
