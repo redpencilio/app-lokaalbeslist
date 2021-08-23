@@ -172,3 +172,11 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
+  uuid-generation:
+    build: https://github.com/robbe7730/uuid-generation-service.git
+    environment:
+      NODE_ENV: 'production'
+    volumes:
+      - ./config/uuid-generation/:/config
+    links:
+      - database:database

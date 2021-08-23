@@ -1,0 +1,15 @@
+{
+    "http://data.vlaanderen.be/ns/besluit#Agendapunt": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Artikel": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#BehandelingVanAgendapunt": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Besluit": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid": ["http://mu.semte.ch/graphs/public"],
+    "http://www.w3.org/ns/prov#Location": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Bestuursorgaan": ["http://mu.semte.ch/graphs/public"],
+    "http://data.europa.eu/eli/ontology#LegalResource": ["http://mu.semte.ch/graphs/public"],
+    "http://data.europa.eu/eli/ontology#LegalResourceSubdivision": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Stemming": ["http://mu.semte.ch/graphs/public"],
+    "http://data.vlaanderen.be/ns/besluit#Zitting": ["http://mu.semte.ch/graphs/public"],
+
+    "http://data.vlaanderen.be/ns/mandaat#Mandataris": ["http://mu.semte.ch/graphs/public"]
+}
