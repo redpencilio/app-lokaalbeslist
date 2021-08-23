@@ -22,14 +22,6 @@ defmodule Dispatcher do
   end
 
   ###############################################################
-  # Frontend (toezicht-abb)
-  ###############################################################
-
-  get "/favicon.ico", @any do
-    send_resp( conn, 404, "" )
-  end
-
-  ###############################################################
   # subscription-service
   ###############################################################
   
@@ -71,6 +63,18 @@ defmodule Dispatcher do
 
   get "/personen/*path", @json do
     Proxy.forward conn, path, "http://resource/personen/"
+  end
+
+  ###############################################################
+  # Frontend (lokaalbeslist)
+  ###############################################################
+
+  get "/favicon.ico", @any do
+    send_resp( conn, 404, "" )
+  end
+
+  get "/*path", %{ last_call: true } do
+    Proxy.forward conn, path, "http://lokaalbeslist/"
   end
 
   #################################################################
