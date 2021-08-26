@@ -69,6 +69,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/besluiten/"
   end
 
+  get "/stemmingen/*path", @json do
+    Proxy.forward conn, path, "http://resource/stemmingen/"
+  end
+
   ###############################################################
   # Frontend (lokaalbeslist)
   ###############################################################
