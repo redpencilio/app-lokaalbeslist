@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   lokaalbeslist:
-    image: redpencil/frontend-lokaalbeslist:1.1.2
+    image: redpencil/frontend-lokaalbeslist:1.1.3
     volumes:
       - ./config/frontend:/config
     labels:
@@ -158,7 +158,7 @@ services:
   besluiten-consumer:
     image: lblod/delta-consumer-single-graph-maintainer:0.4.1
     environment:
-      SYNC_BASE_URL: 'https://dev.harvesting-self-service.lblod.info'
+      SYNC_BASE_URL: 'https://qa.harvesting-self-service.lblod.info'
       SERVICE_NAME: 'besluiten-consumer'
       SYNC_FILES_PATH: '/sync/besluiten/files'
       SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/BesluitenCacheGraphDump"
@@ -168,7 +168,7 @@ services:
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
       KEEP_DELTA_FILES: 'true'
       DELTA_FILE_FOLDER: '/consumer-files'
-      BATCH_SIZE: 500 # if virtuoso is in prod mode, you can safely beef this up to 500/1000
+      BATCH_SIZE: 1000 # if virtuoso is in prod mode, you can safely beef this up to 500/1000
     volumes:
       - ./data/files/consumer-files/besluiten:/consumer-files/
     restart: always
