@@ -183,3 +183,19 @@ services:
       - ./config/uuid-generation/:/config
     links:
       - database:database
+  mandatendatabank-consumer:
+    image: lblod/delta-consumer-single-graph-maintainer:0.4.1
+    environment:
+      SYNC_BASE_URL: 'https://loket.lokaalbestuur.vlaanderen.be' # replace with link to Loket API
+      SERVICE_NAME: 'mandatendatabank-consumer'
+      SYNC_FILES_PATH: '/sync/mandatarissen/files'
+      SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/MandatarissenCacheGraphDump"
+      INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/initialSync/mandatarissen"
+      JOB_CREATOR_URI: "http://data.lblod.info/services/id/mandatendatabank-consumer"
+      DISABLE_INITIAL_SYNC: 'true'
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: 'true'
+      KEEP_DELTA_FILES: 'true'
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
