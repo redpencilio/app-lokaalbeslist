@@ -14,6 +14,12 @@
                                   :as "publications"))
   :has-one `((agendapunt :via ,(s-prefix "besluit:aangebrachtNa")
                          :as "vorige-agendapunt")
+             (agendapunt :via ,(s-prefix "besluit:aangebrachtNa")
+                         :inverse t
+                         :as "volgend-agendapunt")
+             (zitting :via ,(s-prefix "besluit:behandelt")
+                      :inverse t
+                      :as "zitting")
              (behandeling-van-agendapunt :via ,(s-prefix "dct:subject")
                                          :inverse t
                                          :as "behandeling"))

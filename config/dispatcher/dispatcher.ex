@@ -14,14 +14,6 @@ defmodule Dispatcher do
   @html %{ accept: %{ html: true } }
 
   ###############################################################
-  # General/shared
-  ###############################################################
-
-  get "/resource/*path", @json do
-    Proxy.forward conn, path, "http://resource/"
-  end
-
-  ###############################################################
   # Searching
   ###############################################################
 
@@ -30,18 +22,67 @@ defmodule Dispatcher do
   end
 
   ###############################################################
-  # Frontend (toezicht-abb)
-  ###############################################################
-  get "/favicon.ico", @any do
-    send_resp( conn, 404, "" )
-  end
-
-  ###############################################################
   # subscription-service
   ###############################################################
   
   match "/subscription/*path", @json do
     Proxy.forward conn, path, "http://lokaalbeslist-subscription/"
+  end
+
+  ###############################################################
+  # Resources
+  ###############################################################
+
+  get "/agendapunten/*path", @json do
+    Proxy.forward conn, path, "http://resource/agendapunten/"
+  end
+
+  get "/behandelingen-van-agendapunten/*path", @json do
+    Proxy.forward conn, path, "http://resource/behandelingen-van-agendapunten/"
+  end
+
+  get "/werkingsgebieden/*path", @json do
+    Proxy.forward conn, path, "http://resource/werkingsgebieden/"
+  end
+
+  get "/bestuurseenheden/*path", @json do
+    Proxy.forward conn, path, "http://resource/bestuurseenheden/"
+  end
+
+  get "/bestuursorganen/*path", @json do
+    Proxy.forward conn, path, "http://resource/bestuursorganen/"
+  end
+
+  get "/zittingen/*path", @json do
+    Proxy.forward conn, path, "http://resource/zittingen/"
+  end
+
+  get "/mandatarissen/*path", @json do
+    Proxy.forward conn, path, "http://resource/mandatarissen/"
+  end
+
+  get "/personen/*path", @json do
+    Proxy.forward conn, path, "http://resource/personen/"
+  end
+
+  get "/besluiten/*path", @json do
+    Proxy.forward conn, path, "http://resource/besluiten/"
+  end
+
+  get "/stemmingen/*path", @json do
+    Proxy.forward conn, path, "http://resource/stemmingen/"
+  end
+
+  ###############################################################
+  # Frontend (lokaalbeslist)
+  ###############################################################
+
+  get "/favicon.ico", @any do
+    send_resp( conn, 404, "" )
+  end
+
+  get "/*path", %{ last_call: true } do
+    Proxy.forward conn, path, "http://lokaalbeslist/"
   end
 
   #################################################################
