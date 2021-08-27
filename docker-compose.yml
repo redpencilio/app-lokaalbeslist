@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   lokaalbeslist:
-    image: redpencil/frontend-lokaalbeslist:1.1.4.2
+    image: redpencil/frontend-lokaalbeslist:1.1.5
     volumes:
       - ./config/frontend:/config
     labels:
