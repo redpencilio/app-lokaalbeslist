@@ -28,7 +28,9 @@ CONSTRUCT {
 } WHERE {
     BIND(<CONTENT_URL> as ?agendapunt)
     ?agendapunt a besluit:Agendapunt.
-    ?agendapunt terms:title ?agendapuntTitel.
+    OPTIONAL {
+        ?agendapunt terms:title ?agendapuntTitel.
+    }
     OPTIONAL {
         ?agendapunt owl:sameAs ?agendapuntExtern.
     }
