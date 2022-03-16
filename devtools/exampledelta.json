@@ -1,0 +1,49 @@
+[
+    {
+        "inserts": [
+            {
+                "subject": {
+                    "type": "uri",
+                    "value": "http://data.lblod.info/id/d8383340-1ab4-11ec-8475-c17aefab731e"
+                },
+                "predicate": {
+                    "type": "uri",
+                    "value": "http://purl.org/dc/terms/title"
+                },
+                "object": {
+                    "type": "literal",
+                    "value": "Mondelinge vragen van Sien Pillot, Jeroen Van Laer, Goedel Van der Spiegel en Bart Breugelmans"
+                }
+            }
+        ],
+        "deletes": [
+            {
+                "subject": {
+                    "type": "uri",
+                    "value": "http://data.lblod.info/id/d8383340-1ab4-11ec-8475-c17aefab731e"
+                },
+                "predicate": {
+                    "type": "uri",
+                    "value": "http://purl.org/dc/terms/title"
+                },
+                "object": {
+                    "type": "literal",
+                    "value": "Mondelinge vragen van Wout Schellaert, Robbe Van Herck en Bart"
+                }
+            }, {
+                "subject": {
+                    "type": "uri",
+                    "value": "http://data.lblod.info/id/d8361060-1ab4-11ec-8475-c17aefab731e"
+                },
+                "predicate": {
+                    "type": "uri",
+                    "value": "http://www.w3.org/ns/prov#atLocation"
+                },
+                "object": {
+                    "type": "literal",
+                    "value": "Spil in CC Binder"
+                }
+            }
+        ]
+    }
+]

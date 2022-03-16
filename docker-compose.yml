@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   lokaalbeslist:
-    image: redpencil/frontend-lokaalbeslist:1.1.5
+    image: redpencil/frontend-lokaalbeslist:1.2.1
     volumes:
       - ./config/frontend:/config
     labels:
@@ -108,15 +108,20 @@ services:
     restart: unless-stopped
     logging: *default-logging
   subscription:
-    image: redpencil/subscription:1.1.2
+    image: redpencil/subscription:2.0.0
     restart: unless-stopped
+    labels:
+      - "logging=true"
     environment:
       EMAIL_SUBJECT: "Nieuwe agendapunten beschikbaar"
       EMAIL_FROM: "lokaalbeslist@semantic.works"
       BASE_URL: "http://lokaalbeslist.be"
       MU_SPARQL_ENDPOINT: "http://database:8890/sparql"
+      USERFILES_DIR: "/data/userfiles"
+      LOGLEVEL: "DEBUG"
     volumes:
       - ./config/subscription/:/config
+      - ./data/subscription/:/data
     links:
       - database:database
       - deliver-email-service:deliver-email-service

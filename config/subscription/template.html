@@ -10,102 +10,93 @@
     format_function=None
 ) %}
     {# This is ugly, but it's what the docs suggest... #}
-    {% set ns = namespace(printed=false) %}
+    {%- set ns = namespace(printed=false) -%}
 
-    {% for unchanged_part in unchanged[subject:predicate:object] %}
+    {%- for unchanged_part in unchanged[subject:predicate:object] -%}
         {{ unchanged_format.format(
             all_format.format(
                 format_function(unchanged_part) if format_function else unchanged_part
             )
         ) | safe }}
-        {% set ns.printed = true %}
-    {% endfor %}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
 
-    {% for deleted_part in deletes[subject:predicate:object] %}
+    {%- for deleted_part in deletes[subject:predicate:object] -%}
         {{ deleted_format.format(
             all_format.format(
                 format_function(deleted_part) if format_function else deleted_part
             )
         ) | safe }}
-        {% set ns.printed = true %}
-    {% endfor %}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
 
-    {% for inserted_part in inserts[subject:predicate:object] %}
+    {%- for inserted_part in inserts[subject:predicate:object] -%}
         {{ inserted_format.format(
             all_format.format(
                 format_function(inserted_part) if format_function else inserted_part
             )
         ) | safe }}
-        {% set ns.printed = true %}
-    {% endfor %}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
 
-    {% if not ns.printed and default_value %}
+    {%- if not ns.printed and default_value -%}
         {{ default_value }}
-    {% endif %}
-{%- endmacro %}
+    {%- endif -%}
+{% endmacro %}
+
+{% macro fetch_unique_nodes(
+    subject=None,
+    predicate=None,
+    object=None
+) %}
+    {%- for node in (
+        (unchanged[subject:predicate:object] | list) + 
+        (inserts[subject:predicate:object] | list) + 
+        (deletes[subject:predicate:object] | list)
+    ) | unique -%}
+    {{caller(node)}}
+    {%- endfor -%}
+{% endmacro %}
+
+{% macro fetch_node(
+    subject=None,
+    predicate=None,
+    object=None
+) %}
+    {%- set node = (
+        (unchanged[subject:predicate:object] | list) + 
+        (inserts[subject:predicate:object] | list) + 
+        (deletes[subject:predicate:object] | list)
+    ) | unique | first -%}
+    {{caller(node)}}
+{% endmacro %}
 
 <html>
     <body>
-        {{ render_delta(agendapunt, DCTERMS.title, all_format="<h1>{}</h1>") }}
+        {% call(zitting) fetch_unique_nodes(None, RDF.type, BESLUIT.Zitting) %}
+        <h1>
+            {% call(zitting_id) fetch_node(zitting, MU.uuid, None) %}
+                <a href="https://lokaalbeslist.be/zitting/{{zitting_id}}">
+                    Zitting op {{render_delta(zitting, BESLUIT.geplandeStart, default_value="onbekende datum", format_function=format_date)}}
+                </a>
+            {% endcall %}
+        </h1>
+        Locatie: {{render_delta(zitting, PROV.atLocation, None)}}
+        <ul>
+            {% call(agendapunt) fetch_unique_nodes(zitting, BESLUIT.behandelt, None) %}
+            <li>
+                <h2>
+                    {% call(agendapunt_id) fetch_node(agendapunt, MU.uuid, None) %}
+                    <a href="https://lokaalbeslist.be/agendapunt/{{agendapunt_id}}">
+                        {{render_delta(agendapunt, DCTERMS.title, default_value="Agendapunt zonder titel")}}
+                    </a>
+                    {% endcall %}
+                </h2>
+                {{render_delta(agendapunt, DCTERMS.description, None, default_value="")}}
+            </li>
+            {% endcall %}
+        </ul>
 
-        {{ render_delta(
-            subject=agendapunt,
-            predicate=OWL.sameAs,
-            unchanged_format="<a href=\"{}\">Externe link</a><br>",
-            deleted_format="<a href=\"{}\">Oude link</a><br>",
-            inserted_format="<a href=\"{}\">Nieuwe link</a><br>",
-            default_value=None
-        ) }}
-
-        {% if stemming %}
-            <h3> Stemming </h3>
-            {{render_delta(
-                stemming,
-                BESLUIT.gevolg,
-                default_value="",
-                all_format="<b>{}</b>"
-            ) }}
-            <ul>
-                <li> voor: {{render_delta(
-                    stemming,
-                    BESLUIT.aantalVoorstanders
-                )}} </li>
-                <li> tegen: {{render_delta(
-                    stemming,
-                    BESLUIT.aantalTegenstanders
-                )}} </li>
-                <li> onthouding: {{render_delta(
-                    stemming,
-                    BESLUIT.aantalOnthouders
-                )}} </li>
-            </ul>
-        {% endif %}
-
-        {% if zitting %}
-        <h2> Zitting {{ render_delta(
-            zitting,
-            PROV.startedAtTime,
-            default_value="",
-            format_function=format_date
-        )}} </h2>
-            Gepland op:
-            {{ render_delta(
-                zitting,
-                BESLUIT.geplandeStart,
-                format_function=format_date
-            )}} <br>
-            Locatie: {{ render_delta(zitting, PROV.atLocation) }} <br>
-
-            {% if zitting_notulen %}
-                {{ render_delta(
-                    zitting_notulen,
-                    OWL.sameAs,
-                    all_format="Notulen: <a href=\"{}\">link</a>"
-                ) }}
-            {% else %}
-                Notulen: onbekend
-            {% endif %}
-            <br>
-        {% endif %}
+        {% endcall %}
     </body>
 </html>
