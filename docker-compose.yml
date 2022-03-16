@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   lokaalbeslist:
-    image: redpencil/frontend-lokaalbeslist:1.1.5
+    image: redpencil/frontend-lokaalbeslist:1.2.1
     volumes:
       - ./config/frontend:/config
     labels:
@@ -108,7 +108,7 @@ services:
     restart: unless-stopped
     logging: *default-logging
   subscription:
-    image: redpencil/subscription
+    image: redpencil/subscription:2.0.0
     restart: unless-stopped
     labels:
       - "logging=true"
