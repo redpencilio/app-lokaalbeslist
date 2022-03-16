@@ -155,7 +155,7 @@ services:
     volumes:
       - ./config/delta:/config
   lokaalbeslist-subscription:
-    image: redpencil/lokaalbeslist-subscription:1.1.2
+    image: redpencil/lokaalbeslist-subscription:2.0.0
     environment:
       NODE_ENV: 'production'
     links:
