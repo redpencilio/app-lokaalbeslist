@@ -30,3 +30,9 @@ services:
   lokaalbeslist-subscription:
     environment:
       NODE_ENV: 'development'
+  besluiten-consumer:
+    environment:
+      SYNC_BASE_URL: 'https://dev.harvesting-self-service.lblod.info'
+  subscription:
+    environment:
+      - DEBUG_LOG_MAIL_DIR=/data/mails

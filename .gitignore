@@ -2,6 +2,7 @@
 /data/db/*
 /data/elasticsearch/*
 /data/files/
+/data/subscription/*
 !/data/db/virtuoso.ini
 !/data/db/toLoad
 !/data/db/toLoad/*

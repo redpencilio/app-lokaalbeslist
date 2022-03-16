@@ -1,16 +1,102 @@
+{% macro render_delta(
+    subject=None,
+    predicate=None,
+    object=None,
+    default_value="onbekend",
+    all_format="{}",
+    unchanged_format="{}",
+    deleted_format="<del>{}</del>",
+    inserted_format="<ins>{}</ins>",
+    format_function=None
+) %}
+    {# This is ugly, but it's what the docs suggest... #}
+    {%- set ns = namespace(printed=false) -%}
+
+    {%- for unchanged_part in unchanged[subject:predicate:object] -%}
+        {{ unchanged_format.format(
+            all_format.format(
+                format_function(unchanged_part) if format_function else unchanged_part
+            )
+        ) | safe }}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
+
+    {%- for deleted_part in deletes[subject:predicate:object] -%}
+        {{ deleted_format.format(
+            all_format.format(
+                format_function(deleted_part) if format_function else deleted_part
+            )
+        ) | safe }}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
+
+    {%- for inserted_part in inserts[subject:predicate:object] -%}
+        {{ inserted_format.format(
+            all_format.format(
+                format_function(inserted_part) if format_function else inserted_part
+            )
+        ) | safe }}
+        {%- set ns.printed = true -%}
+    {%- endfor -%}
+
+    {%- if not ns.printed and default_value -%}
+        {{ default_value }}
+    {%- endif -%}
+{% endmacro %}
+
+{% macro fetch_unique_nodes(
+    subject=None,
+    predicate=None,
+    object=None
+) %}
+    {%- for node in (
+        (unchanged[subject:predicate:object] | list) + 
+        (inserts[subject:predicate:object] | list) + 
+        (deletes[subject:predicate:object] | list)
+    ) | unique -%}
+    {{caller(node)}}
+    {%- endfor -%}
+{% endmacro %}
+
+{% macro fetch_node(
+    subject=None,
+    predicate=None,
+    object=None
+) %}
+    {%- set node = (
+        (unchanged[subject:predicate:object] | list) + 
+        (inserts[subject:predicate:object] | list) + 
+        (deletes[subject:predicate:object] | list)
+    ) | unique | first -%}
+    {{caller(node)}}
+{% endmacro %}
+
 <html>
     <body>
-        <h1>Unchanged</h1>
-        <div>
-            {{ unchanged.serialize() }}
-        </div>
-        <h1>Inserts</h1>
-        <div>
-            {{ inserts.serialize() }}
-        </div>
-        <h1>Deletes</h1>
-        <div>
-            {{ deletes.serialize() }}
-        </div>
+        {% call(zitting) fetch_unique_nodes(None, RDF.type, BESLUIT.Zitting) %}
+        <h1>
+            {% call(zitting_id) fetch_node(zitting, MU.uuid, None) %}
+                <a href="https://lokaalbeslist.be/zitting/{{zitting_id}}">
+                    Zitting op {{render_delta(zitting, BESLUIT.geplandeStart, default_value="onbekende datum", format_function=format_date)}}
+                </a>
+            {% endcall %}
+        </h1>
+        Locatie: {{render_delta(zitting, PROV.atLocation, None)}}
+        <ul>
+            {% call(agendapunt) fetch_unique_nodes(zitting, BESLUIT.behandelt, None) %}
+            <li>
+                <h2>
+                    {% call(agendapunt_id) fetch_node(agendapunt, MU.uuid, None) %}
+                    <a href="https://lokaalbeslist.be/agendapunt/{{agendapunt_id}}">
+                        {{render_delta(agendapunt, DCTERMS.title, default_value="Agendapunt zonder titel")}}
+                    </a>
+                    {% endcall %}
+                </h2>
+                {{render_delta(agendapunt, DCTERMS.description, None, default_value="")}}
+            </li>
+            {% endcall %}
+        </ul>
+
+        {% endcall %}
     </body>
 </html>

@@ -5,62 +5,31 @@ PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
 PREFIX terms: <http://purl.org/dc/terms/>
 
 CONSTRUCT {
-    ?agendapunt     a besluit:Agendapunt;
-                    terms:title ?agendapuntTitel;
-                    owl:sameAs ?agendapuntExtern;
-                    ext:zitting ?zitting;
-                    ext:stemming ?stemming.
-
-    ?zitting        a besluit:Zitting;
-                    owl:sameAs ?zittingExtern;
-                    prov:startedAtTime ?zittingStart;
-                    besluit:geplandeStart ?zittingStartGeplandeStart;
-                    besluit:heeftNotulen ?zittingNotulen.
-
-    ?zittingNotulen a besluit:Notulen;
-                    owl:sameAs ?zittingNotulenExtern.
+    ?agendapunt ?agendapunt_p ?agendapunt_o.
+    ?zitting ?zitting_p ?zitting_o.
+    ?behandeling ?behandeling_p ?behandeling_o.
+    ?stemming ?stemming_p ?stemming_o.
     
-    ?stemming       a besluit:Stemming;
-                    besluit:gevolg ?stemmingGevolg;
-                    besluit:aantalVoorstanders ?stemmingAantalVoorstanders;
-                    besluit:aantalTegenstanders ?stemmingAantalTegenstanders;
-                    besluit:aantalOnthouders ?stemmingAantalOnthouders.
+    ?zitting besluit:behandelt ?agendapunt.
 } WHERE {
     BIND(<CONTENT_URL> as ?agendapunt)
     ?agendapunt a besluit:Agendapunt.
+    ?agendapunt ?agendapunt_p ?agendapunt_o.
+    
     OPTIONAL {
-        ?agendapunt terms:title ?agendapuntTitel.
-    }
-    OPTIONAL {
-        ?agendapunt owl:sameAs ?agendapuntExtern.
-    }
-    OPTIONAL {
+        ?zitting a besluit:Zitting.
         ?zitting besluit:behandelt ?agendapunt.
-        OPTIONAL {
-            ?zitting owl:sameAs ?zittingExtern. 
-        }
-        OPTIONAL {
-            ?zitting prov:startedAtTime ?zittingStart.
-        }
-        OPTIONAL {
-            ?zitting besluit:geplandeStart ?zittingStartGeplandeStart.
-        }
-        OPTIONAL {
-            ?zitting besluit:heeftNotulen ?zittingNotulen.
-            ?zittingNotulen owl:sameAs ?zittingNotulenExtern.
-        }
+        ?zitting ?zitting_p ?zitting_o.
+        FILTER NOT EXISTS { ?zitting_o a besluit:Agendapunt. }
     }
+
     OPTIONAL {
         ?behandeling terms:subject ?agendapunt.
-        ?behandeling besluit:heeftStemming ?stemming.
+        ?behandeling ?behandeling_p ?behandeling_o.
+
         OPTIONAL {
-            ?stemming besluit:gevolg ?stemmingGevolg.
-        }
-        OPTIONAL {
-            ?stemming besluit:aantalVoorstanders ?stemmingAantalVoorstanders.
-            ?stemming besluit:aantalTegenstanders ?stemmingAantalTegenstanders.
-            ?stemming besluit:aantalOnthouders ?stemmingAantalOnthouders.
+            ?behandeling besluit:heeftStemming ?stemming.
+            ?stemming ?stemming_p ?stemming_o.
         }
     }
 }
-LIMIT 1
