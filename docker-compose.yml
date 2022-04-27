@@ -161,7 +161,7 @@ services:
     links:
       - database:database
   besluiten-consumer:
-    image: lblod/delta-consumer-single-graph-maintainer:0.4.1
+    image: lblod/delta-consumer-single-graph-maintainer:0.5.0
     environment:
       SYNC_BASE_URL: 'https://qa.harvesting-self-service.lblod.info'
       SERVICE_NAME: 'besluiten-consumer'
@@ -189,7 +189,7 @@ services:
     links:
       - database:database
   mandatendatabank-consumer:
-    image: lblod/delta-consumer-single-graph-maintainer:0.4.1
+    image: lblod/delta-consumer-single-graph-maintainer:0.5.0
     environment:
       SYNC_BASE_URL: 'https://loket.lokaalbestuur.vlaanderen.be' # replace with link to Loket API
       SERVICE_NAME: 'mandatendatabank-consumer'
