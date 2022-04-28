@@ -181,7 +181,7 @@ services:
       - "logging=true"
     logging: *default-logging
   uuid-generation:
-    image: redpencil/uuid-generation
+    image: redpencil/uuid-generation:0.2.1
     environment:
       NODE_ENV: 'production'
     volumes:
