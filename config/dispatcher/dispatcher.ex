@@ -34,43 +34,43 @@ defmodule Dispatcher do
   ###############################################################
 
   get "/agendapunten/*path", @json do
-    Proxy.forward conn, path, "http://resource/agendapunten/"
+    Proxy.forward conn, path, "http://cache/agendapunten/"
   end
 
   get "/behandelingen-van-agendapunten/*path", @json do
-    Proxy.forward conn, path, "http://resource/behandelingen-van-agendapunten/"
+    Proxy.forward conn, path, "http://cache/behandelingen-van-agendapunten/"
   end
 
   get "/werkingsgebieden/*path", @json do
-    Proxy.forward conn, path, "http://resource/werkingsgebieden/"
+    Proxy.forward conn, path, "http://cache/werkingsgebieden/"
   end
 
   get "/bestuurseenheden/*path", @json do
-    Proxy.forward conn, path, "http://resource/bestuurseenheden/"
+    Proxy.forward conn, path, "http://cache/bestuurseenheden/"
   end
 
   get "/bestuursorganen/*path", @json do
-    Proxy.forward conn, path, "http://resource/bestuursorganen/"
+    Proxy.forward conn, path, "http://cache/bestuursorganen/"
   end
 
   get "/zittingen/*path", @json do
-    Proxy.forward conn, path, "http://resource/zittingen/"
+    Proxy.forward conn, path, "http://cache/zittingen/"
   end
 
   get "/mandatarissen/*path", @json do
-    Proxy.forward conn, path, "http://resource/mandatarissen/"
+    Proxy.forward conn, path, "http://cache/mandatarissen/"
   end
 
   get "/personen/*path", @json do
-    Proxy.forward conn, path, "http://resource/personen/"
+    Proxy.forward conn, path, "http://cache/personen/"
   end
 
   get "/besluiten/*path", @json do
-    Proxy.forward conn, path, "http://resource/besluiten/"
+    Proxy.forward conn, path, "http://cache/besluiten/"
   end
 
   get "/stemmingen/*path", @json do
-    Proxy.forward conn, path, "http://resource/stemmingen/"
+    Proxy.forward conn, path, "http://cache/stemmingen/"
   end
 
   ###############################################################
