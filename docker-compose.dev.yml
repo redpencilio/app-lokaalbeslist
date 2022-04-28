@@ -31,6 +31,7 @@ services:
     environment:
       NODE_ENV: 'development'
   besluiten-consumer:
+    restart: "no"
     environment:
       SYNC_BASE_URL: 'https://dev.harvesting-self-service.lblod.info'
   subscription:
