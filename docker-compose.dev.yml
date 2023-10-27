@@ -22,6 +22,9 @@ services:
   deliver-email-service:
     environment:
       NODE_ENV: "development"
+    ports:
+      - 8888:80
+      - 9229:9229
   deltanotifier:
     environment:
       DEBUG_DELTA_SEND: "yes"
